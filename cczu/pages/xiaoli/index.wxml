@@ -1,0 +1,6 @@
+<view class='imagesize'>
+  <image mode='widthFix' src="http://file.bbqbb.top/cczu_file/xiaoli_2018_01.png" bindtap='biggerImg' data-url="http://file.bbqbb.top/cczu_file/xiaoli_2018_01.png"></image>
+</view>
+<view class='imagesize'>
+  <image mode='widthFix' src="http://file.bbqbb.top/cczu_file/xiaoli_2018_02.png" bindtap='biggerImg' data-url="http://file.bbqbb.top/cczu_file/xiaoli_2018_02.png"></image>
+</view>

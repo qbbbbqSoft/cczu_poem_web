@@ -1,0 +1,13 @@
+.add-wrap {
+  position:fixed;
+  bottom:0;
+  display:flex;
+  width:100%;
+  justify-content:center;
+}
+.add-wrap image {
+  border: 2px solid #ccc;
+  width:64px;
+  height:64px;
+  border-radius: 64px;
+}

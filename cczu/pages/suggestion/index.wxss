@@ -1,0 +1,44 @@
+.section__title {
+  display: inline-block;
+}
+.btn-area {
+  margin-bottom: 10rpx;
+}
+.pclass {
+  border: 1rpx solid #ccc;
+  width: 96%;
+  margin: 10rpx 0rpx 10rpx 10rpx;
+  border-radius: 1rpx;
+}
+.title_down {
+  border: 1rpx solid #ccc;
+  width: 96%;
+  height: 20rpx;
+  display: inline-block;
+  background-color: #ddd;
+  margin-left: 10rpx;
+}
+.img{
+  width: 25px;
+  height: 25px;
+}
+.btn_top {
+  
+  height: 25px;
+  width: 25px;
+}
+.small_title_father {
+  display: inline-flex;
+  width: 98%;
+}
+.small_title {
+  display: inline-flex;
+  margin: 10rpx 0rpx 10rpx 10rpx;
+  font-weight: lighter;
+}
+.small_input {
+  display: inline-flex;
+}
+/* button::after{
+border:none;
+} */

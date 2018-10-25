@@ -1,0 +1,23 @@
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" style='width:100%' mode='aspectFit'/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="panel">
+  <view class="chart-with-img" wx:for="{{charts}}" wx:for-item="chart" wx:key="{{chart.id}}">
+    <image src="../../img/{{chart.icon}}.png" mode="aspectFit" bindtap="open" data-chart="{{chart}}"></image>
+    {{chart.name}}
+  </view>
+</view>
+
+<image class='buttom' src='../../img/kefu.png' style="background:url('../../img/kefu.png') no-repeat center top;background-size:60rpx 60rpx;">
+<button class='buttom' open-type="contact" bindcontact="handleContact"
+style='background: salmon;opacity: 0;'
+ plain>
+</button></image>
+<text class='link'>在线</text>
+
+

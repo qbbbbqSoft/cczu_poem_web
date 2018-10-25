@@ -1,0 +1,7 @@
+.imagesize {
+  display: flex;
+  height: 1000rpx;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}

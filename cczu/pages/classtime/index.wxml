@@ -1,0 +1,3 @@
+<view class='imagesize'>
+  <image mode='widthFix' src="http://file.bbqbb.top/cczu_file/classtime.png" bindtap='biggerImg'></image>
+</view>

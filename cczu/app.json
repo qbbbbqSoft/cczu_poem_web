@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/menu/index",
+    "pages/login/index",
+    "pages/zzz/index",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/timeTable/index",
+    "pages/prosepoem/index",
+    "pages/addNew/index",
+    "pages/classtime/index",
+    "pages/xiaoli/index",
+    "pages/lecture/index",
+    "pages/suggestion/index",
+    "pages/kf/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "常大课表小程序",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "img/menu_s.png",
+        "iconPath": "img/menu.png",
+        "pagePath": "pages/menu/index",
+        "text": "小工具"
+      },
+      {
+        "selectedIconPath": "img/lunt_s.png",
+        "iconPath": "img/lunt.png",
+        "pagePath": "pages/prosepoem/index",
+        "text": "论坛"
+      }
+    ]
+  }
+}

@@ -1,0 +1,96 @@
+<!-- 
+<scroll-view scroll-x scroll-with-animation="true">
+ <view class='hor'>
+        <view class="main sp">
+        <view class="item item1">1</view>
+        </view>
+        </view>
+    <block wx:for="{{course}}" wx:key="{{course}}">
+      <view class='hor'>
+        <view class="main">
+          <block wx:for="{{item.data}}">
+            <view class="item item1" wx:if="{{\"{{item.order}}\" % 2 == 0}}">{{item.value}}</view>
+            <view class="item item1" wx:else>{{item.value}}</view>
+          </block>
+        </view>
+      </view>
+      </block>
+    </scroll-view> -->
+
+<view class='table_title'>18-19-1课表</view>
+<scroll-view scroll-x="true">
+  <view class="table">
+    <view class="th">
+      <view class="td">星期一</view>
+      <text class="td">星期二</text>
+      <view class="td">星期三</view>
+      <view class="td">星期四</view>
+      <text class="td">星期五</text>
+      <view class="td">星期六</view>
+      <view class="td">星期七</view>
+    </view>
+ 
+    <scroll-view scroll-x="true" scroll-y="true" style='height:{{tbodyHeight}}px;' class='tbody_scroll'>
+      <block wx:for="{{course}}" wx:key="{{course}}" wx:for-index="idx">
+        <view class="tr">
+          <block wx:for="{{item.data}}" wx:key="{{item.data}}">
+            <view class="td" style='font-size:25rpx; border: 1rpx solid #dcc;' data-index='{{idx}}' data-item='{{item}}' bindtap='allValue'>{{item.value}}</view>
+          </block>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</scroll-view>
+
+
+<view class="modal-box" hidden="{{flag}}" bindtap="hide">
+
+    <view class="modal-body">
+
+      <view class="modal-content" style='background-color:#fff'>
+          <view>{{num}}</view>
+          <view>{{week}}</view>
+          <view>{{value}}</view>
+          <view class='imagesize'>
+  <image src='{{gifUrl}}' class='img'></image>
+</view>
+        
+     </view>
+    </view>
+  </view>
+
+ 
+   <loading hidden="{{step1}}">正在加载</loading>
+   <loading hidden="{{step2}}" style="width:500rpx">第一次拉取数据可能会耗时20s左右，耐心等一下</loading>
+   <loading hidden="{{step3}}">马上好</loading>
+
+
+
+
+
+
+
+<!-- <scroll-view scroll-x scroll-with-animation="true">
+  <view class='hor'>
+      <view class="main">
+      <view class="item item1">1</view>
+      <view class="item item2">2</view>
+      <view class="item item3">3</view>
+      <view class="item item1">4</view>
+      <view class="item item2">5</view>
+      <view class="item item3">6</view>
+      </view>
+  </view>
+</scroll-view>
+<scroll-view scroll-x scroll-with-animation="true">
+  <view class='hor'>
+      <view class="main">
+      <view class="item item1">1</view>
+      <view class="item item2">2</view>
+      <view class="item item3">3</view>
+      <view class="item item1">4</view>
+      <view class="item item2">5</view>
+      <view class="item item3">6</view>
+      </view>
+  </view>
+</scroll-view> -->

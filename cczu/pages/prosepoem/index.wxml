@@ -1,0 +1,7 @@
+<view class='imagesize page__bd'>
+<text style='top:0rpx'>页面开发中</text>
+</view>
+<view class='btn'>
+<button class='btn1'>注册发文</button>
+<button class='btn2' hover-class='btn2_hover'>随便看看</button>
+</view>

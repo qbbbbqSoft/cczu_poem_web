@@ -1,0 +1,19 @@
+<swiper class='swiper_container'  vertical="{{vertical}}" indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{textList}}" wx:key="{{item}}">
+      <swiper-item>
+        <view class='swiper_item'>{{item}}</view>
+      </swiper-item>
+    </block>
+  </swiper>
+<view class="contain">
+  <view class='part' wx:for="{{list}}" wx:key="id" data-allInfo="{{item}}" bindtap='showAllInfo'>
+    <view class='part1 margin'>
+        <text class='ordernum'>{{item.ordernum}}</text>
+      </view>
+    <scroll-view class='part2 margin' scroll-x>
+        <text class='part21'>{{item.classname}}----{{item.teacher}}</text>
+        <text class='part22'>该课程将于{{item.term}}第{{item.week}}周，第{{item.class1}}{{item.class2}}节课，在{{item.schoolcampus=="无"?"":item.schoolcampus}}{{item.classroom}}进行,现有{{item.choosenum}}名同学报名了该讲座。。。。</text>
+    </scroll-view>
+  </view>
+</view>

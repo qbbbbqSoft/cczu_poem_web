@@ -1,0 +1,3 @@
+<view class="add-wrap" hover-class="plus-hover">
+  <image src="../../img/new.png"></image>
+</view>
