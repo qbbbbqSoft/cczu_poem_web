@@ -38,5 +38,6 @@ App({
     userName: null,
     password:null,
     url: "https://www.chenyaoyao.club/",
+    url_mystation: "https://www.bbqbb.top"
   }
 })

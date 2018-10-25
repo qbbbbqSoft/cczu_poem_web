@@ -1,11 +1,12 @@
-// pages/lecture/index.js
+var appInstance = getApp();
+var url_mystation = appInstance.globalData.url_mystation;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    textareaFlag: false
   },
 
   /**
@@ -64,19 +65,48 @@ Page({
 
   },
   formSubmit: function (e) {
+    var _this = this;
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    wx.request({
-      url: 'http://localhost:9900/sys/writesuggestion',
-      method: "POST",
-      data: {
-        email: e.detail.value.email,
-        content: e.detail.value.suggestion,
-        nickname: e.detail.value.nickname
-      },
-      success: function(e) {
-        console.log(e);
-      }
-    })
+    if (e.detail.value.suggestion != "") {
+      wx.showLoading({
+        title: '提交中',
+      })
+      wx.request({
+        url: url_mystation + '/sys/writesuggestion',
+        method: "POST",
+        data: {
+          email: e.detail.value.email,
+          content: e.detail.value.suggestion,
+          nickname: e.detail.value.nickname
+        },
+        success: function (e) {
+          console.log(e);
+          if (e.statusCode == 200 && e.data == true) {
+            wx.hideLoading();
+            wx.showModal({
+              title: '提交成功',
+              content: '感谢您的宝贵意见和优化建议！',
+              success: function () {
+                wx.switchTab({
+                  url: '../menu/index'
+                })
+              }
+            })
+          }
+        }
+      })
+    } else {
+      wx.showToast({
+        title: '请输入内容',
+        image: '../../img/error.png',
+        success: function() {
+          _this.setData({
+              textareaFlag: true 
+            })
+        }
+      })
+    }
+    
   },
   formReset: function () {
     console.log('form发生了reset事件')

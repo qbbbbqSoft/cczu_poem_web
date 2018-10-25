@@ -11,9 +11,9 @@
   border-radius: 1rpx;
 }
 .title_down {
-  border: 1rpx solid #ccc;
+  border: 1rpx solid #eeeeee;
   width: 96%;
-  height: 20rpx;
+  height: 5rpx;
   display: inline-block;
   background-color: #ddd;
   margin-left: 10rpx;
@@ -42,3 +42,16 @@
 /* button::after{
 border:none;
 } */
+
+.loginBtn { 
+ width: 45%; 
+ margin-top: 35px; 
+ margin-left:10px;
+ float:left;
+}
+.registerBtn { 
+ width: 45%; 
+ margin-top: 35px; 
+ margin-right:10px;
+ float:right;
+}

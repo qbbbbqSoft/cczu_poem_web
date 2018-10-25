@@ -7,10 +7,7 @@
     <image class='img' src="../../img/yh.png">  </image>优化建议
     </label></view>
     <view class='title_down'></view>
-    <textarea class='pclass' placeholder="请输入您对该小程序的优化建议，您的建议非常重要，我将竭尽所能优化" name="suggestion"/>
-  </view>
-  <view class='title_down'></view>
-  <view class='small_title_father'>
+    <view class='small_title_father'>
      <text class='small_title'>nickName:</text>
   <view class="pclass small_input">
     <input placeholder="请输入昵称" name='nickname'/>
@@ -24,8 +21,11 @@
   </view>
   </view>
   <view class='title_down'></view>
+    <textarea focus='{{textareaFlag}}' class='pclass' placeholder="请输入您对该小程序的优化建议，您的建议非常重要，我将竭尽所能优化" name="suggestion"/>
+  </view>
+  <view class='title_down'></view>
   <view class="btn-area">
-    <button formType="submit">提交</button>
-    <button formType="reset">重置</button> 
+    <button class='loginBtn' type='warn' formType="reset">重置</button>
+    <button class='registerBtn' type='primary' formType="submit">提交</button>
   </view>
 </form>
