@@ -1,3 +1,24 @@
+<import src="../common/mainTabCell.wxml" />
+<!-- <view style='width:100%;height:auto'>
+<text style='font'>标题标题标题标题标题标题标题标题标题</text>
+<image mode='widthFix' src="http://file.bbqbb.top/cczu_file/classtime.png" bindtap='biggerImg'></image>
+</view> -->
+<view style='height:100%'>
+ <scroll-view class="scrollView" scroll-y="true" bindscrolltolower="loadMoreData" bindscrolltoupper="refreshData">
+      <view style="height:12rpx;background-color:#eaeaea" style="height:{{scrollHeight}}px;" scroll-top="{{scrollTop}}"></view>
+      
+      <view class="item-view" wx:for="{{textDataList}}"  wx:for-item="item">
+        <navigator url="detail?id={{item.id}}">
+          <template is="mainTabCell" data="{{item}}" />
+        </navigator>
+      </view>
+      <view style="height:12rpx;background-color:#eaeaea"></view>
+    </scroll-view>
+</view>
+
+
+
+
 <view class="add-wrap" hover-class="plus-hover">
   <image src="../../img/new.png"></image>
 </view>

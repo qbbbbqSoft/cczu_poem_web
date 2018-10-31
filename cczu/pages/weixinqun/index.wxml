@@ -1,0 +1,3 @@
+<view class='imagesize'>
+  <image mode='widthFix' src="http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/weixinqun.png" data-src='http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/weixinqun.png' bindtap='biggerImg'></image>
+</view>

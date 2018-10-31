@@ -1,0 +1,14 @@
+
+.container{
+  width: 100vw;
+  height: 40vw;
+  margin-top:0.5vw ;
+  background: url("http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/privatezonestart.jpg");
+  background-size:100% 100%;
+  -moz-background-size:100% 100%;
+}
+
+.hclass {
+  color: #f8429c;
+  opacity: 0
+}

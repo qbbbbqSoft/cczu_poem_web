@@ -14,29 +14,29 @@ Page({
     duration: 1000,
     logs: [],
     charts: [{
-      id: 'login',
+      icon: '../../img/kebiao.png',
       name: '课表',
-      icon: 'kebiao'
+      url: 'login'
     }, {
-      id: 'classtime',
+      url: 'classtime',
       name: '作息时间',
-      icon: 'classtime'
+      icon: '../../img/classtime.png'
     }, {
-      id: 'xiaoli',
+      url: 'xiaoli',
       name: '常大校历',
-      icon: 'xiaoli'
+      icon: '../../img/xiaoli.png'
       }, {
-        id: 'lecture',
+        url: 'lecture',
         name: '讲座刷卡',
-        icon: 'lecture'
+        icon: '../../img/lecture.png'
       }, {
-        id: 'suggestion',
+        url: 'suggestion',
         name: '优化建议',
-        icon: 'suggestion'
+        icon: '../../img/suggestion.png'
       },{
-        id: "kf",
-        name: "在线沟通",
-        icon: "yh"
+        url: "weixinqun",
+        name: "微信群",
+        icon: "../../img/weixin.png"
       }]
   },
   onLoad: function () {

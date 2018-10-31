@@ -1,18 +1,21 @@
 {
   "pages": [
+    "pages/kf/index",
+    "pages/prosepoem/index",
     "pages/menu/index",
     "pages/login/index",
     "pages/zzz/index",
     "pages/index/index",
     "pages/logs/logs",
     "pages/timeTable/index",
-    "pages/prosepoem/index",
     "pages/addNew/index",
     "pages/classtime/index",
     "pages/xiaoli/index",
     "pages/lecture/index",
     "pages/suggestion/index",
-    "pages/kf/index"
+    
+    "pages/privatezonestart/index",
+    "pages/weixinqun/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

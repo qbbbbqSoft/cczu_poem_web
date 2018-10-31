@@ -1,35 +1,46 @@
-.warp {
+.container {
+  /* display: flex;
   width: 100%;
-  height: 1000rpx;
+  height: auto;
+  background: url("http://file.bbqbb.top/cczu_file/bgpoem.png") no-repeat center;
+  color: #000 */
+  width: 100vw;
+  height: 40vw;
+  margin-left:3%;
+  background: url("http://file.bbqbb.top/cczu_file/bgpoem.png");
+  background-size:100% 100%;
+  -moz-background-size:100% 100%;
 }
-.page__bd{
-    width: 100%;
-    height: 500rpx;
-    background: url('http://file.bbqbb.top/cczu_poem/bg3.jpg');
-    background-size: 100% 100%;
-}
-
-page{
-   height:100%
-}
-.imagesize{
- display:flex;
- height: 93%;
- justify-content: flex-start;
- /* align-items:center; */
-}
-
-.btn {
+.common {
   display: flex;
-  flex-direction:row;
-  justify-content: center;
+  height: 20%;
+  width: 40%;
+  
 }
-.btn1 {
-  width: 50%;
+.public_zone {
+  background-color: #a1d2ce; 
+  margin: 30% 10%  0 7%;
+  opacity: 0.4;
+  border-radius: 50%;
 }
-.btn2 {
-  width: 50%;
+.private_zone {
+  background-color:#2fb6b0;
+  margin: 10% 10%  10% 7%;
+  opacity: 0.4;
+  border-radius: 50%;
 }
-.btn2_hover {
-  background-color: greenyellow;
+.button_common {
+  height:60rpx;
+  display:block;
+  margin:auto auto;
+  font-weight: bold;
+}
+.button_public {
+  background-color:#a1d2ce;
+}
+.button_private {
+  background-color: #2fb6b0
+}
+button::after {
+  border: none;
 }

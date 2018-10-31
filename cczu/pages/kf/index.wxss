@@ -1,3 +1,58 @@
+@import "../common/mainTabCell.wxss";
+.scrollView{
+  height: 100%;
+  background-color: #eaeaea;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .add-wrap {
   position:fixed;
   bottom:0;
@@ -7,7 +62,7 @@
 }
 .add-wrap image {
   border: 2px solid #ccc;
-  width:64px;
-  height:64px;
-  border-radius: 64px;
+  width:80rpx;
+  height:80rpx;
+  border-radius: 80rpx;
 }
