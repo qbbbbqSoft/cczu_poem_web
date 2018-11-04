@@ -7,10 +7,10 @@
  <scroll-view class="scrollView" scroll-y="true" bindscrolltolower="loadMoreData" bindscrolltoupper="refreshData">
       <view style="height:12rpx;background-color:#eaeaea" style="height:{{scrollHeight}}px;" scroll-top="{{scrollTop}}"></view>
       
-      <view class="item-view" wx:for="{{textDataList}}"  wx:for-item="item">
-        <navigator url="detail?id={{item.id}}">
+      <view class="item-view" wx:for="{{textDataList}}"  wx:for-item="item" wx:key='{{item.id}}'>
+        
           <template is="mainTabCell" data="{{item}}" />
-        </navigator>
+       
       </view>
       <view style="height:12rpx;background-color:#eaeaea"></view>
     </scroll-view>
@@ -19,6 +19,6 @@
 
 
 
-<view class="add-wrap" hover-class="plus-hover">
+<view class="add-wrap" hover-class="plus-hover" bindtap='toAdd'>
   <image src="../../img/new.png"></image>
 </view>

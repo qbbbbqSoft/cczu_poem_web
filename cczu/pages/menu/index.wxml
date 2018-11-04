@@ -13,8 +13,8 @@
   </view>
 </view> -->
 
-<view class="container">
-  <swiper class="index-banner" indicator-dots="{{true}}"
+<view class="container" style='background-color:#eaeaea'>
+  <swiper class="index-banner"  indicator-dots="{{true}}"
     autoplay="{{true}}" interval="{{4000}}" duration="{{1500}}">
     <block wx:for="{{imgUrls}}" wx:key="*this">
       <swiper-item>
@@ -22,7 +22,7 @@
       </swiper-item>
     </block>
   </swiper>
-	<view class="index-menu">
+	<view class="index-menu" style='background-color:#eaeaea'>
 		<navigator class="index-menu-item" wx:for="{{charts}}" wx:key="{{item.url}}" url="../{{item.url}}/index">
 			<image src="{{item.icon}}"></image>
 			<text>{{item.name}}</text>

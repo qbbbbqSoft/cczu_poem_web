@@ -18,7 +18,8 @@ Page({
     editable: false, //是否可编辑
     nickName: "",
     eMail: "",
-    suggestion: ""
+    suggestion: "",
+    picKey: ''
   },
 
   /**
@@ -161,6 +162,37 @@ Page({
       sourceType: [type],
       success: function (res) {
         console.log(res.tempFilePaths)
+        var tempFilePaths = res.tempFilePaths
+        wx.uploadFile({
+          url: 'http://localhost:9900/cczu/headImgUpload', //仅为示例，非真实的接口地址
+          filePath: tempFilePaths[0],
+          name: 'file',
+         
+          header: {
+            "Content-Type": "multipart/form-data",
+            'accept': 'application/json',
+            'Authorization': 'Bearer ..'    //若有token，此处换上你的token，没有的话省略
+          },
+          success: function (res) {
+            console.log(res.data)
+            var jsonStr = res.data;
+            jsonStr = jsonStr.replace(" ", "");
+            if (typeof jsonStr != 'object') {
+              jsonStr = jsonStr.replace(/\ufeff/g, "");//重点
+              var jj = JSON.parse(jsonStr);
+              res.data = jj;
+            }
+            _this.setData({
+              picKey: res.data.msg
+            })
+            wx.showToast({
+              title: '图片上传成功！',
+              icon: 'success',
+              duration: 1000
+            })
+            wx.hideLoading();
+          }
+        })
         _this.setData({
           uploadimgs: _this.data.uploadimgs.concat(res.tempFilePaths)
         })

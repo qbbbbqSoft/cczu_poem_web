@@ -1,13 +1,8 @@
-.container {
-  /* display: flex;
-  width: 100%;
-  height: auto;
-  background: url("http://file.bbqbb.top/cczu_file/bgpoem.png") no-repeat center;
-  color: #000 */
+.container{
   width: 100vw;
   height: 40vw;
-  margin-left:3%;
-  background: url("http://file.bbqbb.top/cczu_file/bgpoem.png");
+  margin-top:0.5vw ;
+  background: url("http://file.bbqbb.top/cczu_file/kaisuo.jpg");
   background-size:100% 100%;
   -moz-background-size:100% 100%;
 }
@@ -18,16 +13,16 @@
   
 }
 .public_zone {
-  background-color: #a1d2ce; 
+  background-color: #fff; 
   margin: 30% 10%  0 7%;
   opacity: 0.4;
   border-radius: 50%;
 }
 .private_zone {
-  background-color:#2fb6b0;
+  background-color:#000;
   margin: 10% 10%  10% 7%;
-  opacity: 0.4;
-  border-radius: 50%;
+  opacity: 0.8;
+  border-radius: 100%;
 }
 .button_common {
   height:60rpx;
@@ -36,10 +31,11 @@
   font-weight: bold;
 }
 .button_public {
-  background-color:#a1d2ce;
+  background-color:#fff;
 }
 .button_private {
-  background-color: #2fb6b0
+  background-color: #000;
+  color: #fff
 }
 button::after {
   border: none;

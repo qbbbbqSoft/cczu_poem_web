@@ -66,7 +66,9 @@ Page({
     })
   },
   publicClick: function() {
-    console.log(123456)
+    wx.navigateTo({
+      url: '/pages/kf/index?code=0&type=public',
+    })
   },
   privateClick: function() {
     wx.navigateTo({

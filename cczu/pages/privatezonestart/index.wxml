@@ -3,9 +3,9 @@
     private_zone_code				
   </view>
   <view style='margin:5%'>
-  	<input type='number' focus='{{focus}}' password="true" auto-focus style='border: 1rpx solid #2fb6b0;color:#000;background-color:#f8429c;opacity: 0.5' placeholder="SIX NUMBER TO ." maxlength="6" bindinput="inputPrivateCode" placeholder-style='color:#000'></input>
+  	<input type='number' focus='{{focus}}' password="true" auto-focus style='border: 1rpx solid #423805;color:#000;background-color:#fff;opacity: 0.5' placeholder="SIX NUMBER TO ." maxlength="6" bindinput="inputPrivateCode" placeholder-style='color:#000'></input>
   </view>
   <view style='margin:5% '>
-    <button style='background-color:#f8429c;width:100%' hover-class='hclass' bindtap='ENTER'>ENTER YOUR PRIVATE ZONE</button>
+    <button style='background-color:#557d97;width:100%' hover-class='hclass' bindtap='ENTER'>ENTER YOUR PRIVATE ZONE</button>
   </view>
 </view>

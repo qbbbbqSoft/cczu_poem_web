@@ -8,7 +8,8 @@ Page({
     textDataList: [],
     currentPage: 1,
     scrollHeight: 0,
-    scrollTop: 0
+    scrollTop: 0,
+    images: {}
   },
 
   /**
@@ -16,15 +17,20 @@ Page({
    */
   onLoad: function (options) {
       console.log(options.code);
+      console.log(options.type);
+      if (options.type == "public") {
+        console.log(5678)
+      }
       var _this = this;
       wx.request({
-        url: 'http://localhost:9900/sys/queryZoneCode/zoneCode=' + options.code,
+        url: 'http://localhost:9900/sys/queryZoneCode/' + options.code,
       })
       wx.request({
-        url: 'http://api.budejie.com/api/api_open.php?a=list&c=data&type=29',
+        // url: 'http://api.budejie.com/api/api_open.php?a=list&c=data&type=29',
+        url: 'http://localhost:9900/sys/queryAllSysTitle',
         success: function(res) {
           _this.setData({
-            textDataList: res.data.list
+            textDataList: res.data
           })
         }
       })
@@ -89,12 +95,12 @@ Page({
     wx.request({
       url: 'http://api.budejie.com/api/api_open.php?a=list&c=data&type=29&page=' + currentPage,
       success: function (res) {
-        // var list = _this.data.textDataList;
-        // for (var i = 0; i < res.data.list.length; i++) {
-        //   list.push(res.data.list[i])
-        // }
+        var list = _this.data.textDataList;
+        for (var i = 0; i < res.data.list.length; i++) {
+          list.push(res.data.list[i])
+        }
         _this.setData({
-          textDataList: res.data.list
+          textDataList: list
         })
       }
     })
@@ -102,5 +108,22 @@ Page({
   },
   refreshData: function() {
     console.log("asdasd")
+  },
+  biggerImg: function (e) {
+    console.log(e);
+    wx.previewImage({
+      urls: [e.currentTarget.dataset.url],
+    })
+  },
+  /**
+   * 举报
+   */
+  report: function(e) {
+    console.log(e.currentTarget.dataset.id)
+  },
+  toAdd: function() {
+    wx.navigateTo({
+      url: '/pages/addNew/index',
+    })
   }
 })
