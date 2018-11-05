@@ -44,31 +44,32 @@ var list = [
     bindBtn: 'addfeel',
     name: 'start',
     val: ''
-  }, {
-    information: '目的地',
-    select: '请选择地点',
-    bindBtn: 'address',
-    name: 'end',
-    val: ''
-  }, {
-    information: '车辆登记地点',
-    select: '请选择地点',
-    bindBtn: 'address',
-    name: 'change',
-    val: ''
-  }, {
-    information: '货箱类型',
-    select: '请选择货箱类型',
-    bindBtn: 'carType',
-    name: 'car_type',
-    val: ''
-  }, {
-    information: '货箱长度',
-    select: '请选择货箱长度',
-    bindBtn: 'carExtent',
-    name: 'car_size',
-    val: ''
   }
+  // , {
+  //   information: '目的地',
+  //   select: '请选择地点',
+  //   bindBtn: 'address',
+  //   name: 'end',
+  //   val: ''
+  // }, {
+  //   information: '车辆登记地点',
+  //   select: '请选择地点',
+  //   bindBtn: 'address',
+  //   name: 'change',
+  //   val: ''
+  // }, {
+  //   information: '货箱类型',
+  //   select: '请选择货箱类型',
+  //   bindBtn: 'carType',
+  //   name: 'car_type',
+  //   val: ''
+  // }, {
+  //   information: '货箱长度',
+  //   select: '请选择货箱长度',
+  //   bindBtn: 'carExtent',
+  //   name: 'car_size',
+  //   val: ''
+  // }
 ];
 Page({
   data: {
@@ -80,7 +81,9 @@ Page({
     options: '',
     screenBtn: '',
     infoId: '',
-    checkHtml: ""
+    checkHtml: "",
+    src: "",
+    imageHidden: true
   },
   addfeel: function(e) {
     this.setData({
@@ -248,5 +251,46 @@ Page({
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
+  },
+  upLoadImage: function() {
+    let _this = this;
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        console.log(res.tempFilePaths)
+        var tempFilePaths = res.tempFilePaths
+        wx.uploadFile({
+          url: 'http://localhost:9900/cczu/headImgUpload', //仅为示例，非真实的接口地址
+          filePath: tempFilePaths[0],
+          name: 'file',
+          header: {
+            "Content-Type": "multipart/form-data",
+            'accept': 'application/json',
+            'Authorization': 'Bearer ..'    //若有token，此处换上你的token，没有的话省略
+          },
+          success: function (res) {
+            console.log(res.data)
+            var jsonStr = res.data;
+            jsonStr = jsonStr.replace(" ", "");
+            if (typeof jsonStr != 'object') {
+              jsonStr = jsonStr.replace(/\ufeff/g, "");//重点
+              var jj = JSON.parse(jsonStr);
+              res.data = jj;
+            }
+            _this.setData({
+              src: res.data.data,
+              imageHidden: false
+            })
+            wx.showToast({
+              title: '图片上传成功！',
+              icon: 'success',
+              duration: 1000
+            })
+            wx.hideLoading();
+          }
+        })
+      }
+    })
   }
 })

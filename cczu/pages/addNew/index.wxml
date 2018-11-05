@@ -2,29 +2,50 @@
 
 <form class="info" bindsubmit="formSubmit" bindreset="formReset">
 	<view class="input-list">
-		<block wx:for="{{infoList}}">
+		<block wx:for="{{infoList}}" wx:key="{{id}}">
 			<view class="popup">
 				<view class="information">{{item.information}}</view>
 				<view class="select" id="{{index}}" bindtap="{{item.bindBtn}}">{{item.select}}</view>
 				<input hidden="{{inputHidden}}" name="{{item.name}}" value="{{item.val}}"/>
 			</view>
 		</block>
-		<view class="import">
-			<view class="information">联系方式</view>
-			<input name="tel" type="digit"  placeholder-style="color:#B2B2B2" maxlength="11" placeholder="请填写您的手机号码"/>
+     <view class="import">
+			<view class="information">标题</view>
+			<input name="author"  placeholder-style="color:#B2B2B2"  placeholder="标题"/>
 		</view>
+    <view class="import">
+			<view class="information">作者</view>
+			<input name="author"  placeholder-style="color:#B2B2B2"  placeholder="署名的作者"/>
+		</view>
+    <view>
+    <image class= "show-image" mode="aspectFit" src="{{src}}" hidden='{{imageHidden}}' style='width:100%;height:500rpx'></image>
+  </view>
+     <view class="import"  bindtap='upLoadImage'>
+			<view class="information">图片</view>
+			<input name="author"  placeholder-style="color:#B2B2B2"  placeholder="上传图片" disabled="{{true}}"/>
+		</view>
+		<view class="import">
+			<view class="information">删除码</view>
+			<input name="tel" type="digit" placeholder-style="color:#B2B2B2" maxlength="6" placeholder="删除该Word的权限码"/>
+		</view>
+    <view class="page-section">
+    <view class="page-section-title">内容</view>
+    <view class="textarea-wrp"  style='border: 1px solid #000;height: 400rpx'>
+      <textarea name='content' style="height: 350rpx" />
+    </view>
+  </view>
 	</view>
 	<view class="hint">{{textHint}}</view>
-	<navigator url="../success/success" redirect><button class="submit">添加车辆信息</button></navigator>
+	<button formType='submit' class="submit">添加车辆信息</button>
 	<button formType="reset" class="resume">重新输入</button>
 </form>
 
 <view class="shade" hidden="{{hiddenBoolean}}">
 	<view class="layer" bindtap="hiddenBtn"></view>
 	<view class="selected">
-		<block wx:for="{{options}}">
+		<block wx:for="{{options}}" wx:key="{{id}}">
 			<view bindtap="{{screenBtn}}" data-name='{{item.name}}' data-val='{{item.id}}' id="{{item.id}}" class="{{className[index]}}">
-				<view style='display:inline-block;vertical-align: middle;vertical-align:top;'> <image style='width:64rpx;height:64rpx;padding-right:100rpx' src='{{item.src}}'></image>{{item.name}}</view>
+				<view style='display:inline;vertical-align: middle;vertical-align:top;margin-top:5rpx'> <image style='width:64rpx;height:64rpx;padding-right:100rpx' src='{{item.src}}'></image>{{item.name}}</view>
 			</view>
 		</block>
 	</view>
@@ -35,13 +56,11 @@
 
 
 
-
+<!-- 
 
 
   <view>
     <button type="default" bindtap="gotoShow" >点击上传照片</button> 
-  </view>
-  <view>
-    <image class= "show-image" mode="aspectFitf" src="{{src}}"></image>
-  </view>
+  </view> -->
+  
 </view>

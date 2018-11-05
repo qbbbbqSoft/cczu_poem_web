@@ -18,3 +18,34 @@ button{margin:0 30rpx 30rpx;font-size:32rpx;}
 .selected view text{display:block;font-size:28rpx;line-height:88rpx;border-bottom: 1px solid #eee;}
 .selected .header{padding:0;text-align: center;}
 .selected .header text{font-size: 36rpx;text-align: center;}
+
+
+textarea {
+  width: 100%;
+  padding: 25rpx 0;
+   height: 800rpx; 
+}
+
+.textarea-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+ 
+}
+
+.page-section{
+  width: 96%;
+  
+  margin-bottom: 60rpx;
+}
+
+.page-section:last-child{
+  margin-bottom: 0;
+}
+
+.page-section-title{
+  font-size: 28rpx;
+  color: #999999;
+  margin-bottom: 10rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
