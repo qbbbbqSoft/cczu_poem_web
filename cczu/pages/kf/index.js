@@ -1,4 +1,7 @@
 // pages/k f/index.js
+
+var appInstance = getApp();
+var url_mystation = appInstance.globalData.url_mystation;
 Page({
 
   /**
@@ -9,7 +12,10 @@ Page({
     currentPage: 1,
     scrollHeight: 0,
     scrollTop: 0,
-    images: {}
+    images: {},
+    avatarUrl: '',
+    nickName: '',
+    wxOthrtInfo: ''
   },
 
   /**
@@ -23,14 +29,15 @@ Page({
       }
       var _this = this;
       wx.request({
-        url: 'http://localhost:9900/sys/queryZoneCode/' + options.code,
+        url: url_mystation + '/sys/queryZoneCode/' + options.code,
       })
       wx.request({
         // url: 'http://api.budejie.com/api/api_open.php?a=list&c=data&type=29',
-        url: 'http://localhost:9900/sys/queryAllSysTitle',
+        url: url_mystation +'/admin/poem/api/getTitleList',
         success: function(res) {
+          console.log(res)
           _this.setData({
-            textDataList: res.data
+            textDataList: res.data.data
           })
         }
       })
@@ -124,6 +131,39 @@ Page({
   toAdd: function() {
     wx.navigateTo({
       url: '/pages/addNew/index',
+    })
+  },
+  getUserInfo: function(e) {
+    var _this = this;
+    var errMsg = e.detail.errMsg;
+    console.log(errMsg)
+    if (errMsg == 'getUserInfo:fail auth deny') {
+      wx.navigateBack({ 
+      })
+    } else{
+      _this.setData({
+        avatarUrl: e.detail.userInfo.avatarUrl,
+        nickName: e.detail.userInfo.nickName,
+        wxOthrtInfo: e.detail.rawData
+      })
+    }
+    console.log(e.detail.userInfo)
+    console.log(e.detail.rawData)
+    wx.login({
+      success(res) {
+        console.log(res);
+        if (res.code) {
+          //发起网络请求
+          // wx.request({
+          //   url: 'https://test.com/onLogin',
+          //   data: {
+          //     code: res.code
+          //   }
+          // })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
     })
   }
 })

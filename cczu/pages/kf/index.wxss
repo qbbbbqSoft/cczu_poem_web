@@ -4,55 +4,6 @@
   background-color: #eaeaea;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .add-wrap {
   position:fixed;
   bottom:0;
@@ -65,4 +16,16 @@
   width:80rpx;
   height:80rpx;
   border-radius: 80rpx;
+}
+
+.buttom{
+  width: 80rpx;
+  height: 80rpx;
+  background: #fff;
+  display: flex;
+  position: fixed;
+  bottom: 40rpx;
+  right: 20rpx;
+  font-size: 25rpx;
+  border-radius: 60rpx;
 }

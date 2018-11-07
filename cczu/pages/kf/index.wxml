@@ -20,5 +20,10 @@
 
 
 <view class="add-wrap" hover-class="plus-hover" bindtap='toAdd'>
-  <image src="../../img/new.png"></image>
+  <!-- <image src="../../img/new.png"></image> -->
+  <image class='buttom' src='../../img/new.png' style="background:url('../../img/new.png') no-repeat center top;background-size:80rpx 80rpx;">
+<button class='buttom' open-type="getUserInfo"  bindgetuserinfo='getUserInfo'
+style='background: salmon;opacity: 0;'
+ plain>
+</button></image>
 </view>

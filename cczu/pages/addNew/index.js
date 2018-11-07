@@ -1,3 +1,5 @@
+var app = getApp();
+var url_mystation = app.globalData.url_mystation;
 var optionList = [
   {
     name: '选择城市',
@@ -42,7 +44,7 @@ var list = [
     information: '心情',
     select: '此时此刻你的心情',
     bindBtn: 'addfeel',
-    name: 'start',
+    name: 'type',
     val: ''
   }
   // , {
@@ -73,7 +75,7 @@ var list = [
 ];
 Page({
   data: {
-    textHint: "欢迎卡友添加您的车辆相关信息，以便于我们帮您更精准的配货和让货主更加了解您。",
+    textHint: "欢迎欢迎，热烈欢迎。",
     hiddenBoolean: true,
     inputHidden: true,
     className: ['header'],
@@ -83,7 +85,9 @@ Page({
     infoId: '',
     checkHtml: "",
     src: "",
-    imageHidden: true
+    imageHidden: true,
+    imageheight: 0,
+    imagewidth: 0
   },
   addfeel: function(e) {
     this.setData({
@@ -98,14 +102,14 @@ Page({
           src: '../../img/index/1.png'
         },
         {
-          name: "高兴",
+          name: "尴尬",
           id: 2,
-          src: '../../img/index/3.png'
+          src: '../../img/index/2.png'
         },
         {
-          name: "尴尬",
+          name: "高兴",
           id: 3,
-          src: '../../img/index/2.png'
+          src: '../../img/index/3.png'
         },
         {
           name: "波澜不惊",
@@ -143,11 +147,11 @@ Page({
             id: 1
           },
           {
-            name: "高兴",
+            name: "尴尬",
             id: 2
           },
           {
-            name: "尴尬",
+            name: "高兴",
             id: 3
           },
           {
@@ -251,6 +255,45 @@ Page({
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    var entity = {
+      "adminstatus": 0,
+      "author": "string",
+      "avatarurl": "string",
+      "content": "string",
+      "delstatus": 0,
+      "id": 0,
+      "imageheight": 0,
+      "imageurl": "string",
+      "imagewidth": 0,
+      "label": "string",
+      "likecount": 0,
+      "notlikecount": 0,
+      "original": 0,
+      "privatestatus": 0,
+      "title": "string",
+      "type": 0,
+      "wxotherinfo": "string",
+      "zoneid": 0
+    };
+    wx.request({
+      // url: 'http://localhost:8080/admin/poem/api/insertTitleDeatil',
+      url: url_mystation +"/admin/poem/api/postsmt",
+      method: 'POST',
+      // header: {
+      //   'content-type': 'application/x-www-form-urlcoded' // 默认值
+      // },
+      data: {
+        "author": app.globalData.userInfo.nickName,
+        "avatarurl": app.globalData.userInfo.avatarUrl,
+        "content": e.detail.value.content,
+        "imageheight": this.data.imageheight,
+        "imageurl": this.data.src,
+        "imagewidth": this.data.imagewidth,
+        "privatestatus": 0,
+        "title": e.detail.value.title,
+        "type": e.detail.value.type,
+      }
+    })
   },
   upLoadImage: function() {
     let _this = this;
@@ -261,7 +304,7 @@ Page({
         console.log(res.tempFilePaths)
         var tempFilePaths = res.tempFilePaths
         wx.uploadFile({
-          url: 'http://localhost:9900/cczu/headImgUpload', //仅为示例，非真实的接口地址
+          url: url_mystation +'/cczu/headImgUpload', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'file',
           header: {
@@ -280,6 +323,8 @@ Page({
             }
             _this.setData({
               src: res.data.data,
+              imageheight: res.data.height,
+              imagewidth: res.data.width,
               imageHidden: false
             })
             wx.showToast({
@@ -292,5 +337,8 @@ Page({
         })
       }
     })
+  },
+  onLoad: function (options) {
+    console.log(app.globalData.userInfo)
   }
 })
