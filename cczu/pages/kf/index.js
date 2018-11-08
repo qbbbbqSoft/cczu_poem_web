@@ -15,7 +15,10 @@ Page({
     images: {},
     avatarUrl: '',
     nickName: '',
-    wxOthrtInfo: ''
+    wxOthrtInfo: '',
+    privateCode: '',
+    hiddenmodalput: true,
+    zoneName: ''
   },
 
   /**
@@ -24,23 +27,53 @@ Page({
   onLoad: function (options) {
       console.log(options.code);
       console.log(options.type);
-      if (options.type == "public") {
-        console.log(5678)
-      }
       var _this = this;
-      wx.request({
-        url: url_mystation + '/sys/queryZoneCode/' + options.code,
-      })
-      wx.request({
-        // url: 'http://api.budejie.com/api/api_open.php?a=list&c=data&type=29',
-        url: url_mystation +'/admin/poem/api/getTitleList',
-        success: function(res) {
-          console.log(res)
-          _this.setData({
-            textDataList: res.data.data
-          })
-        }
-      })
+      var type = options.type;
+      var privateCode = options.code;
+      if (options.type == "public") {
+        wx.request({
+          url: url_mystation + '/admin/poem/api/getTitleList',
+          success: function (res) {
+            console.log(res)
+            _this.setData({
+              textDataList: res.data.data
+            })
+          }
+        })
+      } else {
+        _this.setData({
+          privateCode: privateCode
+        })
+        wx.request({
+          url: "http://localhost:8080" + '/admin/poem/api/checkZoneExistByZoneCode/' + privateCode,
+          success: function(res) {
+            console.log(res)
+            if(res.data.data == null) {
+                _this.setData({
+                  hiddenmodalput: false
+                })
+            } else {
+              wx.setNavigationBarTitle({
+                title: res.data.data.zonename,
+              })
+              wx.request({
+                url: "http://localhost:8080" + '/admin/poem/api/getTitleList',
+                method: 'POST',
+                data: {
+                  "zoneID": res.data.data.id
+                },
+                success: function (res) {
+                  console.log(res)
+                  _this.setData({
+                    textDataList: res.data.data
+                  })
+                }
+              })
+            }
+          }
+        })
+      }
+      
     
   },
 
@@ -165,5 +198,35 @@ Page({
         }
       }
     })
-  }
+  },
+  setZoneName: function(e) {
+    this.setData({
+      zoneName: e.detail.value
+    })
+  },
+  //取消按钮
+  cancel: function () {
+    wx.navigateBack({
+    })
+  },
+  //确认
+  confirm: function () {
+    var _this = this;
+    wx.request({
+      url: 'http://localhost:8080/admin/poem/api/insertZoneDetail',
+      method: 'POST',
+      data: {
+        "nickname": appInstance.globalData.userInfo.nickName,
+        "avatarurl": appInstance.globalData.userInfo.avatarUrl,
+        "zonename": _this.data.zoneName,
+        "wxotherinfo": JSON.stringify(appInstance.globalData.userInfo),
+        "zonecode": _this.data.privateCode
+      },
+      success: function(res) {
+        _this.setData({
+          hiddenmodalput: true
+        })
+      }
+    })
+  },
 })

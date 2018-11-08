@@ -27,3 +27,6 @@ style='background: salmon;opacity: 0;'
  plain>
 </button></image>
 </view>
+<modal hidden="{{hiddenmodalput}}" title="你是第一个进入该Zone的人，拥有命名权" confirm-text="确认创建" cancel-text="返回" bindcancel="cancel" bindconfirm="confirm">
+    <input type='text' placeholder="请输入该Zone的名称"  bindinput='setZoneName'/>
+</modal>

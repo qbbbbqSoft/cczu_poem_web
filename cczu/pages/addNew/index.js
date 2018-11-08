@@ -288,7 +288,8 @@ Page({
     }
     wx.request({
       // url: 'http://localhost:8080/admin/poem/api/insertTitleDeatil',
-      url: url_mystation +"/admin/poem/api/postsmt",
+      // url: url_mystation +"/admin/poem/api/postsmt",
+      url: "http://localhost:8080/admin/poem/api/postsmt",
       method: 'POST',
       // header: {
       //   'content-type': 'application/x-www-form-urlcoded' // 默认值

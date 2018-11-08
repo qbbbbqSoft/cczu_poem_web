@@ -73,7 +73,7 @@ Page({
     var _this = this;
     if (_this.data.privateZoneCode.length == 6) {
       wx.navigateTo({
-        url: '/pages/kf/index?code=' + _this.data.privateZoneCode,
+        url: '/pages/kf/index?type=private&code=' + _this.data.privateZoneCode,
       })
     } else {
       wx.showModal({
@@ -85,6 +85,16 @@ Page({
           })
         }
       })
+    }
+  },
+  getUserInfo: function (e) {
+    var errMsg = e.detail.errMsg;
+    console.log(errMsg)
+    if (errMsg == 'getUserInfo:fail auth deny') {
+      wx.navigateBack({
+      })
+    } else {
+      this.ENTER();
     }
   }
 })
