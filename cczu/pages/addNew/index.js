@@ -87,7 +87,8 @@ Page({
     src: "",
     imageHidden: true,
     imageheight: 0,
-    imagewidth: 0
+    imagewidth: 0,
+    openid: ''
   },
   addfeel: function(e) {
     this.setData({
@@ -275,6 +276,16 @@ Page({
       "wxotherinfo": "string",
       "zoneid": 0
     };
+    var keyword = {
+      "keyword1":
+        {
+          "value": e.detail.value.title,
+          "color": "#111"
+        },
+      "keyword2": {
+        "value": "2018-12-12 00:00:00"
+      }
+    }
     wx.request({
       // url: 'http://localhost:8080/admin/poem/api/insertTitleDeatil',
       url: url_mystation +"/admin/poem/api/postsmt",
@@ -292,6 +303,9 @@ Page({
         "privatestatus": 0,
         "title": e.detail.value.title,
         "type": e.detail.value.type,
+        "openID": this.data.openid,
+        "formID": e.detail.formId,
+        "data": JSON.stringify(keyword)
       }
     })
   },
@@ -339,6 +353,32 @@ Page({
     })
   },
   onLoad: function (options) {
-    console.log(app.globalData.userInfo)
+    // console.log(app.globalData.userInfo)
+    var _this = this;
+    wx.login({
+      success: function (res) {
+        console.log(res)
+        // 获取登录的临时凭证
+        var code = res.code;
+        // 调用后端，获取微信的session_key, secret
+        wx.request({
+          url: url_mystation + "/admin/poem/api/wxLogin?code=" + code,
+          method: "POST",
+          success: function (result) {
+            console.log(result);
+            _this.setData({
+              openid: result.data.data.openid
+            })
+            // 保存用户信息到本地缓存，可以用作小程序端的拦截器
+            // app.setGlobalUserInfo(e.detail.userInfo);
+            // wx.redirectTo({
+            //   url: '../index/index',
+            // })
+          }
+        })
+
+
+      }
+    })
   }
 })

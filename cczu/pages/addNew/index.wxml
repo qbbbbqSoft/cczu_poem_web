@@ -1,6 +1,6 @@
 <view class="container">
 
-<form class="info" bindsubmit="formSubmit" bindreset="formReset">
+<form class="info" bindsubmit="formSubmit" bindreset="formReset" report-submit="true">
 	<view class="input-list">
 		<block wx:for="{{infoList}}" wx:key="{{id}}">
 			<view class="popup">
