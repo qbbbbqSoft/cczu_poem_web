@@ -18,7 +18,12 @@ Page({
     wxOthrtInfo: '',
     privateCode: '',
     hiddenmodalput: true,
-    zoneName: ''
+    zoneName: '',
+    requsetPageBody: {
+      sidx: '',
+      page: 1,
+      limit: 10
+    }
   },
 
   /**
@@ -32,7 +37,9 @@ Page({
       var privateCode = options.code;
       if (options.type == "public") {
         wx.request({
-          url: url_mystation + '/admin/poem/api/getTitleList',
+          url: "http://localhost:8080" + '/admin/poem/api/getTitleList',
+          method: 'POST',
+          data: _this.data.requsetPageBody,
           success: function (res) {
             console.log(res)
             _this.setData({
@@ -127,17 +134,20 @@ Page({
   },
   loadMoreData: function() {
     var _this = this;
-    var currentPage = _this.data.currentPage;
+    var requsetPageBody = _this.data.requsetPageBody;
+    requsetPageBody.page = _this.data.requsetPageBody.page + 1
     _this.setData({
-      currentPage: currentPage + 1
+      requsetPageBody: requsetPageBody
     })
     console.log(_this.data.currentPage)
     wx.request({
-      url: 'http://api.budejie.com/api/api_open.php?a=list&c=data&type=29&page=' + currentPage,
+      url: "http://localhost:8080" + '/admin/poem/api/getTitleList',
+      method: 'POST',
+      data: _this.data.requsetPageBody,
       success: function (res) {
         var list = _this.data.textDataList;
-        for (var i = 0; i < res.data.list.length; i++) {
-          list.push(res.data.list[i])
+        for (var i = 0; i < res.data.data.length; i++) {
+          list.push(res.data.data[i])
         }
         _this.setData({
           textDataList: list

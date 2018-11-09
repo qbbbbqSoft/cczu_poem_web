@@ -298,6 +298,7 @@ Page({
         "author": app.globalData.userInfo.nickName,
         "avatarurl": app.globalData.userInfo.avatarUrl,
         "content": e.detail.value.content,
+        "delcode": e.detail.value.delcode,
         "imageheight": this.data.imageheight,
         "imageurl": this.data.src,
         "imagewidth": this.data.imagewidth,

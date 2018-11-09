@@ -22,7 +22,7 @@
 		</view>
 		<view class="import">
 			<view class="information">删除码</view>
-			<input name="deleteCode" type="digit" placeholder-style="color:#B2B2B2" maxlength="6" placeholder="删除该Word的权限码"/>
+			<input name="delcode" type="digit" placeholder-style="color:#B2B2B2" maxlength="6" placeholder="删除该Word的权限码"/>
 		</view>
     <view class="page-section">
     <view class="page-section-title">内容</view>
