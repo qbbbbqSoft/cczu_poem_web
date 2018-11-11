@@ -14,7 +14,9 @@
     "pages/kf/index",
     "pages/prosepoem/index",
     "pages/privatezonestart/index",
-    "pages/weixinqun/index"
+    "pages/weixinqun/index",
+    "pages/kf/detail",
+    "pages/modal/modal"
   ],
   "window": {
     "backgroundTextStyle": "light",

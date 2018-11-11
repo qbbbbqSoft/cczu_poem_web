@@ -88,7 +88,23 @@ Page({
     imageHidden: true,
     imageheight: 0,
     imagewidth: 0,
-    openid: ''
+    openid: '',
+    requestBody: {
+      "author": "",
+      "avatarurl": "",
+      "content": "",
+      "delcode": 123321,
+      "imageheight": 200,
+      "imageurl": "",
+      "imagewidth": 200,
+      "privatestatus": 0,
+      "title": "",
+      "type": "",
+      "openID": "",
+      "formID": "",
+      "data": "",
+      "zoneid": 0
+    }
   },
   addfeel: function(e) {
     this.setData({
@@ -256,6 +272,7 @@ Page({
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    var _this = this;
     var entity = {
       "adminstatus": 0,
       "author": "string",
@@ -276,38 +293,61 @@ Page({
       "wxotherinfo": "string",
       "zoneid": 0
     };
+    var date = new Date();
     var keyword = {
       "keyword1":
         {
           "value": e.detail.value.title,
-          "color": "#111"
+          "color": "#EE1289"
         },
       "keyword2": {
-        "value": "2018-12-12 00:00:00"
-      }
+        "value": "删除码为" + e.detail.value.delcode + "是你删除此word的唯一凭证",
+        "color": "#9AFF9A"
+      },
+      "keyword3": date
     }
+    var tmp = _this.data.requestBody;
+    tmp.author = app.globalData.userInfo.nickName;
+    tmp.avatarurl = app.globalData.userInfo.avatarUrl;
+    tmp.content = e.detail.value.content;
+    tmp.delcode = e.detail.value.delcode,
+    tmp.imageheight = _this.data.imageheight,
+    tmp.imageurl = _this.data.src,
+    tmp.imagewidth = _this.data.imagewidth,
+    tmp.title = e.detail.value.title,
+    tmp.type = e.detail.value.type,
+    tmp.openID = _this.data.openid,
+    tmp.formID = e.detail.formId,
+    tmp.data = JSON.stringify(keyword)
+    _this.setData({
+      requestBody: tmp
+    })
     wx.request({
       // url: 'http://localhost:8080/admin/poem/api/insertTitleDeatil',
-      // url: url_mystation +"/admin/poem/api/postsmt",
-      url: "http://localhost:8080/admin/poem/api/postsmt",
+      url: url_mystation +"/admin/poem/api/postsmt",
+      // url: "http://localhost:8080/admin/poem/api/postsmt",
       method: 'POST',
       // header: {
       //   'content-type': 'application/x-www-form-urlcoded' // 默认值
       // },
-      data: {
-        "author": app.globalData.userInfo.nickName,
-        "avatarurl": app.globalData.userInfo.avatarUrl,
-        "content": e.detail.value.content,
-        "delcode": e.detail.value.delcode,
-        "imageheight": this.data.imageheight,
-        "imageurl": this.data.src,
-        "imagewidth": this.data.imagewidth,
-        "privatestatus": 0,
-        "title": e.detail.value.title,
-        "type": e.detail.value.type,
-        "openID": this.data.openid,
-        "formID": e.detail.formId,
-        "data": JSON.stringify(keyword)
+      data: _this.data.requestBody,
+      // {
+      //   "author": app.globalData.userInfo.nickName,
+      //   "avatarurl": app.globalData.userInfo.avatarUrl,
+      //   "content": e.detail.value.content,
+      //   "delcode": e.detail.value.delcode,
+      //   "imageheight": this.data.imageheight,
+      //   "imageurl": this.data.src,
+      //   "imagewidth": this.data.imagewidth,
+      //   "privatestatus": 0,
+      //   "title": e.detail.value.title,
+      //   "type": e.detail.value.type,
+      //   "openID": this.data.openid,
+      //   "formID": e.detail.formId,
+      //   "data": JSON.stringify(keyword)
+      // }
+      success: function(res) {
+        console.log(res)
       }
     })
   },
@@ -317,6 +357,9 @@ Page({
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success: function (res) {
+        wx.showLoading({
+          title: '图片上传中',
+        });
         console.log(res.tempFilePaths)
         var tempFilePaths = res.tempFilePaths
         wx.uploadFile({
@@ -337,17 +380,28 @@ Page({
               var jj = JSON.parse(jsonStr);
               res.data = jj;
             }
-            _this.setData({
-              src: res.data.data,
-              imageheight: res.data.height,
-              imagewidth: res.data.width,
-              imageHidden: false
-            })
-            wx.showToast({
-              title: '图片上传成功！',
-              icon: 'success',
-              duration: 1000
-            })
+            console.log(res.data.code)
+            if(res.data.code == 0) {
+              _this.setData({
+                src: res.data.data,
+                imageheight: res.data.height,
+                imagewidth: res.data.width,
+                imageHidden: false
+              })
+              wx.showToast({
+                title: '图片上传成功！',
+                icon: 'success',
+                duration: 1500
+              })
+            } else {
+              wx.showToast({
+                title: '图片上传失败！',
+                icon: 'success',
+                duration: 1500
+              })
+            }
+          },
+          complete: function() {
             wx.hideLoading();
           }
         })
@@ -355,7 +409,19 @@ Page({
     })
   },
   onLoad: function (options) {
+    var _this =this;
     // console.log(app.globalData.userInfo)
+    var zoneID = options.zoneID;
+    if (zoneID != 0 ) {
+      var tmp = _this.data.requestBody;
+      tmp.zoneid = zoneID;
+      tmp.privatestatus = 1;
+      _this.setData({
+        requestBody: tmp
+      })
+    } else {
+
+    }
     var _this = this;
     wx.login({
       success: function (res) {

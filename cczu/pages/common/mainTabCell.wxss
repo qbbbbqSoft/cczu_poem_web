@@ -37,6 +37,7 @@
 /*内容*/
 .content{
   margin: 20rpx 14rpx;
+  word-break: break-all;
 }
 .content-text{
   display: block;

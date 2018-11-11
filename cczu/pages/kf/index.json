@@ -1,5 +1,9 @@
 {
   "navigationBarTitleText": "private_zone",
   "enablePullDownRefresh": true,
-  "backgroundTextStyle": "dark"
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#fff",
+  "usingComponents": {
+    "mymodal": "../modal/modal"
+  }
 }

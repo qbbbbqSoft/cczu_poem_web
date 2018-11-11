@@ -47,7 +47,7 @@
             <view class="bottom">
 
             <!--赞-->
-            <view class="bottom-item" catchtap="zanEvent">
+            <view class="bottom-item" catchtap="zanEvent" data-id='{{item.id}}'>
                 <view class="bottom-item-content">
                 <image src="../../img/index/5.png" mode="center"></image>
                 <text class="bottom-item-zan-text">{{item.likecount}}</text>
@@ -57,7 +57,7 @@
             </view>
 
             <!--踩-->
-            <view class="bottom-item">
+            <view class="bottom-item" catchtap='caiEvent' data-id='{{item.id}}'>
                 <view class="bottom-item-content cai">
                 <image src="../../img/index/6.png" mode="center"></image>
                 <text class="bottom-item-zan-text">{{item.notlikecount}}</text>
@@ -77,7 +77,7 @@
             </view>
 
             <!--评论-->
-            <view class="bottom-item">
+            <view class="bottom-item" data-id='{{item.id}}' bindtap='comment'>
                 <view class="bottom-item-content">
                 <image src="../../img/index/comment.png" mode="center"></image>
                 <text class="bottom-item-zan-text">{{item.commentCount}}</text>

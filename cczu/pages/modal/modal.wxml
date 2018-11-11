@@ -1,0 +1,19 @@
+<view hidden='{{modalHidden}}'>
+  <view class='mask_layer' bindtap='modal_click_Hidden' />
+  <view class='modal_box'>
+    <view class="title">提示</view>
+    <view class='content'>
+     <!-- <radio-group class='modalMsg' bindchange="radioChange">
+                <radio class="radio" wx:for-items="{{modalMsg}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+                    <text>{{item.value}}</text>
+                </radio>
+            </radio-group> -->
+            <switch bindchange="switch2Change"/>
+      <!-- <text class='modalMsg'>{{modalMsg}}</text> -->
+    </view>
+    <view class='btn'>
+      <view bindtap='modal_click_Hidden' class='cancel'>取消</view>
+      <view bindtap='Sure' class='Sure'>确定</view>
+    </view>
+  </view>
+</view>

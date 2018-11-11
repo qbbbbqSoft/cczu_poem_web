@@ -23,7 +23,7 @@ button{margin:0 30rpx 30rpx;font-size:32rpx;}
 textarea {
   width: 100%;
   padding: 25rpx 0;
-   height: 800rpx; 
+  height: 800rpx;
 }
 
 .textarea-wrp {
