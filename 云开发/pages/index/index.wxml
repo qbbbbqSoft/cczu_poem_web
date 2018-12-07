@@ -1,0 +1,4 @@
+<button bindtap="scan">scan</button>
+{{address}}
+{{latitude}}
+{{longitude}}

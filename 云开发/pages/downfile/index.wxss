@@ -1,0 +1,42 @@
+page{
+  background-color: #EDEEF2;
+}
+.poste_box{
+  width: 85%;
+  margin: auto;
+  margin-top: 50rpx;
+  background-color: #fff;
+  border: 1rpx solid #ddd;
+  box-shadow:0px 0px  10px 5px #D8D7DD;
+}
+.savePoste{
+  background-color: #FF8427;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:30rpx;
+  color: #fff;
+}
+.saveTitle{
+  font-size: 25rpx;
+  color: #666;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20rpx;
+  text-align: center;
+}
+.cancleButton {
+  width:50%;
+  background-color: RGBA(229,104,11,0.9);
+  color: #fff;
+  margin-top: 10rpx;
+  border-bottom-left-radius: 20rpx;
+}
+.saveButton {
+  width:50%;
+  background-color: RGBA(60,173,46,0.9);
+  color: #fff;
+  margin-top: 10rpx;
+  border-bottom-right-radius: 20rpx;
+}
