@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/suggestion/index",
     "pages/downfile/index",
+    "pages/suggestion/index",
     "pages/index/index",
     "pages/logs/logs"
   ],

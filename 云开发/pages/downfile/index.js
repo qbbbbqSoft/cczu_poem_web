@@ -127,12 +127,15 @@ Page({
 
       //标签
       if (cardInfo.TagText) {
+        ctx.setFontSize(14);
+        ctx.setFillStyle('rgba(91,91,91,0.7)');
+        // ctx.setTextAlign('left');
         ctx.fillText(cardInfo.TagText, left + 20, hh - 4);
-        const metrics = ctx.measureText(cardInfo.TagText); //测量文本信息
-        ctx.stroke();
-        ctx.rect(left + 10, hh - 20, metrics.width + 20, 25);
-        ctx.setFillStyle('rgba(255,255,255,0.3)');
-        ctx.fill();
+        // const metrics = ctx.measureText(cardInfo.TagText); //测量文本信息
+        // ctx.stroke();
+        // ctx.rect(left + 10, hh - 20, metrics.width + 20, 25);
+        // ctx.setFillStyle('rgba(255,255,255,0.3)');
+        // ctx.fill();
       }
 
       //姓名
