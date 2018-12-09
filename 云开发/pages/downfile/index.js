@@ -5,7 +5,7 @@ const app = getApp()
 Page({
   data: {
     cardInfo: {
-      avater: "https://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/1543910506313.png", //需要https图片路径
+      avater: "https://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/xi.jpeg", //需要https图片路径
       qrCode: "https://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/1543975728247.png", //需要https图片路径
       TagText: "#校庆..#", //标签
       Name: '迎新晚会迎新晚会迎新晚会', //姓名
