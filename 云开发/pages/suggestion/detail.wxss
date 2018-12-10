@@ -1,0 +1,7 @@
+.date-font {
+  font-size: 20rpx;
+}
+.info-font {
+  font-size: 22rpx;
+  margin-left: 20rpx;
+}

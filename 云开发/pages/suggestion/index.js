@@ -1,18 +1,7 @@
 Page({
   data: {
-    radio: [
-      { name: 'USA', value: '美国' },
-      { name: 'CHN', value: '中国', checked: 'true' },
-      { name: 'BRA', value: '巴西' },
-      { name: 'JPN', value: '日本' },
-      { name: 'ENG', value: '澳大利亚' },
-      { name: 'TUR', value: '哈萨克斯坦' },
-      { name: 'TUR', value: '法国' },
-      { name: 'BRA', value: '巴西' },
-      { name: 'JPN', value: '日本' },
-      { name: 'ENG', value: '英国' },
-      { name: 'TUR', value: '法国' }
-    ],
+    title: ["扫码签到","我发起的签到","我参与的签到"],
+    act: 0
   },
   showModal: function (e) {
     var showName = e.currentTarget.dataset.modal;
@@ -34,7 +23,21 @@ Page({
     })
   },
   onLoad: function(query) {
-    var scene = decodeURIComponent('sdasd')
-    console.log(scene)
+    // var scene = decodeURIComponent('sdasd')
+    // console.log(scene)
+    let titleTop = this.data.title[this.data.act];
+    this.setData({
+      titleTop
+    })
+  },
+  clickTab: function(e ){
+    console.log(e.currentTarget.dataset.type)
+    let act = e.currentTarget.dataset.type;
+    let titleTop = this.data.title[act];
+    this.setData({
+      titleTop,
+      act
+    })
+    this.closeModal()
   }
 })

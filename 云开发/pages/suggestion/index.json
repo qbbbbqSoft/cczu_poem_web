@@ -1,1 +1,6 @@
-{}
+{
+  "navigationBarTitleText": "签到工具",
+  "usingComponents": {
+    "wux-divider": "../../utils/wuxui/dist/divider/index"
+  }
+}

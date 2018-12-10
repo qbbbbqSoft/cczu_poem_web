@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "签到详情",
+  "usingComponents": {
+    "wux-divider": "../../utils/wuxui/dist/divider/index",
+    "wux-notice-bar": "../../utils/wuxui/dist/notice-bar/index",
+    "wux-select": "../../utils/wuxui/dist/select/index",
+    "wux-cell": "../../utils/wuxui/dist/cell/index",
+    "wux-dialog": "../../utils/wuxui/dist/dialog/index"
+  }
+}

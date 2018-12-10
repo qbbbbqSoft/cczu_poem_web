@@ -1,9 +1,11 @@
 {
   "pages": [
-    "pages/downfile/index",
     "pages/suggestion/index",
+    "pages/addnew/index",
+    "pages/downfile/index",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/suggestion/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

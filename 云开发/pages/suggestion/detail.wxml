@@ -1,0 +1,66 @@
+<view class="goods-list-li">
+  <view class='goods-list-main'>
+  <view style='display:flex;flex-direction:column'>
+    <view style='display:flex'><image src='https://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/1544170663617.png' mode='aspectFill' class='goods-list-img'></image></view>
+    <view style='display:flex'><image src='http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/1541603359426.jpg' mode='aspectFill' class='goods-list-img'></image></view>
+    <view style='display:flex'> <navigator url='../downfile/index'> <button class='success btn sm round'>生成宣传海报<text class='iconfont icon-link'></text></button></navigator></view>
+    
+  </view>
+    
+    <view class='goods-list-text'>
+      <view class='goods-list-top'>
+        <view class='text-lg'>【新品首发】微信小程序前端定制化服务 </view>
+        <view class='gray-text'>ColorUi规范 精简 高效</view>
+      </view>
+      <view class="article-list-tag">
+        <view class='badge primary round'># 严肃脸严肃脸 #</view>
+      </view>
+      <view class='goods-list-foot'>
+       <text class="iconfont icon-timefill"> 2018-12-10 00:00:00 </text>
+      </view>
+      <view class='goods-list-foot'>
+       <text class="iconfont icon-group_fill"> 常州大学数理学院教务处</text>
+      </view>
+      <view class='goods-list-foot'>
+        <text class="iconfont icon-locationfill"> 若愚湖畔若愚湖畔若愚湖畔 </text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='page' style='margin-bottom:100rpx;'>
+<!-- <wux-notice-bar wux-class="notice-bar" icon="http://pbqg2m54r.bkt.clouddn.com/logo.png" content="微信小程序自定义组件 https://github.com/wux-weapp/wux-weapp" /> -->
+<wux-divider>
+  <view class="loadmore">
+      <text class="text">签到详情(500人已经签到)</text>
+  </view>
+</wux-divider>
+<block wx:for="{{200}}">
+  <view class='list-box'>
+    <view class="list-li">
+      <view class='list-tx'>
+        <view class='list-tx-img'>
+          <image src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIBsGc8oiajg9clvjbBd4HPaHK5PIRmVsyON43fkRuJJkzMvqnAzkXAciaibcUeuW5JqjtMIk4dHWmXw/132"></image>
+        </view>
+        <view style='display:flex;flex-direction:column'>
+          <view class='text-truncate info-font' style="width:350rpx"> 范启斌</view>
+          <view class='text-truncate info-font' style="width:350rpx"> 1595173132</view>
+          <view class='text-truncate info-font' style="width:350rpx"> 安徽省霍邱县长集镇钱店村</view>
+          <view class='text-truncate info-font' style="width:350rpx"> 安徽省霍邱县长集镇钱店村</view>
+        </view>
+        
+      </view>
+      <text class='date-font'> 2018-12-10 00:00:00 </text>
+    </view>
+  </view>
+  <wux-divider show-text="{{ false }}" />
+</block>
+</view>
+<view class="bar bottomfix shadow bar-textarea">
+  <input focus='{{focusFlag}}' class='flex-sub solid-bottom ml-sm' placeholder='输入邮箱发送活动详情或签到详情到指定邮箱' maxlength="300" cursor-spacing="10" bindinput='eMailInput'></input>
+ 
+  <button class='success btn mh-sm round' bindtap="onClick3">发送</button>
+   <!-- <wux-cell title="爱好" extra="{{ title3 }}" bind:click="onClick3"></wux-cell> -->
+</view>
+<wux-select id="wux-select3" />
+<wux-dialog id="wux-dialog" />
