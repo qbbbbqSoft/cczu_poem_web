@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "发起签到",
+  "usingComponents": {
+    "wux-cell-group": "../../utils/wuxui/dist/cell-group/index",
+    "wux-cell": "../../utils/wuxui/dist/cell/index",
+    "wux-input": "../../utils/wuxui/dist/input/index",
+    "wux-row": "../../utils/wuxui/dist/row/index",
+    "wux-col": "../../utils/wuxui/dist/col/index",
+    "wux-select": "../../utils/wuxui/dist/select/index",
+    "wux-notice-bar": "../../utils/wuxui/dist/notice-bar/index",
+    "wux-upload": "../../utils/wuxui/dist/upload/index"
+  }
+}
