@@ -1,6 +1,6 @@
 <view class="goods-list-li">
   <view class='goods-list-main'>
-  <view style='display:flex;flex-direction:column'>
+  <view style='display:flex;flex-direction:column;'>
     <view style='display:flex'><image src='https://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/1544170663617.png' mode='aspectFill' class='goods-list-img'></image></view>
     <view style='display:flex'><image src='http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/1541603359426.jpg' mode='aspectFill' class='goods-list-img'></image></view>
     <view style='display:flex'> <navigator url='../downfile/index'> <button class='success btn sm round'>生成宣传海报<text class='iconfont icon-link'></text></button></navigator></view>
@@ -14,6 +14,7 @@
       </view>
       <view class="article-list-tag">
         <view class='badge primary round'># 严肃脸严肃脸 #</view>
+        <view class='badge success round'># 严肃脸严肃脸 #</view>
       </view>
       <view class='goods-list-foot'>
        <text class="iconfont icon-timefill"> 2018-12-10 00:00:00 </text>

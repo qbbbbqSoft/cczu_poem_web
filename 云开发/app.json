@@ -1,16 +1,23 @@
 {
   "pages": [
-    "pages/suggestion/index",
+    "pages/signup/index",
     "pages/addnew/index",
+    "pages/getformid/index",
+    "pages/suggestion/index",
     "pages/downfile/index",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/suggestion/detail"
+    "pages/suggestion/detail",
+    "pages/createnewactivity/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 200000,
+    "uploadFile": 200000
   }
 }

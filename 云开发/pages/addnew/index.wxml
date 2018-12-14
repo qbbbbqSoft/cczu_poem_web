@@ -1,2 +1,27 @@
-<!--pages/addnew/index.wxml-->
-<text>pages/addnew/index.wxml</text>
+
+  <wux-cell hover-class="none">
+      <wux-input placeholder="请输入标题" />
+  </wux-cell>
+ 
+ <view class='form-box'>
+    <view class="form-item form-upload">
+      
+      <view class="lattice-image">
+        <view wx:if="{{src}}">
+          <image src='{{src}}' mode='aspectFill'></image>
+          <view class='iconfont icon-close' bindtap='delSrc'></view>
+        </view>
+        <view class='lattice-btn' wx:if="{{src?false:true}}" bindtap='addNewPic'>
+          <text class='iconfont icon-cameraadd'></text>
+        </view>
+      </view>
+      <textarea placeholder='请输入正文，最多100个字' maxlength="100"></textarea>
+    </view>
+  </view>
+  <view style='margin-left:20rpx;'>
+    <wux-input label="删除码" placeholder="这是删除此条的唯一凭证"  />
+  </view>
+  
+  <view class="bar bottomfix shadow justify-center">
+  <button class='btn success round basis-sm'>提交保存</button>
+</view>

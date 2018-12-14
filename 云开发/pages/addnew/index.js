@@ -5,26 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    // src: 'http://image.weilanwl.com/img/3x4-1.jpg'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let tmp = {
-      code: 'code',
-      sysWxuserinfoEntity: {
-        wxheadimageurl: '123',
-        wxusername: '456',
-        wxotheruserinfo: '789'
-      }
-    }
-    wx.request({
-      url: 'http://localhost:8080/admin//poem/api/wxLogin',
-      method: 'POST',
-      data: tmp
-    })
+    // let tmp = {
+    //   code: 'code',
+    //   sysWxuserinfoEntity: {
+    //     wxheadimageurl: '123',
+    //     wxusername: '456',
+    //     wxotheruserinfo: '789'
+    //   }
+    // }
+    // wx.request({
+    //   url: 'http://localhost:8080/admin//poem/api/wxLogin',
+    //   method: 'POST',
+    //   data: tmp
+    // })
   },
 
   /**
@@ -74,5 +74,15 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  delSrc: function() {
+    this.setData({
+      src: ''
+    })
+  },
+  addNewPic: function() {
+    this.setData({
+      src: 'https://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/1541603359426.jpg'
+    })
   }
 })

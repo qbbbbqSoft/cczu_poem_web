@@ -1,1 +1,8 @@
-{}
+{
+  "navigationBarTitleText": "WingBlank",
+  "usingComponents": {
+    "wux-cell-group": "../../utils/wuxui/dist/cell-group/index",
+    "wux-cell": "../../utils/wuxui/dist/cell/index",
+    "wux-input": "../../utils/wuxui/dist/input/index"
+  }
+}

@@ -11,8 +11,10 @@
 <view class="doc-main" wx:if="{{act == 0}}">
   <view class='animation-slide-top' style='padding-top:25%;animation-delay: 0.3s;'>
     <view class='flex justify-center align-center'>
-    <button class='gray btn xl ml-sm iconfont icon-add' style='width:120px;height:120px;'>
-    </button>
+    <navigator url='../createnewactivity/index'>
+      <button class='gray btn xl ml-sm iconfont icon-add' style='width:120px;height:120px;'>
+      </button>
+    </navigator>
   </view>
   <view class="text-center" style='font-size:15px'>发起签到</view>
   </view>
@@ -35,10 +37,11 @@
           <view class='goods-list-text'>
             <view class='goods-list-top'>
               <view class='text-lg text-truncate' style="width:600rpx">【新品首发】微信小程序前端定制化服务制化服务制化服务制化服务  </view>
-              <view class='gray-text'>签到信息：学号 手机 定位信息</view>
+              <view class='gray-text'>签到信息：学号 手机 定位信息 学号 手机 定位信息</view>
             </view>
             <view class="article-list-tag">
               <view class='badge primary round'># 严肃脸严肃脸 #</view>
+              <view class='badge success round'># 严肃脸严肃脸 #</view>
             </view>
             <view class='goods-list-foot marginTop'>
               <text class="iconfont icon-timefill"> 2018-12-10 00:00:00 </text>
@@ -48,7 +51,7 @@
             </view>
             <view class='goods-list-foot marginTop'>
               <text class="iconfont icon-group_fill"> 常州大学数理学院教务处</text>
-              <button class='warning btn sm round'> 设置状态
+              <button class='warning btn sm round' bindtap='onClick2'> 设置状态
                 <text class='iconfont icon-writefill'></text>
               </button>  
             </view>
@@ -110,3 +113,5 @@
   </view>
   <view class='side-close' bindtap='closeModal'></view>
 </view>
+
+<wux-select id="wux-select2" />
