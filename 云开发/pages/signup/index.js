@@ -1,34 +1,37 @@
-// pages/signup/index.js
+var QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
+var qqmapsdk;
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    radio: [
-      { name: 'USA', value: '美国' },
-      { name: 'CHN', value: '中国', checked: 'true' },
-      { name: 'BRA', value: '巴西' },
-      { name: 'JPN', value: '日本' },
-      { name: 'ENG', value: '澳大利亚' },
-      { name: 'BRA', value: '巴西' },
-      { name: 'JPN', value: '日本' },
-      { name: 'BRA', value: '巴西' },
-      { name: 'JPN', value: '日本' },
-      { name: 'ENG', value: '英国' },
-      { name: 'TUR', value: '哈萨克斯坦' },
-      { name: 'TUR', value: '法国' },
-      { name: 'BRA', value: '巴西' },
-      { name: 'ENG', value: '英国' },
-      { name: 'TUR', value: '法国' }
-    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var _this = this;
+      wx.request({
+        url: 'http://localhost:9900/cczu/getOneSysActivityByActivityID',
+        data: {
+          activityID: "1544170663617"
+        },
+        success: function(res) {
+          console.log(res)
+          _this.setData({
+            keep1: res.data.data.keep1,
+            keep2: res.data.data.keep2,
+            name: res.data.data.activityConfiguration.indexOf(1) == -1 ? false:true,
+            stuNum: res.data.data.activityConfiguration.indexOf(2) == -1 ? false : true,
+            classNum: res.data.data.activityConfiguration.indexOf(3) == -1 ? false : true,
+            phone: res.data.data.activityConfiguration.indexOf(4) == -1 ? false : true,
+            locationInfo: res.data.data.activityConfiguration.indexOf(5) == -1 ? false : true,
+          })
+        }
+      })
   },
 
   /**
@@ -79,15 +82,45 @@ Page({
   onShareAppMessage: function () {
 
   },
-  showModal: function (e) {
-    var showName = e.currentTarget.dataset.modal;
-    this.setData({
-      modalName: showName
+  getLocationInfo: function() {
+    let that = this;
+
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success(res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+        that.setData({
+          latitude: latitude,
+          longitude: longitude
+        })
+        qqmapsdk = new QQMapWX({
+          key: 'BQTBZ-M7RKI-M4NGF-5CDIF-6B4FE-DPBS7'
+        });
+        qqmapsdk.reverseGeocoder({//地址解析
+          location: {
+            latitude: latitude,
+            longitude: longitude
+          },
+          success: function (res) {
+            console.log(res);
+            //获得地址
+            that.setData({
+              signAddress: res.result.address
+            })
+          },
+          fail: function (res) {
+            that.setData({
+              signAddress: "失败，清重新获取"
+            })
+          },
+          complete: function (res) {
+            // that.setData({
+            //   address: "comasdasd"
+            // })
+          }
+        });
+      }
     })
-  },
-  closeModal: function (e) {
-    this.setData({
-      modalName: null
-    })
-  },
+  }
 })

@@ -41,7 +41,7 @@
             </view>
             <view class="article-list-tag">
               <view class='badge primary round'># 严肃脸严肃脸 #</view>
-              <view class='badge success round'># 严肃脸严肃脸 #</view>
+              <view class='badge success round'>50人次</view>
             </view>
             <view class='goods-list-foot marginTop'>
               <text class="iconfont icon-timefill"> 2018-12-10 00:00:00 </text>

@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/signup/index",
-    "pages/addnew/index",
-    "pages/getformid/index",
     "pages/suggestion/index",
+    "pages/addnew/index",
+    "pages/signup/index",
+    "pages/getformid/index",
     "pages/downfile/index",
     "pages/index/index",
     "pages/logs/logs",

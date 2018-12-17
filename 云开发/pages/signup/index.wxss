@@ -1,1 +1,3 @@
-/* pages/signup/index.wxss */
+.break-word{
+  word-break: break-all;
+}
