@@ -15,7 +15,7 @@
           <text class='iconfont icon-cameraadd'></text>
         </view>
       </view>
-      <textarea placeholder='请输入正文，最多100个字' maxlength="100"></textarea>
+      <textarea placeholder='请输入正文，最多100个字' maxlength="100" bindinput="contentInput"></textarea>
     </view>
   </view>
   <view style='margin-left:20rpx;'>
@@ -23,5 +23,7 @@
   </view>
   
   <view class="bar bottomfix shadow justify-center">
-  <button class='btn success round basis-sm'>提交保存</button>
+  <form bindsubmit="submitTitle" report-submit='true' >
+  <button form-type='submit' class='btn success round basis-sm'>提交保存</button>
+  </form>
 </view>

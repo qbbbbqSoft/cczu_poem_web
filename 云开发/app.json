@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/suggestion/index",
     "pages/addnew/index",
+    "pages/suggestion/index",
+    
     "pages/signup/index",
     "pages/getformid/index",
     "pages/downfile/index",

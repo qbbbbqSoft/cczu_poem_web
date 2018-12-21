@@ -84,5 +84,22 @@ Page({
     this.setData({
       src: 'https://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/1541603359426.jpg'
     })
+  },
+  contentInput: function(e) {
+    console.log(e.detail.value)
+    let content = e.detail.value
+    this.setData({
+      content
+    })
+  },
+  submitTitle: function(e) {
+    console.log(e.detail.formId)
+    wx.request({
+      url: 'http://localhost:8080/admin/poem/api/postsmt',
+      method: 'POST',
+      data: {
+        content: this.data.content
+      }
+    })
   }
 })
