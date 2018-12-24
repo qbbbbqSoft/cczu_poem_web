@@ -12,7 +12,7 @@
   <view class='animation-slide-top' style='padding-top:25%;animation-delay: 0.3s;'>
     <view class='flex justify-center align-center'>
     <navigator url='../createnewactivity/index'>
-      <button class='gray btn xl ml-sm iconfont icon-add' style='width:120px;height:120px;'>
+      <button class='gray btn xl ml-sm iconfont icon-add' style='width:120px;height:120px;margin:0;padding:0;'>
       </button>
     </navigator>
   </view>

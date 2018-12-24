@@ -1,15 +1,17 @@
 {
   "pages": [
-    "pages/addnew/index",
-    "pages/suggestion/index",
-    
     "pages/signup/index",
+    "pages/suggestion/index",
+    "pages/addnew/index",
     "pages/getformid/index",
     "pages/downfile/index",
     "pages/index/index",
     "pages/logs/logs",
     "pages/suggestion/detail",
-    "pages/createnewactivity/index"
+    "pages/test/index",
+    "pages/createnewactivity/index",
+    "pages/result/fail",
+    "pages/result/success"
   ],
   "window": {
     "backgroundTextStyle": "light",
