@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "OW_private",
+  "usingComponents": {
+    "wux-button": "../../utils/wuxui/dist/button/index",
+    "wux-keyboard": "../../utils/wuxui/dist/keyboard/index"
+  }
+}

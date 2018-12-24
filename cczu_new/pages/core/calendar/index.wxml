@@ -1,0 +1,13 @@
+<view class="page__hd">
+  <image class="weui-media-box__thumb" src="/images/core/table.png" />
+  <view class="page__title">常大校历</view>
+  <view class="page__desc">校历来自教务网站，具体安排以实际情况为准</view>
+</view>
+<view class="page__bd">
+  <image style="width:100%" mode="widthFix" src="http://file.bbqbb.top/cczu_file/xiaoli_2018_01.png"
+  bindtap='biggerImg' data-url="http://file.bbqbb.top/cczu_file/xiaoli_2018_01.png"></image>
+  <image style="width:100%" mode="widthFix" src="http://file.bbqbb.top/cczu_file/xiaoli_2018_02.png" bindtap='biggerImg' data-url="http://file.bbqbb.top/cczu_file/xiaoli_2018_02.png"></image>
+</view>
+<view class="button-sp-area">
+  <button open-type="share" class="weui-btn" type="primary" plain="true">分享校历</button>
+</view>

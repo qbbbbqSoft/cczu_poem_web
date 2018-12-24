@@ -1,0 +1,10 @@
+
+<wux-result
+    title="绑定失败"
+    label="{{errorData}}"
+    buttons="{{ buttons }}"
+    extra="常州大学课表小程序"
+    fixed
+    bind:click="onClick"
+    icon="{{icon}}"
+/>

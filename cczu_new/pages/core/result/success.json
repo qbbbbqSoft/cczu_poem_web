@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "绑定页面",
+  "usingComponents": {
+    "wux-result": "../../../utils/wuxui/dist/result/index"
+  }
+}

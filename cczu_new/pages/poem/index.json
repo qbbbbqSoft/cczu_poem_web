@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "ONE WORLD",
+  "usingComponents": {
+    "wux-cell": "../../utils/wuxui/dist/cell/index"
+  }
+}

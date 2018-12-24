@@ -1,0 +1,71 @@
+<wux-cell-group title="基础信息（必填）">
+    <wux-cell hover-class="none">
+        <wux-input clear label="活动名称" placeholder='请输入活动名称' />
+    </wux-cell>
+    <wux-cell hover-class="none">
+        <wux-input clear label="组织人/单位" placeholder="请输入组织人或单位名称" />
+    </wux-cell>
+    <wux-cell hover-class="none">
+        <wux-input clear label="活动举办地" placeholder="请输入活动举办地" />
+    </wux-cell>
+</wux-cell-group>
+
+<wux-cell-group title="时间信息——活动时间（必填）">
+   <wux-row>
+      <wux-col span="7">
+          <wux-cell hover-class="none">
+             <picker mode="date" value="{{date}}"  end="2018-12-31" bindchange="bindDateChange">
+                <view class="picker">
+                  日期: {{date}}
+                </view>
+              </picker>
+          </wux-cell>
+      </wux-col>
+      <wux-col span="5">
+           <wux-cell hover-class="none">
+              <picker mode="time" value="{{time}}" start="05:31" end="23:01" bindchange="bindTimeChange">
+                <view class="picker">
+                  时间: {{time}}
+                </view>
+              </picker>
+          </wux-cell>
+      </wux-col>
+  </wux-row>
+</wux-cell-group>
+
+<wux-select id="wux-select3" />
+<wux-cell-group title="签到选项（必填）">
+  <wux-cell title="签到验证项" extra="{{ title3 }}" bind:click="onClick3"></wux-cell>
+</wux-cell-group>
+<wux-cell-group title="额外的签到选项（选填）">
+  <wux-cell hover-class="none">
+      <wux-input clear label="签到选项1" placeholder='额外的签到验证项如性别' />
+  </wux-cell>
+  <wux-cell hover-class="none">
+      <wux-input clear label="签到选项2" placeholder='额外的签到验证项如性别' />
+  </wux-cell>
+</wux-cell-group>
+<view class=''>
+  <wux-notice-bar loop leading="4000" speed="150" content="以下选填内容用于生成宣传海报图片，方便活动的推广宣传" />
+  <wux-cell-group title="用于生成宣传海报（选填）">
+    <view class="form-box form-avatar-box">
+    <view class="form-avatar" bindtap="uploadPhoto" style='background-image:url({{src}})'>
+      <text>修改/上传</text>
+    </view>
+    <view class="form-avatar-item">
+      <view class="form-item">
+        <input type="text" class="form-input" name="title" value="" placeholder="活动的标签如-#讲座#" />
+      </view>
+      <view class="form-item">
+        <input type="number" class="form-input" name="title" value="" placeholder="参加活动的最大人数" />
+      </view>
+    </view>
+  </view>
+  </wux-cell-group>
+</view>
+
+<view class="bar shadow justify-center">
+  <form bindsubmit="btnClick" report-submit>
+    <button class='btn success round basis-sm' formType="submit">提交保存</button>
+  </form>
+</view>

@@ -1,0 +1,36 @@
+<template name="mainTabCellNew">
+ <view class="article-list-li top">
+    <view class="article-list-title">{{item.title}}</view>
+    <view class="article-list-content">
+      <view class="article-list-thumbs" wx:if='{{item.imageurl == "" ?false:true}}'>
+        <image src="{{item.imageurl}}" bindtap='biggerImg' data-url='{{item.imageurl}}' mode="aspectFill"></image>
+      </view>
+      <navigator url="detail?id={{item.id}}">
+      <view class="article-list-desc">
+        <view class='article-list-text'>{{item.content}}</view>
+        <view class="article-list-tag">
+          <!-- <view class='badge danger round mr-sm'>假装有猫系列</view>
+          <view class='badge success round'>戏精系列</view> -->
+        </view>
+      </view>
+      </navigator>
+    </view>
+    <view class="item-list-data">
+      <image src="{{item.avatarurl}}" class='round'></image>
+      <view class='item-list-author'>
+        <view class="item-list-name">{{item.author}}
+          <!-- <text>/ 程序员</text> -->
+        </view>
+        <view class="item-list-info">
+          <text class="iconfont icon-timefill"> {{item.createdate}}</text>
+          <view class="item-list-num">
+            <text class="iconfont icon-appreciate" style='margin-right:10px' catchtap="zanEvent" data-id='{{item.id}}'> {{item.likecount}}</text>
+            <text class="iconfont icon-light"  style='margin-right:10px' catchtap='caiEvent' data-id='{{item.id}}'> {{item.notlikecount}}</text>
+            <text class="iconfont icon-messagefill"style='margin-right:10px'  data-id='{{item.id}}' bindtap='comment'> {{item.commentCount}}</text>
+            <text class="iconfont icon-deletefill" data-id='{{item.id}}' bindtap='report'></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

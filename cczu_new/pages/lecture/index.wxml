@@ -1,0 +1,22 @@
+<wux-notice-bar loop trailing="1500" content="数据来源常大教务系统，每一小时刷新数据,大学毕业对刷卡讲座的次数有要求，大三大四可能没时间去刷，建议大一大二刷完" />
+<view class="contain">
+  <view class='part' wx:for="{{list}}" wx:key="id">
+    <view class='part1 margin'>
+        <text class='ordernum'>{{item.ordernum}}</text>
+      </view>
+    <!-- <scroll-view class='part2 margin' scroll-x>
+        <text class='part21'>{{item.classname}}----{{item.teacher}}</text>
+        <text class='part22'>该课程将于{{item.term}}第{{item.week}}周，第{{item.class1}}{{item.class2}}节课，在{{item.schoolcampus=="无"?"":item.schoolcampus}}{{item.classroom}}进行,现有{{item.choosenum}}名同学报名了该讲座。。。。</text>
+    </scroll-view> -->
+      <view class="weui-article__h1" style="color:#43B0D1;">{{item.classname}}----{{item.teacher}}</view>
+        <view class="weui-article__section">
+          <view class="weui-article__section">
+            <view class="weui-article__h3">时间： {{item.term}}第{{item.week}}周，第{{item.class1}}-{{item.class2}}节课</view>
+            <view class="weui-article__p">
+              该课程将于{{item.term}}第{{item.week}}周，第{{item.class1}}{{item.class2}}节课，在{{item.schoolcampus=="无"?"":item.schoolcampus}}{{item.classroom}}进行,现有{{item.choosenum}}名同学报名了该讲座。。。。
+            </view>
+          </view>
+        </view>
+  </view>
+</view>
+<wux-notice-bar loop trailing="1500" content="讲座报名请移步常大教务处,谢谢，希望多多宣传此小程序，觉得有用就分享哟~~~" />

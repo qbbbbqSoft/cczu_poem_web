@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "刷卡查询",
+  "usingComponents": {
+    "wux-notice-bar": "../../../utils/wuxui/dist/notice-bar/index",
+    "wux-card": "../../../utils/wuxui/dist/card/index",
+    "wux-wing-blank": "../../../utils/wuxui/dist/wing-blank/index",
+    "wux-notification": "../../../utils/wuxui/dist/notification/index"
+  }
+}

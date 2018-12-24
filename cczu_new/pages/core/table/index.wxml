@@ -1,0 +1,83 @@
+<view class="page__hd">
+  <image class="weui-media-box__thumb" src="/images/core/table.png" />
+  <view class="page__title">课表查询</view>
+  <view class="page__desc">课表数据来自学校官方教务网站</view>
+  <view class="weui-panel border-shadow">
+    <view class="weui-panel__bd">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="page__bd">
+  <view class="weui-tab">
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        <view class="weui-cells">
+           <wux-accordion-group title="课表" wx:if="{{classTableList.length != 0}}">
+           <block wx:for="{{classTableList}}" wx:key="*this">
+            <wux-accordion thumb="http://pbqg2m54r.bkt.clouddn.com/logo.png" title="星期 {{index + 1}}" content="">
+              <wux-cell-group title="上午">
+                <wux-cell thumb="http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/1.png" title="{{item.course1}}"></wux-cell>
+                <wux-cell thumb="http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/2.PNG" title="{{item.course2}}"></wux-cell>
+                <wux-cell thumb="http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/3.PNG" title="{{item.course3}}"></wux-cell>
+                <wux-cell thumb="http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/4.PNG" title="{{item.course4}}"></wux-cell>
+                <wux-cell thumb="http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/5.PNG" title="{{item.course5}}"></wux-cell>
+              </wux-cell-group>
+              <wux-cell-group title="下午">
+                <wux-cell thumb="http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/1.png" title="{{item.course6}}"></wux-cell>
+                <wux-cell thumb="http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/2.PNG" title="{{item.course7}}"></wux-cell>
+                <wux-cell thumb="http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/3.PNG" title="{{item.course8}}"></wux-cell>
+                <wux-cell thumb="http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/4.PNG" title="{{item.course9}}"></wux-cell>
+              </wux-cell-group>
+              <wux-cell-group title="晚自习">
+                <wux-cell thumb="http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/1.png" title="{{item.course10}}"></wux-cell>
+                <wux-cell thumb="http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/2.PNG" title="{{item.course11}}"></wux-cell>
+                <wux-cell thumb="http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/3.PNG" title="{{item.course12}}"></wux-cell>
+              </wux-cell-group>
+            </wux-accordion>
+            </block>
+        </wux-accordion-group>
+        </view>
+        <view class="button-sp-area">
+          <button bindtap="getClassTabelByOpenID" class="weui-btn" type="default" plain="true">查询课表</button>
+        </view>
+      </view>
+      
+      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+        <view class="weui-cells">
+        <wux-spin nested spinning="{{ spinning }}" tip="验证账号...">
+          <view class="weui-cell weui-cell_select">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+              <view class="weui-label">学号</view>
+            </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="例如：18000000" value="{{username}}" bindinput="userNameInput" />
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">密码</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="例如：111111" value="{{password}}" bindinput="passwordInput" />
+            </view>
+          </view>
+          <view class="weui-cells__tips">* 还未绑定，绑定后可在首页查看当日课表？
+          <navigator url="/pages/core/set/today" class="click-search">点此去绑定</navigator>
+        </view>
+      </wux-spin>
+        </view>
+        <view class="button-sp-area">
+          <button bindtap="getClassTabel" class="weui-btn" type="default" plain="true">查询课表</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<wux-toptips id="wux-toptips" />

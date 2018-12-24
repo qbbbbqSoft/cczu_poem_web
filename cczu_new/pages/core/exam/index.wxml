@@ -1,0 +1,12 @@
+<view class="page__hd">
+  <image class="weui-media-box__thumb" src="/images/core/table.png" />
+  <view class="page__title">上课时间表</view>
+  <view class="page__desc">上课时间表来自教务网站，具体安排以实际情况为准</view>
+</view>
+<view class="page__bd">
+  <image style="width:100%" mode="widthFix" src="http://file.bbqbb.top/cczu_file/classtime.png"
+  bindtap='biggerImg' data-url="http://file.bbqbb.top/cczu_file/classtime.png"></image>
+</view>
+<view class="button-sp-area">
+  <button open-type="share" class="weui-btn" type="primary" plain="true">分享时间表</button>
+</view>

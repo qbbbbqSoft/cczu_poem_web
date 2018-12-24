@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "课表查询",
+  "usingComponents": {
+    "wux-button": "../../../utils/wuxui/dist/button/index",
+    "wux-spin": "../../../utils/wuxui/dist/spin/index",
+    "wux-accordion-group": "../../../utils/wuxui/dist/accordion-group/index",
+    "wux-accordion": "../../../utils/wuxui/dist/accordion/index",
+    "wux-cell": "../../../utils/wuxui/dist/cell/index",
+    "wux-cell-group": "../../../utils/wuxui/dist/cell-group/index",
+    "wux-toptips": "../../../utils/wuxui/dist/toptips/index"
+  }
+}

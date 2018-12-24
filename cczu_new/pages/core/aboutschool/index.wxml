@@ -1,0 +1,60 @@
+<import src="../../../utils/wxParse/wxParse.wxml"/>
+
+<view class="page__hd">
+  <image class="weui-media-box__thumb" src="/images/tabbar/urp.png" />
+  <view class="page__title">学校概况</view>
+  <view class="page__desc">数据来自常大移动校园App</view>
+  <view class="weui-panel border-shadow">
+    <view class="weui-panel__bd">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="page__bd">
+  <view class="weui-tab">
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        <view class="weui-cells">
+          <template is="wxParse" data="{{wxParseData:c2Content.nodes}}"/>
+        </view>
+       
+      </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <block wx:for="{{times}}" wx:key="*this">
+            <view class="weui-article__h1" style="color:#43B0D1;">{{item.idHistory}}.{{item.title}}</view>
+              <view class="weui-article__section">
+                <view class="weui-article__section">
+                  <view class="weui-article__h3">时间： {{item.time}}</view>
+                  <view class="weui-article__p">
+                    {{item.context}}
+                  </view>
+                </view>
+            </view>
+        </block>
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+        <view class="weui-cells">
+          <block wx:for="{{yuans}}" wx:key="*this">
+            <view class="weui-item border-shadow background-1">
+              <view class="weui-flex">
+                <view class="weui-flex__item">
+                  <view class="weui-item__title" data-content='{{item.content}}' bindtap='toDetail'>
+                    {{item.name}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+          
+        </view>
+       
+      </view>
+    </view>
+  </view>
+</view>

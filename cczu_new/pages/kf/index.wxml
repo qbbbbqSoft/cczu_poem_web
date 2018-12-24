@@ -1,0 +1,61 @@
+<import src="../common/mainTabCell.wxml" />
+<import src="../common/mainTabCellNew.wxml" />
+<!-- <view style='width:100%;height:auto'>
+<text style='font'>标题标题标题标题标题标题标题标题标题</text>
+<image mode='widthFix' src="http://file.bbqbb.top/cczu_file/classtime.png" bindtap='biggerImg'></image>
+</view> -->
+<view style='height:100%'>
+<view hidden='{{searchArea}}' class='search_area'><text class='search_text'>正在搜索:{{requsetPageBody.search}}</text><button class='search_button' type="warn" size='mini' bindtap='resetSearchContent'>清空搜索内容</button></view>
+ <scroll-view class="scrollView" scroll-y="true" bindscrolltoupper="refreshData">
+      <view style="height:12rpx;background-color:#eaeaea" style="height:{{scrollHeight}}px;" scroll-top="{{scrollTop}}"></view>
+      <view id='box' wx:if="{{ textDataList.length == 0}}">
+      <view id='child'>暂无数据</view>
+      <image src="../../img/null.png" mode="center"></image>
+      </view>
+      <view class="item-view" wx:for="{{textDataList}}"  wx:for-item="item" wx:key='{{item.id}}'>
+        
+          <!-- <template is="mainTabCell" data="{{item}}" /> -->
+          <template is="mainTabCellNew" data="{{item}}" />
+       
+      </view>
+      <view style="height:12rpx;background-color:#eaeaea"></view>
+    </scroll-view>
+</view>
+
+
+
+<view class="add-wrap" hover-class="plus-hover" bindtap='search'>
+  <!-- <image src="../../img/new.png"></image> -->
+  <image class='search' src='../../img/search.png' style="background:url('../../img/search.png') no-repeat center top;background-size:80rpx 80rpx;">
+</image>
+</view>
+<view class="add-wrap" hover-class="plus-hover" bindtap='toAdd'>
+  <!-- <image src="../../img/new.png"></image> -->
+  <image class='buttom' src='../../img/new.png' style="background:url('../../img/new.png') no-repeat center top;background-size:80rpx 80rpx;">
+<button class='buttom' open-type="getUserInfo"  bindgetuserinfo='getUserInfo'
+style='background: salmon;opacity: 0;'
+ plain>
+</button></image>
+</view>
+<modal hidden="{{hiddenmodalput}}" title="你是第一个进入该Zone的人，拥有命名权" confirm-text="确认创建" cancel-text="返回" bindcancel="cancel" bindconfirm="confirm">
+    <input type='text' placeholder="请输入该Zone的名称"  bindinput='setZoneName'/>
+</modal>
+<modal hidden="{{searchmodalput}}" title="请输入要搜索的内容" confirm-text="搜索" cancel-text="取消" bindcancel="cancelSearch" bindconfirm="confirmSearch">
+    <input type='text' placeholder="搜索" value='{{tmpSearch}}'  bindinput='setSearchContent'/>
+</modal>
+<!-- <modal  title="请输入要搜索的内容" confirm-text="搜索" cancel-text="取消" bindcancel="cancelSearch" bindconfirm="confirmSearch">
+ 
+            <radio-group class="radio-group" bindchange="radioChange">
+                <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+                    <text>{{item.value}}</text>
+                </radio>
+            </radio-group>
+    <input type='text' placeholder="搜索" value='{{tmpSearch}}'  bindinput='setSearchContent'/>
+       
+</modal> -->
+<!-- 调用modal组件 -->
+<!-- <modal modal-hidden="{{is_modal_Hidden}}" modal-msg="{{items}}"/> -->
+<modal hidden="{{reportModal}}"  title="{{report.title}}" confirm-text="{{report.confirmText}}" cancel-text="取消" bindcancel="cancelReport" bindconfirm="confirmReport">
+    <label>删除</label><switch bindchange="switch2Change"/><label>举报</label>
+    <input style='margin-top:20rpx;border' type='text' placeholder="{{report.placeholder}}" value='{{report.inputContent}}' bindinput='setReport'/>
+</modal>

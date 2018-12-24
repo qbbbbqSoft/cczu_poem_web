@@ -1,0 +1,71 @@
+<view class="page__hd">
+  <image class="weui-media-box__thumb" src="/images/help_icon.png" />
+  <view class="page__title">使用帮助</view>
+  <view class="page__desc">愿你好好学习，天天向上</view>
+</view>
+<view class="page__bd">
+  <view class="weui-article">
+    <view class="weui-article__h1" style="color:#43B0D1;">1. 如何更方便的使用常大课表+?</view>
+    <view class="weui-article__section">
+      <view class="weui-article__section">
+        <view class="weui-article__h3">1.1 获取每日课程</view>
+        <view class="weui-article__p">
+          如果没有绑定班级，可以在常大课表+首页点击「绑定班级，获取每日课程信息」按钮，设置绑定班级，以后每节课之前都会提示要上的课程。
+        </view>
+      </view>
+      <view class="weui-article__section">
+        <view class="weui-article__h3">1.2 添加到桌面</view>
+        <view class="weui-article__p">
+          如果是安卓手机，在常大课表+中点击右上角「···」，点击添加到桌面，即可将常大课表+添加到桌面，之后直接在桌面点击常大课表+即可进入。
+        </view>
+      </view>
+      <view class="weui-article__section">
+        <view class="weui-article__h3">1.3 快速打开常大课表+</view>
+        <view class="weui-article__p">
+          在微信首页时，直接下拉便可调出「最近打开的小程序」，找到常大课表+点击即可进入。
+        </view>
+      </view>
+      <view class="weui-article__section">
+        <view class="weui-article__h3">1.4 查看开学第几周</view>
+        <view class="weui-article__p">
+          进入常大课表+，首页蓝色数字即为开学周期。
+        </view>
+      </view>
+    </view>
+    <view class="weui-article__h1" style="color:#43B0D1;">2. 如何转发分享给朋友?</view>
+    <view class="weui-article__section">
+      <view class="weui-article__section">
+        <view class="weui-article__p">
+          在常大课表+中，几乎每个页面都有转发分享按钮，点击即可转发分享。也可点击右上角「···」，点击转发，即可转发分享。
+        </view>
+      </view>
+    </view>
+    <view class="weui-article__h1" style="color:#43B0D1;">3. 如何找到常大课表+?</view>
+    <view class="weui-article__section">
+      <view class="weui-article__section">
+        <view class="weui-article__h3">3.1 通过微信打开</view>
+        <view class="weui-article__p">
+          进入微信界面，点击底部导航栏中的发现，点击小程序，找到常大课表+即可打开
+        </view>
+      </view>
+      <view class="weui-article__section">
+        <view class="weui-article__h3">3.2 通过搜索打开</view>
+        <view class="weui-article__p">
+          进入微信界面，点击右上角搜索图标，输入常大课表+即可打开
+        </view>
+      </view>
+      <!-- <view class="weui-article__section">
+        <view class="weui-article__h3">3.3 通过公众号打开</view>
+        <view class="weui-article__p">
+          <text>关注<text style="color:#43B0D1;">“烟台大学文经学院”</text>公众号，点击菜单-校园生活-查课表，即可打开\n
+          关注<text style="color:#43B0D1;">“烟台大学文经学院学生会”</text>公众号，点击菜单-查询-课表查询，即可打开\n
+          关注<text style="color:#43B0D1;">“文经与大叔”</text>公众号，点击菜单-传送门-课表或空教室，即可打开\n
+          同时，若您或有朋友在管理与文经学院相关公众号，「文经课表」诚挚的欢迎公众号关联小程序，并期待与您合作。（AppID：wx1de3425728815df0）</text>
+        </view>
+      </view> -->
+    </view>
+  </view>
+      <view class="button-sp-area">
+        <button open-type="share" class="weui-btn" type="primary" plain="true">分享常大课表+</button>
+      </view>
+</view>

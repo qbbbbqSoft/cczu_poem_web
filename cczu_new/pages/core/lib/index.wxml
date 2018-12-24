@@ -1,0 +1,71 @@
+<view class="page__hd">
+  <image class="weui-media-box__thumb" src="/images/core/lib.png" />
+  <view class="page__title">刷卡查询</view>
+  <view class="page__desc">查询本学期的有效刷卡次数</view>
+   <view class="weui-panel border-shadow">
+    <view class="weui-panel__bd">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="page__bd">
+  <view class="weui-tab">
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+      <wux-notice-bar loop trailing="4000" content="官网的体育刷卡次数显示无数据，待提供数据查询时开放此查询接口" />
+        <view class="weui-cells">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">学号</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="例如：18000000" value="{{stuNum}}" bindinput="stuNumInput" />
+              </view>
+            </view>
+          <view class="button-sp-area">
+            <button bindtap="searchTY" class="weui-btn" type="primary" plain="true">查询</button>
+          </view>
+        </view>
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+        <view class="weui-cells">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">学生姓名</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="例如：张三" value="{{stuName}}" bindinput="stuNameInput" />
+              </view>
+            </view>
+          <view class="button-sp-area">
+            <button bindtap="searchJZ" class="weui-btn" type="primary" plain="true">查询</button>
+          </view>
+          <block wx:for="{{JZlist}}" wx:key="*this">
+            <view class="sub-title">{{item.order}}</view>
+              <wux-wing-blank size="default">
+                <wux-card title="{{item.stuName}}" extra="学号：{{item.stuNum}}">
+                    <view slot="body">讲座题目：{{item.lectureName}}</view>
+                    <view slot="footer">学期：{{item.term}}</view>
+                </wux-card>
+              </wux-wing-blank>
+            </block>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<wux-notification id="wux-notification" />
+
+
+
+
+
+<!-- <view class="button-sp-area">
+    <button open-type="share" class="weui-btn" type="primary" plain="true">分享借阅排行榜</button>
+  </view> -->

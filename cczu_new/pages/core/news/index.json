@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "常大新闻",
+  "usingComponents": {
+    "wux-media": "../../../utils/wuxui/dist/media/index"
+  }
+}

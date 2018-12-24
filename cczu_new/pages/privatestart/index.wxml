@@ -1,0 +1,2 @@
+<wux-keyboard id="wux-keyboard" />
+<wux-button block type="light" bind:click="openWithPromiseCallback">Open KeyBoard with promise callback</wux-button>

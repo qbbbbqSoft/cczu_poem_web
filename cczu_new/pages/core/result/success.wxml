@@ -1,0 +1,8 @@
+<wux-result
+    title="绑定成功"
+    label="课表绑定成功，系统大约会花费30秒的时间处理课表的数据，回到首页后大概等待30秒钟后再下拉，点击【显示今日全部课程】即可获取当日的课表信息"
+    buttons="{{ buttons }}"
+    extra="常州大学课表小程序"
+    fixed
+    bind:click="onClick"
+/>

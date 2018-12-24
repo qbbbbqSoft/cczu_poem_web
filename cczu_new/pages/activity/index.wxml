@@ -1,0 +1,117 @@
+<view class="bar topfix">
+  <view class='ml-sm' bindtap='showModal' data-modal='listSide'>
+    <view class='btn primary sm radius'>
+      <text class='iconfont icon-list'> {{titleTop}}</text>
+    </view>
+  </view>
+  <!-- <view class="flex doc-box mv-sm p-df flex-direction text-center" style='padding-left:50rpx;background-color:#fff'>
+    <view>{{title[1]}}</view>
+  </view> -->
+</view>
+<view class="doc-main" wx:if="{{act == 0}}">
+  <view class='animation-slide-top' style='padding-top:25%;animation-delay: 0.3s;'>
+    <view class='flex justify-center align-center'>
+    <navigator url='../createnewactivity/index'>
+      <button class='gray btn xl ml-sm iconfont icon-add' style='width:120px;height:120px;margin:0;padding:0;'>
+      </button>
+    </navigator>
+  </view>
+  <view class="text-center" style='font-size:15px'>发起签到</view>
+  </view>
+  
+  <view class='animation-slide-bottom' style='padding-top:15%;animation-delay: 0.3s;'>
+    <view class='flex justify-center align-center'>
+    <button class='grays btn xl ml-sm iconfont icon-qrcode' style='width:120px;height:120px;' bindtap='scanQrCode'>
+    </button>
+  </view>
+  <view class="text-center" style='font-size:15px'>扫码签到</view>
+  </view>
+  
+</view>
+
+<view class="doc-main" style='margin-top:90rpx' wx:if="{{act == 1}}">
+  <block wx:for="{{50}}">
+    <view class="goods-list-li">
+        <view class='goods-list-main'>
+          <!-- <image src='http://image.weilanwl.com/img/4x4.jpg' mode='aspectFill' class='goods-list-img'></image> -->
+          <view class='goods-list-text'>
+            <view class='goods-list-top'>
+              <view class='text-lg text-truncate' style="width:600rpx">【新品首发】微信小程序前端定制化服务制化服务制化服务制化服务  </view>
+              <view class='gray-text'>签到信息：学号 手机 定位信息 学号 手机 定位信息</view>
+            </view>
+            <view class="article-list-tag">
+              <view class='badge primary round'># 严肃脸严肃脸 #</view>
+              <view class='badge success round'>50人次</view>
+            </view>
+            <view class='goods-list-foot marginTop'>
+              <text class="iconfont icon-timefill"> 2018-12-10 00:00:00 </text>
+              <button class='danger btn sm round'> 修改内容
+                <text class='iconfont icon-edit'></text>
+              </button>  
+            </view>
+            <view class='goods-list-foot marginTop'>
+              <text class="iconfont icon-group_fill"> 常州大学数理学院教务处</text>
+              <button class='warning btn sm round' bindtap='onClick2'> 设置状态
+                <text class='iconfont icon-writefill'></text>
+              </button>  
+            </view>
+            <view class='goods-list-foot marginTop'>
+              <text class="iconfont icon-locationfill"> 若愚湖畔若愚湖畔若愚湖畔 </text>
+              <navigator url='detail?id="{{item}}"'>
+                <button class='success btn sm round'> 签到详情
+                  <text class='iconfont icon-right'></text>
+                </button>  
+              </navigator>
+            </view>
+          </view>
+        </view>
+      </view>
+ 
+    <wux-divider show-text="{{ false }}" />
+  </block>
+</view>
+
+<view class="doc-main" wx:if="{{act == 2}}">
+  2
+  
+</view>
+
+<view class='side side-list' wx:if="{{modalName=='listSide'}}">
+  <view class="user">
+    <view class="user-top">
+      <view class="user-img">
+        <image src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIBsGc8oiajg9clvjbBd4HPaHK5PIRmVsyON43fkRuJJkzMvqnAzkXAciaibcUeuW5JqjtMIk4dHWmXw/132" class='radius'></image>
+      </view>
+      <view class="user-text">
+        <view class="user-name">
+          范启斌
+        </view>
+      </view>
+    </view>
+    <view class='user-bg' style='background-image:url(https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIBsGc8oiajg9clvjbBd4HPaHK5PIRmVsyON43fkRuJJkzMvqnAzkXAciaibcUeuW5JqjtMIk4dHWmXw/132)'>
+    </view>
+  </view>
+  <view class="list-box">
+    <view class="list-li list-arrow" bindtap='clickTab' data-type='0'>
+      <view class="list-text">
+        <view class="iconfont icon-newshot danger-text"> </view> 扫码签到
+      </view>
+    </view>
+    <view class="list-li list-arrow" bindtap='clickTab' data-type='1'>
+      <view class="list-text">
+        <view class="iconfont icon-emojiflashfill success-text"> </view> 我发起的签到
+      </view>
+    </view>
+    <view class="list-li list-arrow" bindtap='clickTab' data-type='2'>
+      <view class="list-text">
+        <view class="iconfont icon-locationfill warning-text"> </view> 我参与的签到
+      </view>
+    </view>
+  </view>
+  <view class='flex justify-center bar mt-xs'>
+    <button class='warning btn hollow' bindtap='closeModal'>收回菜单</button>
+  </view>
+  <view class='side-close' bindtap='closeModal'></view>
+</view>
+
+<wux-select id="wux-select2" />

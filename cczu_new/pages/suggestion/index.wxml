@@ -1,0 +1,61 @@
+<view class="container">
+	<view class="container-body container-gray" style="display:block">
+  	<view class="group-header">联系信息</view>
+			<view class="group-body">
+				<view class="input-list">
+					<!-- <view class="input-item">
+						<text class="input-item-label">nickName</text>
+						<view class="input-item-content">
+							<input type="text" placeholder="请输入您的昵称" bindinput="inputName"></input>
+						</view>
+					</view> -->
+					<view class="input-item">
+						<text class="input-item-label">eMail</text>
+						<view class="input-item-content">
+							<input placeholder="请输入您的eMail" maxlength="11" bindinput="inputEMail"></input>
+						</view>
+					</view>
+				</view>
+			</view>
+		<view class="group">
+			<view class="group-header">问题描述</view>
+			<view class="group-body">
+				<textarea focus='{{textareaFlag}}' placeholder="请输入对问题的描述，可输入1000字" maxlength="1000" bindinput='inputSuggestion'></textarea>
+			</view>
+			<view class="group-header">上传图片</view>
+			<view class="group-body">
+				<view class="img-upload">
+					<view class="img-add" bindtap="chooseImage"></view>
+					<view class="img-item" bindlongtap="editImage" wx:for="{{uploadimgs}}" wx:key="{{index}}">
+						<icon type="clear" size="20" color="red" style="display:{{editable?'block':'none'}}" bindtap="deleteImg" data-index="{{index}}"/>
+						<image src="{{item}}" mode="aspectFill"></image>
+					</view>
+				</view>
+			</view>
+		
+		</view>
+		<view class="btn-submit">
+			<button type='primary' class="btn-block btn-orange" bindtap="suggestionSubmit">确认提交</button>
+		</view>
+		<view class="question-text">
+			<text>如问题无法简单描述清楚</text>
+			<text>可以点击右侧在线沟通</text>
+			<text>我们将第一时间为您答疑解惑</text>
+		</view>
+	</view>
+	<view class="footer-tab footer-tab-widthicon">
+		<view class="footer-tab-item active" data-index="0">
+			<image src="../../img/{{showfootertab==0?'xinxifill':'xinxi'}}.png" mode="aspectFit"></image>
+			<text>问题反馈</text>
+		</view>
+		<view class="footer-tab-item {{showfootertab==1?'active':''}}" data-index="1">
+    <button open-type="contact" bindcontact="handleContact"
+        style='background: salmon;opacity: 0;display: inline-block;position: absolute;'
+        plain>a
+        </button>
+			<image src="../../img/kefu.png" mode="aspectFit"> 
+      </image>
+			<text>在线沟通</text>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,88 @@
+<template name="mainTabCell">
+    <!--顶部-->
+    <view class="top">
+        
+            <!--头像-->
+            <image class="avator" src="{{item.avatarurl}}" mode="aspectFit"></image>
+
+            <!--标题、时间-->
+            <view class="title-time">
+                <text class="title">{{item.title}}</text>
+                <text class="time">{{item.createdate}}</text>
+            </view>
+            
+            <!--更多按钮-->
+            <image class="morebtnnormal" src="../../img/index/{{item.type}}.png" mode="center" ></image>
+            
+            </view>
+            
+            <!--内容-->
+
+            <view class="content">
+            <navigator url="detail?id={{item.id}}">
+            <text class="content-text">{{item.content}}</text>
+             </navigator>
+
+            <!--大图-->
+            <view class="content-multimedia" hidden="{{item.imageurl? false : true}}" >
+                <image bindtap='biggerImg' data-url='{{item.imageurl}}' hidden="{{true}}" src="{{item.imageurl}}" mode="widthFix" style="width:{{ item.imagewidth }}rpx; height:{{ item.imageheight }}rpx;"></image>
+            </view>
+            <view class='author' wx:if="{{item.author !== ''}}">--{{item.author}}</view>
+            <view class='author' wx:else>--佚名</view>
+            <!-- <view style='text-align: right;padding-right:50rpx'>--{{item.author}}</view> -->
+
+            <!--视频-->
+            <view class="content-multimedia" hidden="{{item.videouri ? false : true}}">
+                <video id="{{item.id}}" src="{{item.videouri}}" bindplay="videoPlay" bindended="videoEndPlay" controls style="width:{{item.width}}rpx;height:{{item.height}}rpx;" ></video>
+            </view>
+
+            <!--音频-->
+            <view class="content-multimedia" hidden="{{item.voiceuri ? false : true}}">
+                <audio id="{{item.id}}" src="{{item.voiceuri}}" poster="{{item.bimageuri}}" author="{{item.screen_name}}" bindplay="audioplay" bindended="audioEndPlay" controls></audio>
+            </view>
+            
+            </view>
+            
+            <!--底部-->
+            <view class="bottom">
+
+            <!--赞-->
+            <view class="bottom-item" catchtap="zanEvent" data-id='{{item.id}}'>
+                <view class="bottom-item-content">
+                <image src="../../img/index/5.png" mode="center"></image>
+                <text class="bottom-item-zan-text">{{item.likecount}}</text>
+                </view>
+                <!--分割线-->
+                <view class="cut-line"></view>
+            </view>
+
+            <!--踩-->
+            <view class="bottom-item" catchtap='caiEvent' data-id='{{item.id}}'>
+                <view class="bottom-item-content cai">
+                <image src="../../img/index/6.png" mode="center"></image>
+                <text class="bottom-item-zan-text">{{item.notlikecount}}</text>
+                </view>
+                <!--分割线-->
+                <view class="cut-line"></view>
+            </view>
+
+            <!--转发-->
+            <view class="bottom-item" data-id='{{item.id}}' bindtap='report'>
+                <view class="bottom-item-content">
+                <image src="../../img/index/7.png" mode="center"></image>
+                <text class="bottom-item-zan-text">{{item.repost}}</text>
+                </view>
+                <!--分割线-->
+                <view class="cut-line"></view>
+            </view>
+
+            <!--评论-->
+            <view class="bottom-item" data-id='{{item.id}}' bindtap='comment'>
+                <view class="bottom-item-content">
+                <image src="../../img/index/comment.png" mode="center"></image>
+                <text class="bottom-item-zan-text">{{item.commentCount}}</text>
+                </view>
+            </view>
+
+    </view>
+</template>

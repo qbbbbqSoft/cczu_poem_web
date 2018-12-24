@@ -1,0 +1,25 @@
+<!--评论列表cell模板-->
+<template name="commentCell">
+    <view class="commentCell">
+        <view class="user">
+            <image class="usericon" src="{{item.avatarurl}}" mode="scaleToFill"></image>
+            <!--<view class="user_zan">
+                <text >42</text>
+            </view>-->
+            <text class="username">{{item.nickname}}</text>
+            <view class="ding"  data-id='{{item.id}}' bindtap='favorclick'>
+                <text>{{item.greatcount}}</text>
+                <image src="../../img/index/mainCellDing.png" mode="center"></image>
+            </view>
+            
+        </view>
+        <view >
+            <view class="ding_count">
+                <text class="">{{item.createdate}}</text>
+            </view>
+            <view class="content_text">
+                <text>{{item.comment}}</text>
+            </view>
+        </view>
+    </view>
+</template>

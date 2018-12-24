@@ -1,0 +1,30 @@
+<form bindsubmit="submitTitle" report-submit='true' >
+  <wux-cell hover-class="none">
+      <input placeholder="请输入标题" name="title" />
+  </wux-cell>
+ 
+ <view class='form-box'>
+    <view class="form-item form-upload">
+      
+      <view class="lattice-image">
+        <view wx:if="{{src}}">
+          <image src='{{src}}' mode='aspectFill'></image>
+          <view class='iconfont icon-close' bindtap='delSrc'></view>
+        </view>
+        <view class='lattice-btn' wx:if="{{src?false:true}}" bindtap='addNewPic'>
+          <text class='iconfont icon-cameraadd'></text>
+        </view>
+      </view>
+      <textarea placeholder='请输入正文，最多100个字' maxlength="100" bindinput="contentInput" name="content"></textarea>
+    </view>
+  </view>
+  <view style='margin-left:20rpx;'>
+    <input label="删除码" placeholder="这是删除此条的唯一凭证" name="delCode" />
+  </view>
+  
+  <view class="bar bottomfix shadow justify-center">
+  
+  <button form-type='submit' class='btn success round basis-sm'>提交保存</button>
+  
+</view>
+</form>

@@ -1,0 +1,77 @@
+{
+  "pages": [
+    "pages/auth/auth",
+    "pages/poem/index",
+    "pages/join/join",
+    "pages/publication/publication",
+    "pages/pageopen/pageopen",
+    "pages/user/user",
+    "pages/logs/logs",
+    "pages/login/index",
+    "pages/zzz/index",
+    "pages/lecture/index",
+    "pages/index/index",
+    "pages/core/table/index",
+    "pages/core/room/index",
+    "pages/core/lib/index",
+    "pages/core/exam/index",
+    "pages/core/news/index",
+    "pages/core/news/detail",
+    "pages/core/check/index",
+    "pages/core/check/list",
+    "pages/core/check/about",
+    "pages/core/set/today",
+    "pages/core/calendar/index",
+    "pages/search/table/today",
+    "pages/search/table/all",
+    "pages/search/room/index",
+    "pages/search/lib/index",
+    "pages/search/lib/detail",
+    "pages/search/exam/index",
+    "pages/search/id/index",
+    "pages/core/aboutschool/index",
+    "pages/help/index",
+    "pages/core/aboutschool/detail",
+    "pages/classtable/all",
+    "pages/classtable/today",
+    "pages/core/result/error",
+    "pages/core/result/success",
+    "pages/kf/index",
+    "pages/kf/detail",
+    "pages/privatestart/index",
+    "pages/suggestion/index",
+    "pages/scanindex/index",
+    "pages/activity/index",
+    "pages/activity/detail",
+    "pages/signup/index",
+    "pages/result/index",
+    "pages/createnewactivity/index",
+    "pages/addnew/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#43b0d1",
+    "navigationBarTitleText": "常大课表+",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "img/menu_s.png",
+        "iconPath": "img/menu.png",
+        "pagePath": "pages/index/index",
+        "text": "常大课表+"
+      },
+      {
+        "selectedIconPath": "img/lunt_s.png",
+        "iconPath": "img/lunt.png",
+        "pagePath": "pages/poem/index",
+        "text": "ONE WORD"
+      }
+    ]
+  },
+  "debug": false
+}

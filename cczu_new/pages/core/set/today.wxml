@@ -1,0 +1,34 @@
+<view class="page__hd">
+  <image class="weui-media-box__thumb" src="/images/core/set.png" />
+  <view class="page__title">课程设置</view>
+  <view class="page__desc">设置后上课之前会显示当天要上的课程</view>
+</view>
+<view class="page__bd">
+  <view class="weui-cells">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">学号</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="例如：18000000" value="{{username}}" bindinput="userNameInput" />
+      </view>
+    </view>
+     <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">密码</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input password='true' class="weui-input" placeholder="例如：111111" value="{{password}}" bindinput="passwordInput" />
+      </view>
+    </view>
+  </view>
+  <!-- <view class="weui-cells__tips">* 不知道所在班级？
+    <navigator url="/pages/search/id/index" class="click-search">点此查询</navigator>
+  </view> -->
+  <view class="button-sp-area" wx:if="{{resetflag}}">
+    <button bindtap="setTodayClassName" class="weui-btn" type="primary" plain="true">点击设置</button>
+  </view>
+  <view class="button-sp-area"  wx:if="{{!resetflag}}">
+    <button bindtap="resSetTodayClassName" class="weui-btn" type="primary" plain="true">重新设置</button>
+  </view>
+</view>

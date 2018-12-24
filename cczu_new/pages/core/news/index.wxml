@@ -1,0 +1,53 @@
+<view class="page__hd">
+  <image class="weui-media-box__thumb" src="/images/core/news.png" />
+  <view class="page__title">常大新闻</view>
+  <view class="page__desc">常大的动态，你我看得见</view>
+   <view class="weui-panel border-shadow">
+    <view class="weui-panel__bd">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="page__bd">
+  <view class="weui-tab">
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        <view class="weui-cells">
+          <block wx:for="{{tab1}}" wx:key="item.id">
+            <wux-media data-id="{{item.id}}" thumb="{{item.image}}" title="{{item.name}}" label="{{item.desc}}" bindtap="getNewsDetail"></wux-media>
+        </block>
+        </view>
+       
+      </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+        <view class="weui-cells">
+          <block wx:for="{{tab2}}" wx:key="item.id">
+             <wux-media data-id="{{item.id}}" thumb="{{item.image}}" title="{{item.name}}" label="{{item.desc}}" bindtap="getNewsDetail"></wux-media>
+        </block>
+        </view>
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+        <view class="weui-cells">
+          <block wx:for="{{tab3}}" wx:key="item.id">
+             <wux-media data-id="{{item.id}}" thumb="{{item.image}}" title="{{item.name}}" label="{{item.desc}}" bindtap="getNewsDetail"></wux-media>
+          </block>
+          
+        </view>
+       
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="button-sp-area">
+  <button open-type="share" class="weui-btn" type="primary" plain="true">分享常大新闻</button>
+</view>
+<!-- <view style="padding-bottom:500rpx;">
+  <view class="page__desc" style="color:#999;text-align:center;">上拉加载更多信息...</view>
+</view> -->
