@@ -1,4 +1,5 @@
-@import "../common/mainTabCell.wxss";
+/* @import "../common/mainTabCell.wxss"; */
+@import "../common/cardTabCell.wxss";
 @import "commentCell.wxss";
 Page{
     background-color: white;

@@ -1,0 +1,30 @@
+<wxs module="dateUtil" src="../../utils/timeUtil.wxs"></wxs>
+<template name="cardCommentCell">
+  <list class="menu menu-avatar comment solids-top">
+        <item wx:key>
+          <avatar class="round" style="background-image:url({{item.avatarurl}});"></avatar>
+          <view class='content'>
+            <view class='text-grey'>{{item.nickname}}</view>
+            <view class='text-gray text-content text-df'>
+              {{item.comment}}
+            </view>
+            <view class='margin-top-sm flex justify-between'>
+              <view class='text-gray text-df'>{{dateUtil.dateFormat(item.wxotherinfo)}}</view>
+              <view data-id='{{item.id}}' bindtap='favorclick'>
+              <capsule class="round" >
+                <tag class='bg-blue '>
+                  <icon class='icon-likefill' />
+                </tag>
+                <tag class="line-blue">
+                  {{item.greatcount}}
+                </tag>
+              </capsule>
+              <!-- <text>{{item.greatcount}}</text>
+                <icon class="icon-appreciate text-gray" /> -->
+                <!-- <icon class="icon-messagefill text-gray margin-left-sm" /> -->
+              </view>
+            </view>
+          </view>
+        </item>
+      </list>
+</template>

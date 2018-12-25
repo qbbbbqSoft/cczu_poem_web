@@ -199,38 +199,12 @@ Page({
     //console.log(item_id);//列表id
     this.zan(item_id);
   },
-  getUserInfo: function (e) {
+  commit: function (e) {
     var _this = this;
-    var errMsg = e.detail.errMsg;
-    console.log(errMsg)
-    if (errMsg == 'getUserInfo:fail auth deny') {
-      
-    } else {
-      _this.setData({
-        avatarUrl: e.detail.userInfo.avatarUrl,
-        nickName: e.detail.userInfo.nickName,
-        wxOthrtInfo: e.detail.rawData,
-        commentModal: false
-      })
-    }
-    console.log(e.detail.userInfo)
-    console.log(e.detail.rawData)
-    // wx.login({
-    //   success(res) {
-    //     console.log(res);
-    //     if (res.code) {
-    //       发起网络请求
-    //       wx.request({
-    //         url: 'https://test.com/onLogin',
-    //         data: {
-    //           code: res.code
-    //         }
-    //       })
-    //     } else {
-    //       console.log('登录失败！' + res.errMsg)
-    //     }
-    //   }
-    // })
+    this.setData({
+      commentModal: false
+    })
+    
   },
   setComment: function(e) {
     this.setData({
@@ -248,9 +222,9 @@ Page({
     var requsetData = {
       titleid: this.data.requsetBody.titleID,
       comment: this.data.comment,
-      nickname: this.data.nickName,
-      avatarurl: this.data.avatarUrl,
-      wxotherinfo: this.data.wxOthrtInfo,
+      nickname: appInstance.globalData.userInfo.nickName,
+      avatarurl: appInstance.globalData.userInfo.avatarUrl,
+      wxotherinfo: JSON.stringify(appInstance.globalData.userInfo),
       greatcount: 0
     };
     wx.request({

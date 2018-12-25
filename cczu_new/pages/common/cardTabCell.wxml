@@ -1,0 +1,37 @@
+<wxs module="dateUtil" src="../../utils/timeUtil.wxs"></wxs>
+<template name="cardTabCell">
+  <card class="case no-card">
+    <item class="shadow">
+      <view class='image'>
+        <image src="{{item.imageurl}}" mode="widthFix"></image>
+        <tag class="bg-white">
+          <icon class="icon-share text-red" style='height:25rpx;' />
+        </tag>
+        <bar class='bg-shadeBottom'>{{item.title}}</bar>
+      </view>
+      <card class="dynamic">
+        <item class="shadow">
+          <view class='text-content'>
+            {{item.content}}
+          </view>
+        </item>
+      </card>
+      <list class="menu menu-avatar">
+        <item>
+          <avatar class="round lg" style="background-image:url({{item.avatarurl}});"></avatar>
+          <view class='content flex-sub'>
+            <view class='text-grey'>{{item.author}}</view>
+            <view class='text-gray text-sm flex justify-between'>
+              {{dateUtil.dateFormat(item.label)}}
+              <view class="text-gray text-sm">
+                <icon class="icon-appreciate" /> {{item.likecount}}
+                <icon class="icon-light" /> {{item.notlikecount}}
+                <!-- <icon class="icon-messagefill" /> {{item.commentCount}} -->
+              </view>
+            </view>
+          </view>
+        </item>
+      </list>
+    </item>
+  </card>
+</template>

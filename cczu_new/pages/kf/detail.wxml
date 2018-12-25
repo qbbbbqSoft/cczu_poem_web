@@ -1,6 +1,7 @@
-<import src="../common/mainTabCell.wxml" />
+<import src="../common/cardTabCell.wxml" />
 
-<import src="commentCell.wxml" />
+<!-- <import src="commentCell.wxml" /> -->
+<import src="cardCommentCell.wxml" />
 
 <view style='height:100%'>
  <scroll-view class="scrollView" scroll-y="true" bindscrolltolower="loadMoreData" bindscrolltoupper="refreshData">
@@ -8,12 +9,14 @@
       
       <view class="item-view" wx:for="{{textDataList}}"  wx:for-item="item" wx:key='{{item.id}}'>
         
-          <template is="mainTabCell" data="{{item}}" />
+          <template is="cardTabCell" data="{{item}}" />
        
       </view>
       <view style="height:12rpx;background-color:#eaeaea"></view>
     </scroll-view>
-<button type='primary' open-type="getUserInfo"  bindgetuserinfo='getUserInfo'>我也说一句</button>
+<!-- <button type='primary'>我也说一句</button> -->
+<button style='width:98%;margin:10rpx;' class='round bg-blue shadow' bindtap=''>生成图片并分享</button>
+<button style='width:98%;margin:10rpx;' class='round bg-blue shadow' bindtap='commit'>我也说一句</button>
    <scroll-view class="scrollview" scroll-y="true">
     <!-- <view class="containt hotcomment" hidden="{{hotcomemnt_hidden}}">
         <text class="comment_text" >最热评论</text>
@@ -24,11 +27,16 @@
     <view class="newcomment" hidden='{{showDataList}}'>
         <text class="comment_text">最新评论 </text>
         <view wx:for="{{dataList}}" wx:for-item="item">
-            <template is="commentCell" data="{{item}}" />
+            <template is="cardCommentCell" data="{{item}}" />
         </view>
     </view>
-    <view class="newcomment" hidden='{{!showDataList}}'>
-        <text class="comment_text">暂无评论</text>
+    <view style='padding-top:25rpx;' hidden='{{!showDataList}}'>
+        <view class='flex-sub text-center'>
+          <view class='solid-bottom text-xl padding'>
+            <text class='text-black text-bold'>暂无用户评价此句话！</text>
+          </view>
+          <view class='padding'>请相信每句话都是有力量的，快成为第一个评论的人吧！</view>
+        </view>
     </view>
   </scroll-view>
 
