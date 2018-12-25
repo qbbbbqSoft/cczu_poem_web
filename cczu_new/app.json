@@ -46,7 +46,8 @@
     "pages/signup/index",
     "pages/result/index",
     "pages/createnewactivity/index",
-    "pages/addnew/index"
+    "pages/addnew/index",
+    "pages/downfile/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

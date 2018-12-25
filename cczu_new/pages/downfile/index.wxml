@@ -1,0 +1,4 @@
+<view  class='poste_box' id='canvas-container'>
+  <canvas canvas-id="myCanvas" style="width:100%;height:{{outH}}px;"/>
+  <view style="width:100%;display:flex" wx-if="{{outH}}"><button class='cancleButton'>取消</button><button class='saveButton' bindtap='saveShareImg'>保存</button></view>
+</view>

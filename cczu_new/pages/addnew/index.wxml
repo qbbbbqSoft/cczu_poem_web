@@ -7,19 +7,19 @@
     <view class="form-item form-upload">
       
       <view class="lattice-image">
-        <view wx:if="{{src}}">
-          <image src='{{src}}' mode='aspectFill'></image>
+        <view wx:if="{{tmpSrc}}">
+          <image src='{{tmpSrc}}' mode='aspectFill'></image>
           <view class='iconfont icon-close' bindtap='delSrc'></view>
         </view>
-        <view class='lattice-btn' wx:if="{{src?false:true}}" bindtap='addNewPic'>
+        <view class='lattice-btn' wx:if="{{tmpSrc?false:true}}" bindtap='addNewPic'>
           <text class='iconfont icon-cameraadd'></text>
         </view>
       </view>
-      <textarea placeholder='请输入正文，最多100个字' maxlength="100" bindinput="contentInput" name="content"></textarea>
+      <textarea placeholder='请输入正文，最多100个字' maxlength="100" name="content"></textarea>
     </view>
   </view>
   <view style='margin-left:20rpx;'>
-    <input label="删除码" placeholder="这是删除此条的唯一凭证" name="delCode" />
+    <input label="删除码" placeholder="这是删除此条的唯一凭证" name="delcode" />
   </view>
   
   <view class="bar bottomfix shadow justify-center">

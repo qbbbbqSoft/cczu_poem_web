@@ -90,52 +90,106 @@ Page({
   },
   delSrc: function() {
     this.setData({
-      src: ''
+      src: '',
+      tmpSrc: ''
     })
   },
   addNewPic: function() {
-    this.setData({
-      src: 'https://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/1541603359426.jpg'
-    })
-  },
-  contentInput: function(e) {
-    console.log(e.detail.value)
-    let content = e.detail.value
-    this.setData({
-      content
+    let _this = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        wx.showLoading({
+          title: '图片上传中',
+        });
+        console.log(res.tempFilePaths)
+        var tempFilePaths = res.tempFilePaths
+        wx.uploadFile({
+          url: "https://www.bbqbb.top" + '/cczu/headImgUpload', //仅为示例，非真实的接口地址
+          filePath: tempFilePaths[0],
+          name: 'file',
+          header: {
+            "Content-Type": "multipart/form-data",
+            'accept': 'application/json',
+            'Authorization': 'Bearer ..'    //若有token，此处换上你的token，没有的话省略
+          },
+          success: function (res) {
+            console.log(res.data)
+            var jsonStr = res.data;
+            jsonStr = jsonStr.replace(" ", "");
+            if (typeof jsonStr != 'object') {
+              jsonStr = jsonStr.replace(/\ufeff/g, "");//重点
+              var jj = JSON.parse(jsonStr);
+              res.data = jj;
+            }
+            console.log(res.data.code)
+            if (res.data.code == 0) {
+              let src = res.data.data;
+              _this.setData({
+                src: src,
+                tmpSrc: tempFilePaths[0]
+              })
+              wx.showToast({
+                title: '图片上传成功！',
+                icon: 'success',
+                duration: 1500
+              })
+            } else {
+              wx.showToast({
+                title: '图片上传失败！',
+                icon: 'success',
+                duration: 1500
+              })
+            }
+          },
+          complete: function () {
+            wx.hideLoading();
+          }
+        })
+      }
     })
   },
   submitTitle: function(e) {
     console.log(e)
-    let date = new Date();
-    let keyword = {
-      "keyword1":
-      {
-        "value": e.detail.value.title,
-        "color": "#EE1289"
-      },
-      "keyword2": {
-        "value": "删除码为" + e.detail.value.delcode + "是你删除此word的唯一凭证",
-        "color": "#9AFF9A"
-      },
-      "keyword3": date
+    if (e.detail.value.content && e.detail.value.title && e.detail.value.delcode) {
+      let postData = {
+        formID: e.detail.formId,
+        title: e.detail.value.title,
+        content: e.detail.value.content,
+        delCode: e.detail.value.delcode,
+        zoneid: this.data.zoneid,
+        openID: wx.getStorageSync('openid'),
+        author: app.globalData.userInfo.nickName,
+        avatarurl: app.globalData.userInfo.avatarUrl,
+        privatestatus: this.data.privatestatus,
+        imageurl: this.data.src
+      }
+      api.appPost('https://www.bbqbb.top/admin/poem/api/postsmt', postData).then((res) => {
+        wx.showToast({
+          title: '发表成功',
+        })
+        var time1 = setTimeout(function () {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 3000)
+        
+        console.log(res)
+      }).catch((errMsg) => {
+        console.log(errMsg);//错误提示信息
+        wx.showModal({
+          title: '提示',
+          content: errMsg,
+        })
+      });
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请补全内容',
+      })
     }
-    let postData = {
-      formID: e.detail.formId,
-      title: e.detail.value.title,
-      content: e.detail.value.content,
-      delcode: e.detail.value.delCode,
-      zoneid: this.data.zoneid,
-      data: JSON.stringify(keyword),
-      openID: wx.getStorageSync('openid'),
-      author: app.globalData.userInfo.nickName,
-      avatarurl: app.globalData.userInfo.avatarUrl,
-      privatestatus: this.data.privatestatus
-    }
-    api.appPost('https://www.bbqbb.top/admin/poem/api/postsmt', postData).then((res) => {
-      console.log(res)
-    }).catch((errMsg) => {
-      console.log(errMsg);//错误提示信息
-    });
+    
   }
 })
