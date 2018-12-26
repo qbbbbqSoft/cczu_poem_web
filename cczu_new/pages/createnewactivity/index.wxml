@@ -1,12 +1,12 @@
 <wux-cell-group title="基础信息（必填）">
     <wux-cell hover-class="none">
-        <wux-input clear label="活动名称" placeholder='请输入活动名称' />
+        <wux-input clear label="活动名称" placeholder='请输入活动名称' bind:change='activityNameInput' />
     </wux-cell>
     <wux-cell hover-class="none">
-        <wux-input clear label="组织人/单位" placeholder="请输入组织人或单位名称" />
+        <wux-input clear label="组织人/单位" placeholder="请输入组织人或单位名称" bind:change='activityOrganizingPeopleInput' />
     </wux-cell>
     <wux-cell hover-class="none">
-        <wux-input clear label="活动举办地" placeholder="请输入活动举办地" />
+        <wux-input clear label="活动举办地" placeholder="请输入活动举办地" bind:change='activityPlaceInput' />
     </wux-cell>
 </wux-cell-group>
 
@@ -39,10 +39,10 @@
 </wux-cell-group>
 <wux-cell-group title="额外的签到选项（选填）">
   <wux-cell hover-class="none">
-      <wux-input clear label="签到选项1" placeholder='额外的签到验证项如性别' />
+      <wux-input clear label="签到选项1" placeholder='额外的签到验证项如性别' bind:change='keep1Input' />
   </wux-cell>
   <wux-cell hover-class="none">
-      <wux-input clear label="签到选项2" placeholder='额外的签到验证项如性别' />
+      <wux-input clear label="签到选项2" placeholder='额外的签到验证项如性别' bind:change='keep2Input' />
   </wux-cell>
 </wux-cell-group>
 <view class=''>
@@ -54,10 +54,10 @@
     </view>
     <view class="form-avatar-item">
       <view class="form-item">
-        <input type="text" class="form-input" name="title" value="" placeholder="活动的标签如-#讲座#" />
+        <input type="text" class="form-input" name="title" value="" placeholder="活动的标签如-#讲座#" bindinput='activityLabelInput' />
       </view>
       <view class="form-item">
-        <input type="number" class="form-input" name="title" value="" placeholder="参加活动的最大人数" />
+        <input type="number" class="form-input" name="title" value="" placeholder="参加活动的最大人数(默认9999)" bindinput='countInput'/>
       </view>
     </view>
   </view>

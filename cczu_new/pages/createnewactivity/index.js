@@ -1,4 +1,5 @@
 import { $wuxSelect } from '../../utils/wuxui/dist/index';
+var api = require('../../utils/api.js')
 Page({
 
   /**
@@ -123,41 +124,42 @@ Page({
         this.setData({
           value3: value,
           title3: index.map((n) => options[n].title),
+          activityConfiguration: JSON.stringify(value)
         })
       },
     })
   },
-  btnClick: function(e) {
-    console.log(e.detail.formId)
+  // btnClick: function(e) {
+  //   console.log(e.detail.formId)
     
-    // wx.request({
-    //   url: 'http://localhost:8080/admin//poem/api/wxLogin',
-    //   method: 'POST',
-    //   data: tmp
-    // })
-    wx.login({
-      success(res) {
-        let tmp = {
-          code: res.code,
-          sysWxuserinfoEntity: {
-            wxheadimageurl: '123',
-            wxusername: '456',
-            wxotheruserinfo: '789'
-          }
-        }
-        if (res.code) {
-          // 发起网络请求
-          wx.request({
-            url: 'http://localhost:8080/admin//poem/api/wxLogin',
-            method: 'POST',
-            data: tmp
-          })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
-  },
+  //   // wx.request({
+  //   //   url: 'http://localhost:8080/admin//poem/api/wxLogin',
+  //   //   method: 'POST',
+  //   //   data: tmp
+  //   // })
+  //   wx.login({
+  //     success(res) {
+  //       let tmp = {
+  //         code: res.code,
+  //         sysWxuserinfoEntity: {
+  //           wxheadimageurl: '123',
+  //           wxusername: '456',
+  //           wxotheruserinfo: '789'
+  //         }
+  //       }
+  //       if (res.code) {
+  //         // 发起网络请求
+  //         wx.request({
+  //           url: 'http://localhost:8080/admin//poem/api/wxLogin',
+  //           method: 'POST',
+  //           data: tmp
+  //         })
+  //       } else {
+  //         console.log('登录失败！' + res.errMsg)
+  //       }
+  //     }
+  //   })
+  // },
   uploadPhoto: function() {
     let _this = this;
     wx.chooseImage({
@@ -190,9 +192,10 @@ Page({
             }
             console.log(res.data.code)
             if (res.data.code == 0) {
-              let src = res.data.data;
+              // let src = res.data.data;
               _this.setData({
-                src
+                src: tempFilePaths[0],
+                activityBackgroundPic: res.data.data
               })
               wx.showToast({
                 title: '图片上传成功！',
@@ -213,5 +216,80 @@ Page({
         })
       }
     })
+  },
+  activityNameInput: function(e) {
+    this.setData({
+      activityName: e.detail.value
+    })
+  },
+  activityOrganizingPeopleInput: function (e) {
+    this.setData({
+      activityOrganizingPeople: e.detail.value
+    })
+  },
+  activityPlaceInput: function (e) {
+    this.setData({
+      activityPlace: e.detail.value
+    })
+  },
+  keep1Input: function (e) {
+    this.setData({
+      keep1: e.detail.value
+    })
+  },
+  keep2Input: function (e) {
+    this.setData({
+      keep2: e.detail.value
+    })
+  },
+  activityLabelInput: function (e) {
+    this.setData({
+      activityLabel: e.detail.value
+    })
+  },
+  countInput: function (e) {
+    this.setData({
+      count: e.detail.value
+    })
+  },
+  btnClick: function() {
+    if (this.data.activityName == undefined || this.data.activityName == "" || this.data.activityOrganizingPeople == undefined || this.data.activityOrganizingPeople == "" ||
+      this.data.activityPlace == undefined || this.data.activityPlace == "" || this.data.activityConfiguration == undefined || this.data.activityConfiguration == "" ||
+      this.data.date == '点击选择' || this.data.time == '点击选择') {
+      console.log(121212)
+    } else {
+      let postData = {
+        activityName: this.data.activityName,
+        activityOrganizingPeople: this.data.activityOrganizingPeople,
+        activityPlace: this.data.activityPlace,
+        keep1: this.data.keep1 == undefined ? "" : this.data.keep1,
+        keep2: this.data.keep2 == undefined ? "" : this.data.keep2,
+        activityLabel: this.data.activityLabel == undefined ? "" : this.data.activityLabel ,
+        count: this.data.count == undefined ? 9999 : this.data.count,
+        activityBackgroundPic: this.data.activityBackgroundPic == undefined ? "" : this.data.activityBackgroundPic,
+        activityConfiguration: this.data.activityConfiguration == undefined ? "" : this.data.activityConfiguration,
+        activityDate: this.data.date + ' ' + this.data.time + ':00',
+        organizingPeopleOpenID: wx.getStorageSync('openid')
+      }
+      console.log(postData)
+      api.appPost('https://www.bbqbb.top/cczu/createWXQrCode', postData).then((res) => {
+        wx.showToast({
+          title: '创建成功',
+        })
+        var time1 = setTimeout(function () {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 3000)
+
+        console.log(res)
+      }).catch((errMsg) => {
+        console.log(errMsg);//错误提示信息
+        wx.showModal({
+          title: '提示',
+          content: errMsg,
+        })
+      });
+    }
   }
 })
