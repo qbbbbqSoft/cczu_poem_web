@@ -17,6 +17,12 @@ Page({
     ],
   },
   onLoad: function (options) {
+    setTimeout(function () {
+      wx.setNavigationBarTitle({
+        title: '签到失败',
+      })
+    }, 1000)
+    
     let info = options.info;
     this.setData({
       info
@@ -27,7 +33,7 @@ Page({
     const { index } = e.detail
 
     index === 0 && wx.redirectTo({
-      url: '/pages/suggestion/index',
+      url: '/pages/index/index',
     })
 
     index === 1 && wx.navigateBack()

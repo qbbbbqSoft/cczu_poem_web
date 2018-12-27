@@ -1,10 +1,13 @@
 import { $wuxSelect } from '../../utils/wuxui/dist/index';
+var api = require('../../utils/api.js')
 Page({
   data: {
     title: ["扫码签到","我发起的签到","我参与的签到"],
     act: 0,
     title2: '',
-    value2: ''
+    value2: '',
+    myAct: [],
+    myTakePartInAct: []
   },
   showModal: function (e) {
     var showName = e.currentTarget.dataset.modal;
@@ -21,7 +24,10 @@ Page({
     wx.scanCode({
       onlyFromCamera: true,
       success(res) {
-        console.log(res)
+        let path = res.path.replace('login','signup').replace('pages','/pages');
+        wx.navigateTo({
+          url: path
+        })
       }
     })
   },
@@ -42,8 +48,22 @@ Page({
       act
     })
     this.closeModal()
+    if (act == 1) {
+      let data = {
+        openid: wx.getStorageSync('openid'),
+      };
+      api.appGet("/cczu/getSysActivityListByOpenid", data).then((res) => {
+        console.log(res)
+        this.setData({
+          myAct: res
+        })
+      }).catch((errMsg) => {
+        console.log(errMsg); //错误提示信息
+      });
+    }
   },
-  onClick2() {
+  onClick2(e) {
+    console.log(e)
     $wuxSelect('#wux-select2').open({
       value: this.data.value2,
       options: [{

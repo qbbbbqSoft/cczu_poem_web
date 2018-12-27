@@ -192,10 +192,10 @@ Page({
             }
             console.log(res.data.code)
             if (res.data.code == 0) {
-              // let src = res.data.data;
+              let src = res.data.data;
               _this.setData({
-                src: tempFilePaths[0],
-                activityBackgroundPic: res.data.data
+                src: src.replace('bbqbb.oss-cn-beijing.aliyuncs.com', 'www.bbqbb.top').replace('cczu_poem','file'),
+                activityBackgroundPic: src
               })
               wx.showToast({
                 title: '图片上传成功！',
@@ -256,7 +256,10 @@ Page({
     if (this.data.activityName == undefined || this.data.activityName == "" || this.data.activityOrganizingPeople == undefined || this.data.activityOrganizingPeople == "" ||
       this.data.activityPlace == undefined || this.data.activityPlace == "" || this.data.activityConfiguration == undefined || this.data.activityConfiguration == "" ||
       this.data.date == '点击选择' || this.data.time == '点击选择') {
-      console.log(121212)
+      wx.showModal({
+        title: '提示',
+        content: '必填项不能为空',
+      })
     } else {
       let postData = {
         activityName: this.data.activityName,

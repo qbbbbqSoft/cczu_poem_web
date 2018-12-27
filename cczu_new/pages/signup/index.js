@@ -7,16 +7,19 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {
-  },
+  data: {},
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
+    let activityID = options.scene
     let _this = this;
+    _this.setData({
+      activityID
+    })
     let data = {
-      activityID: "1544170663617"
+      activityID: activityID
     };
     api.appGet("/cczu/getOneSysActivityByActivityID", data).then((res) => {
       console.log(res)
@@ -31,56 +34,56 @@ Page({
         entity: res
       })
     }).catch((errMsg) => {
-      console.log(errMsg);//错误提示信息
+      console.log(errMsg); //错误提示信息
     });
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
   getLocationInfo: function() {
@@ -98,24 +101,24 @@ Page({
         qqmapsdk = new QQMapWX({
           key: 'BQTBZ-M7RKI-M4NGF-5CDIF-6B4FE-DPBS7'
         });
-        qqmapsdk.reverseGeocoder({//地址解析
+        qqmapsdk.reverseGeocoder({ //地址解析
           location: {
             latitude: latitude,
             longitude: longitude
           },
-          success: function (res) {
+          success: function(res) {
             console.log(res);
             //获得地址
             that.setData({
               signAddress: res.result.address
             })
           },
-          fail: function (res) {
+          fail: function(res) {
             that.setData({
               signAddress: "失败，清重新获取"
             })
           },
-          complete: function (res) {
+          complete: function(res) {
             // that.setData({
             //   address: "comasdasd"
             // })
@@ -129,31 +132,64 @@ Page({
    */
   submitSignupInfo: function(e) {
     console.log(e)
-    let data = {
-      openid: '1234567',
-      activityID: "1544170663617",
-      name: e.detail.value.name,
-      phone: e.detail.value.phone,
-      wxheadimageurl: 'wxheadimageurl',
-      wxusername: 'wxusername',
-      wxotherinfo: 'wxotherinfo',
-      signaddress: e.detail.value.locationInfo,
-      // status:
-      classname: e.detail.value.classNum,
-      stunum: e.detail.value.stuNum,
-      keep1: e.detail.value.keep1,
-      keep2: e.detail.value.keep2
-    }
-    api.appPost("http://localhost:9900/cczu/signUp",data).then((res) => {
+    if (this.data.keep1 && e.detail.value.keep1 == "") {
+      wx.showModal({
+        title: '提示',
+        content: '必填项不能为空'
+      })
+    } else if (this.data.keep2 && e.detail.value.keep2 == "") {
+      wx.showModal({
+        title: '提示',
+        content: '必填项不能为空'
+      })
+    } else if (this.data.name && e.detail.value.name == "") {
+      wx.showModal({
+        title: '提示',
+        content: '必填项不能为空'
+      })
+    } else if (this.data.stuNum && e.detail.value.stuNum == "") {
+      wx.showModal({
+        title: '提示',
+        content: '必填项不能为空'
+      })
+    } else if (this.data.phone && e.detail.value.phone == "") {
+      wx.showModal({
+        title: '提示',
+        content: '必填项不能为空'
+      })
+    } else if (this.data.classNum && e.detail.value.classNum == "") {
+      wx.showModal({
+        title: '提示',
+        content: '必填项不能为空'
+      })
+    } else if (this.data.locationInfo && e.detail.value.locationInfo == "") {
+      wx.showModal({
+        title: '提示',
+        content: '必填项不能为空'
+      })
+    } else {
+      let data = {
+        openid: wx.getStorageSync('openid'),
+        activityID: this.data.activityID,
+        name: e.detail.value.name,
+        phone: e.detail.value.phone,
+        signaddress: e.detail.value.locationInfo,
+        classname: e.detail.value.classNum,
+        stunum: e.detail.value.stuNum,
+        keep1: e.detail.value.keep1,
+        keep2: e.detail.value.keep2
+      }
+      api.appPost("http://localhost:9900/cczu/signUp", data).then((res) => {
         console.log(res)
         wx.redirectTo({
           url: '/pages/result/success?info=' + res,
         })
-    }).catch((errMsg) => {
-      console.log(errMsg);//错误提示信息
-      wx.navigateTo({
-        url: '/pages/result/fail?info=' + errMsg,
-      })
-    });
+      }).catch((errMsg) => {
+        console.log(errMsg); //错误提示信息
+        wx.navigateTo({
+          url: '/pages/result/fail?info=' + errMsg,
+        })
+      });
+    }
   }
 })

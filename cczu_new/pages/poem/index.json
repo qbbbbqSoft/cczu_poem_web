@@ -1,4 +1,5 @@
 {
+  "navigationBarBackgroundColor": "#43b0d1",
   "navigationBarTitleText": "ONE WORLD",
   "usingComponents": {
     "wux-cell": "../../utils/wuxui/dist/cell/index"

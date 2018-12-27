@@ -1,4 +1,5 @@
 {
+  "navigationBarBackgroundColor": "#fff",
   "navigationBarTitleText": "签到页",
   "usingComponents": {
     "wux-notice-bar": "../../utils/wuxui/dist/notice-bar/index"

@@ -74,7 +74,7 @@
 <!-- <view class='add_symbol' bindtap='showUserPannel'></view> -->
 
 <view class='projectbox'>
-  <text class='headingtext'>Today</text>
+  <text class='headingtext'>段位和你，我都想上。</text>
   <!--第一部分  -->
   <navigator url='/pages/kf/index?code=0&type=public'>
   <view class='project'>

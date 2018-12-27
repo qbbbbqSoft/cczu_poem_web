@@ -1,4 +1,5 @@
 {
+  "navigationBarBackgroundColor": "#fff",
   "navigationBarTitleText": "签到失败",
   "usingComponents": {
     "wux-result": "../../utils/wuxui/dist/result/index"

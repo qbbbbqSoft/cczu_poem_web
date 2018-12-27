@@ -1,3 +1,4 @@
+<wxs module="dateUtil" src="../../utils/timeUtil.wxs"></wxs>
 <view class="bar topfix">
   <view class='ml-sm' bindtap='showModal' data-modal='listSide'>
     <view class='btn primary sm radius'>
@@ -30,34 +31,42 @@
 </view>
 
 <view class="doc-main" style='margin-top:90rpx' wx:if="{{act == 1}}">
-  <block wx:for="{{50}}">
+  <block wx:for="{{myAct}}" wx:key="{{item.id}}" >
     <view class="goods-list-li">
         <view class='goods-list-main'>
           <!-- <image src='http://image.weilanwl.com/img/4x4.jpg' mode='aspectFill' class='goods-list-img'></image> -->
           <view class='goods-list-text'>
             <view class='goods-list-top'>
-              <view class='text-lg text-truncate' style="width:600rpx">【新品首发】微信小程序前端定制化服务制化服务制化服务制化服务  </view>
-              <view class='gray-text'>签到信息：学号 手机 定位信息 学号 手机 定位信息</view>
+              <view class='text-lg text-truncate' style="width:600rpx">{{item.activityName}}  </view>
+              <view class='gray-text'>签到信息：
+                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,1)}}">姓名 </block>
+                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,2)}}">学号 </block>
+                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,3)}}">班级 </block>
+                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,4)}}">手机 </block>
+                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,5)}}">定位信息 </block>
+                <block wx-if="{{item.keep1 !== null}}">{{item.keep1}} </block>
+                <block wx-if="{{item.keep2 !== null}}">{{item.keep2}} </block>
+              </view>
             </view>
             <view class="article-list-tag">
-              <view class='badge primary round'># 严肃脸严肃脸 #</view>
-              <view class='badge success round'>50人次</view>
+              <view class='badge primary round'># {{item.activityLabel}} #</view>
+              <view class='badge success round'>{{item.count}}人次</view>
             </view>
             <view class='goods-list-foot marginTop'>
-              <text class="iconfont icon-timefill"> 2018-12-10 00:00:00 </text>
+              <text class="iconfont icon-timefill"> {{item.activityDate}} </text>
               <button class='danger btn sm round'> 修改内容
                 <text class='iconfont icon-edit'></text>
               </button>  
             </view>
             <view class='goods-list-foot marginTop'>
-              <text class="iconfont icon-group_fill"> 常州大学数理学院教务处</text>
-              <button class='warning btn sm round' bindtap='onClick2'> 设置状态
+              <text class="iconfont icon-group_fill"> {{item.activityOrganizingPeople}}</text>
+              <button class='warning btn sm round' data-id='{{item.id}}' disabled='{{item.activityStatus == 5 ? true : false}}' bindtap='onClick2'> 设置状态
                 <text class='iconfont icon-writefill'></text>
               </button>  
             </view>
             <view class='goods-list-foot marginTop'>
-              <text class="iconfont icon-locationfill"> 若愚湖畔若愚湖畔若愚湖畔 </text>
-              <navigator url='detail?id="{{item}}"'>
+              <text class="iconfont icon-locationfill"> {{item.activityPlace}} </text>
+              <navigator url='detail?id="{{item.id}}"'>
                 <button class='success btn sm round'> 签到详情
                   <text class='iconfont icon-right'></text>
                 </button>  
@@ -71,9 +80,54 @@
   </block>
 </view>
 
-<view class="doc-main" wx:if="{{act == 2}}">
-  2
-  
+<view class="doc-main" style='margin-top:90rpx' wx:if="{{act == 2}}">
+  <block wx:for="{{myTakePartInAct}}" wx:key="{{item.id}}" >
+    <view class="goods-list-li">
+        <view class='goods-list-main'>
+          <!-- <image src='http://image.weilanwl.com/img/4x4.jpg' mode='aspectFill' class='goods-list-img'></image> -->
+          <view class='goods-list-text'>
+            <view class='goods-list-top'>
+              <view class='text-lg text-truncate' style="width:600rpx">{{item.activityName}}  </view>
+              <view class='gray-text'>签到信息：
+                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,1)}}">姓名 </block>
+                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,2)}}">学号 </block>
+                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,3)}}">班级 </block>
+                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,4)}}">手机 </block>
+                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,5)}}">定位信息 </block>
+                <block wx-if="{{item.keep1 !== null}}">{{item.keep1}} </block>
+                <block wx-if="{{item.keep2 !== null}}">{{item.keep2}} </block>
+              </view>
+            </view>
+            <view class="article-list-tag">
+              <view class='badge primary round'># {{item.activityLabel}} #</view>
+              <view class='badge success round'>{{item.count}}人次</view>
+            </view>
+            <view class='goods-list-foot marginTop'>
+              <text class="iconfont icon-timefill"> {{item.activityDate}} </text>
+              <button class='danger btn sm round'> 修改内容
+                <text class='iconfont icon-edit'></text>
+              </button>  
+            </view>
+            <view class='goods-list-foot marginTop'>
+              <text class="iconfont icon-group_fill"> {{item.activityOrganizingPeople}}</text>
+              <button class='warning btn sm round' data-id='{{item.id}}' disabled='{{item.activityStatus == 5 ? true : false}}' bindtap='onClick2'> 设置状态
+                <text class='iconfont icon-writefill'></text>
+              </button>  
+            </view>
+            <view class='goods-list-foot marginTop'>
+              <text class="iconfont icon-locationfill"> {{item.activityPlace}} </text>
+              <navigator url='detail?id="{{item.id}}"'>
+                <button class='success btn sm round'> 签到详情
+                  <text class='iconfont icon-right'></text>
+                </button>  
+              </navigator>
+            </view>
+          </view>
+        </view>
+      </view>
+ 
+    <wux-divider show-text="{{ false }}" />
+  </block>
 </view>
 
 <view class='side side-list' wx:if="{{modalName=='listSide'}}">

@@ -31,6 +31,15 @@ var getDateDiff = function (dateTimeStamp) {
   return result;
 };//时间戳转化为几天前，几小时前，几分钟前
 
+var queryIsShow = function (value,item) {
+  if (value.indexOf(item) == -1) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
 module.exports = {
-  dateFormat: getDateDiff
+  dateFormat: getDateDiff,
+  queryIsShow: queryIsShow
 };
