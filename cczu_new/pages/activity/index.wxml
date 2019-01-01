@@ -81,6 +81,17 @@
 </view>
 
 <view class="doc-main" style='margin-top:90rpx' wx:if="{{act == 2}}">
+ <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{ activeIndex !== 0 }}">
+                    <wux-prompt visible="{{ activeIndex === 0 }}" title="{{ msg1.title }}" text="{{ msg1.text }}" />
+                </view>
+                <view class="weui-tab__content" hidden="{{ activeIndex !== 1 }}">
+                    <wux-prompt visible="{{ activeIndex === 1 }}" icon="{{ msg2.icon }}" title="{{ msg2.title }}" text="{{ msg2.text }}" buttons="{{ msg2.buttons }}" bind:click="buttonClicked" />
+                </view>
+                <view class="weui-tab__content" hidden="{{ activeIndex !== 2 }}">
+                    <wux-prompt visible="{{ activeIndex === 2 }}" icon="{{ msg3.icon }}" title="{{ msg3.title }}" />
+                </view>
+            </view>
   <block wx:for="{{myTakePartInAct}}" wx:key="{{item.id}}" >
     <view class="goods-list-li">
         <view class='goods-list-main'>

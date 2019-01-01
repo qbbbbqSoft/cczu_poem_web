@@ -2,6 +2,7 @@
   "navigationBarTitleText": "签到工具",
   "usingComponents": {
     "wux-select": "../../utils/wuxui/dist/select/index",
-    "wux-divider": "../../utils/wuxui/dist/divider/index"
+    "wux-divider": "../../utils/wuxui/dist/divider/index",
+    "wux-prompt": "../../utils/wuxui/dist/prompt/index"
   }
 }

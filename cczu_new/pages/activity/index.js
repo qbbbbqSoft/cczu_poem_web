@@ -7,7 +7,14 @@ Page({
     title2: '',
     value2: '',
     myAct: [],
-    myTakePartInAct: []
+    myTakePartInAct: [],
+    msg1: {
+      title: '空空如也',
+      text: '暂时没有相关数据',
+    },
+    activeIndex: 0,
+    sliderOffset: 0,
+    sliderLeft: 0,
   },
   showModal: function (e) {
     var showName = e.currentTarget.dataset.modal;
@@ -24,6 +31,7 @@ Page({
     wx.scanCode({
       onlyFromCamera: true,
       success(res) {
+        console.log(res)
         let path = res.path.replace('login','signup').replace('pages','/pages');
         wx.navigateTo({
           url: path
@@ -47,11 +55,11 @@ Page({
       titleTop,
       act
     })
-    this.closeModal()
+    this.closeModal();
+    let data = {
+      openid: wx.getStorageSync('openid'),
+    };
     if (act == 1) {
-      let data = {
-        openid: wx.getStorageSync('openid'),
-      };
       api.appGet("/cczu/getSysActivityListByOpenid", data).then((res) => {
         console.log(res)
         this.setData({
@@ -60,6 +68,15 @@ Page({
       }).catch((errMsg) => {
         console.log(errMsg); //错误提示信息
       });
+    } else if (act == 2) {
+      api.appGet("/admin/poem/api//queryTakePartInActivityByOpenid",data).then((res) => {
+        console.log(res)
+        this.setData({
+          myTakePartInAct: res
+        })
+      }).catch((errMsg) => {
+        onsole.log(errMsg); //错误提示信息
+      })
     }
   },
   onClick2(e) {

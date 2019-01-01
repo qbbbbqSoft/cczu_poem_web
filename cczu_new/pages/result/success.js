@@ -33,6 +33,6 @@ Page({
 
     index === 1 && wx.redirectTo({
       url: '/pages/poem/index',
-    })()
+    })
   },
 })
