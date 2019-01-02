@@ -5,3 +5,10 @@
   font-size: 22rpx;
   margin-left: 20rpx;
 }
+.max-height {
+  max-height: 165rpx;
+}
+.s-margin {
+  margin-bottom: 5rpx;
+  margin-top: 5rpx;
+}

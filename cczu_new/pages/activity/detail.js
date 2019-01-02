@@ -1,19 +1,39 @@
 import { $wuxSelect } from '../../utils/wuxui/dist/index';
 import { $wuxDialog } from '../../utils/wuxui/dist/index';
+var api = require('../../utils/api.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    act: {},
+    count: 0,
+    signUps: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      console.log(options.id)
+    let idStr = options.id;
+    let idL = parseFloat(idStr)
+    console.log(typeof(idStr))
+      let id = {
+        ID: idL
+      };
+      if (id) {
+        api.appGet("/cczu/getOneActivityDetailByID?ID=" + idStr.replace('"','').replace('"','')).then((res) => {
+          console.log(res)
+          this.setData({
+            act: res.act,
+            count: res.count,
+            signUps: res.signUp
+          })
+        }).catch((errMsg) => {
+          console.log(errMsg); //错误提示信息
+        });
+      }
   },
 
   /**

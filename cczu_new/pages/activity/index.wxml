@@ -12,131 +12,129 @@
 <view class="doc-main" wx:if="{{act == 0}}">
   <view class='animation-slide-top' style='padding-top:25%;animation-delay: 0.3s;'>
     <view class='flex justify-center align-center'>
-    <navigator url='../createnewactivity/index'>
-      <button class='gray btn xl ml-sm iconfont icon-add' style='width:120px;height:120px;margin:0;padding:0;'>
-      </button>
-    </navigator>
+      <navigator url='../createnewactivity/index'>
+        <button class='gray btn xl ml-sm iconfont icon-add' style='width:120px;height:120px;margin:0;padding:0;'>
+        </button>
+      </navigator>
+    </view>
+    <view class="text-center" style='font-size:15px'>发起签到</view>
   </view>
-  <view class="text-center" style='font-size:15px'>发起签到</view>
-  </view>
-  
+
   <view class='animation-slide-bottom' style='padding-top:15%;animation-delay: 0.3s;'>
     <view class='flex justify-center align-center'>
-    <button class='grays btn xl ml-sm iconfont icon-qrcode' style='width:120px;height:120px;' bindtap='scanQrCode'>
-    </button>
+      <button class='grays btn xl ml-sm iconfont icon-qrcode' style='width:120px;height:120px;' bindtap='scanQrCode'>
+      </button>
+    </view>
+    <view class="text-center" style='font-size:15px'>扫码签到</view>
   </view>
-  <view class="text-center" style='font-size:15px'>扫码签到</view>
-  </view>
-  
+
 </view>
 
 <view class="doc-main" style='margin-top:90rpx' wx:if="{{act == 1}}">
-  <block wx:for="{{myAct}}" wx:key="{{item.id}}" >
+  <block wx:for="{{myAct}}" wx:key="{{item.id}}">
     <view class="goods-list-li">
-        <view class='goods-list-main'>
-          <!-- <image src='http://image.weilanwl.com/img/4x4.jpg' mode='aspectFill' class='goods-list-img'></image> -->
-          <view class='goods-list-text'>
-            <view class='goods-list-top'>
-              <view class='text-lg text-truncate' style="width:600rpx">{{item.activityName}}  </view>
-              <view class='gray-text'>签到信息：
-                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,1)}}">姓名 </block>
-                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,2)}}">学号 </block>
-                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,3)}}">班级 </block>
-                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,4)}}">手机 </block>
-                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,5)}}">定位信息 </block>
-                <block wx-if="{{item.keep1 !== null}}">{{item.keep1}} </block>
-                <block wx-if="{{item.keep2 !== null}}">{{item.keep2}} </block>
-              </view>
+      <view class='goods-list-main'>
+        <!-- <image src='http://image.weilanwl.com/img/4x4.jpg' mode='aspectFill' class='goods-list-img'></image> -->
+        <view class='goods-list-text'>
+          <view class='goods-list-top'>
+            <view class='text-lg text-truncate' style="width:600rpx">{{item.activityName}} </view>
+            <view class='gray-text'>签到信息：
+              <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,1)}}">姓名 </block>
+              <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,2)}}">学号 </block>
+              <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,3)}}">班级 </block>
+              <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,4)}}">手机 </block>
+              <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,5)}}">定位信息 </block>
+              <block wx-if="{{item.keep1 !== null}}">{{item.keep1}} </block>
+              <block wx-if="{{item.keep2 !== null}}">{{item.keep2}} </block>
             </view>
-            <view class="article-list-tag">
-              <view class='badge primary round'># {{item.activityLabel}} #</view>
-              <view class='badge success round'>{{item.count}}人次</view>
-            </view>
-            <view class='goods-list-foot marginTop'>
-              <text class="iconfont icon-timefill"> {{item.activityDate}} </text>
-              <button class='danger btn sm round'> 修改内容
-                <text class='iconfont icon-edit'></text>
-              </button>  
-            </view>
-            <view class='goods-list-foot marginTop'>
-              <text class="iconfont icon-group_fill"> {{item.activityOrganizingPeople}}</text>
-              <button class='warning btn sm round' data-id='{{item.id}}' disabled='{{item.activityStatus == 5 ? true : false}}' bindtap='onClick2'> 设置状态
-                <text class='iconfont icon-writefill'></text>
-              </button>  
-            </view>
-            <view class='goods-list-foot marginTop'>
-              <text class="iconfont icon-locationfill"> {{item.activityPlace}} </text>
-              <navigator url='detail?id="{{item.id}}"'>
-                <button class='success btn sm round'> 签到详情
-                  <text class='iconfont icon-right'></text>
-                </button>  
-              </navigator>
-            </view>
+          </view>
+          <view class="article-list-tag">
+            <view class='badge primary round'># {{item.activityLabel}} #</view>
+            <view class='badge success round'>{{item.count}}人次</view>
+          </view>
+          <view class='goods-list-foot marginTop'>
+            <text class="iconfont icon-timefill"> {{item.activityDate}} </text>
+            <button class='danger btn sm round'> 修改内容
+              <text class='iconfont icon-edit'></text>
+            </button>
+          </view>
+          <view class='goods-list-foot marginTop'>
+            <text class="iconfont icon-group_fill"> {{item.activityOrganizingPeople}}</text>
+            <button class='warning btn sm round' data-id='{{item.id}}' disabled='{{item.activityStatus == 5 ? true : false}}' bindtap='onClick2'> 设置状态
+              <text class='iconfont icon-writefill'></text>
+            </button>
+          </view>
+          <view class='goods-list-foot marginTop'>
+            <text class="iconfont icon-locationfill"> {{item.activityPlace}} </text>
+            <navigator url='detail?id="{{item.id}}"'>
+              <button class='success btn sm round'> 签到详情
+                <text class='iconfont icon-right'></text>
+              </button>
+            </navigator>
           </view>
         </view>
       </view>
- 
+    </view>
+
     <wux-divider show-text="{{ false }}" />
   </block>
 </view>
 
 <view class="doc-main" style='margin-top:90rpx' wx:if="{{act == 2}}">
- <view class="weui-tab__panel">
-                <view class="weui-tab__content" hidden="{{ activeIndex !== 0 }}">
-                    <wux-prompt visible="{{ activeIndex === 0 }}" title="{{ msg1.title }}" text="{{ msg1.text }}" />
-                </view>
-                <view class="weui-tab__content" hidden="{{ activeIndex !== 1 }}">
-                    <wux-prompt visible="{{ activeIndex === 1 }}" icon="{{ msg2.icon }}" title="{{ msg2.title }}" text="{{ msg2.text }}" buttons="{{ msg2.buttons }}" bind:click="buttonClicked" />
-                </view>
-                <view class="weui-tab__content" hidden="{{ activeIndex !== 2 }}">
-                    <wux-prompt visible="{{ activeIndex === 2 }}" icon="{{ msg3.icon }}" title="{{ msg3.title }}" />
-                </view>
-            </view>
-  <block wx:for="{{myTakePartInAct}}" wx:key="{{item.id}}" >
+  <view class="weui-tab__panel" wx:if="{{myTakePartInAct.length != 0? false:true}}">
+    <view class="weui-tab__content">
+      <wux-prompt title="{{ msg1.title }}" text="{{ msg1.text }}" />
+    </view>
+  </view>
+  <block wx:for="{{myTakePartInAct}}" wx:key="{{item.id}}">
     <view class="goods-list-li">
-        <view class='goods-list-main'>
-          <!-- <image src='http://image.weilanwl.com/img/4x4.jpg' mode='aspectFill' class='goods-list-img'></image> -->
-          <view class='goods-list-text'>
-            <view class='goods-list-top'>
-              <view class='text-lg text-truncate' style="width:600rpx">{{item.activityName}}  </view>
-              <view class='gray-text'>签到信息：
-                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,1)}}">姓名 </block>
-                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,2)}}">学号 </block>
-                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,3)}}">班级 </block>
-                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,4)}}">手机 </block>
-                <block wx-if="{{dateUtil.queryIsShow(item.activityConfiguration,5)}}">定位信息 </block>
-                <block wx-if="{{item.keep1 !== null}}">{{item.keep1}} </block>
-                <block wx-if="{{item.keep2 !== null}}">{{item.keep2}} </block>
-              </view>
+      <view class='goods-list-main'>
+        <!-- <image src='http://image.weilanwl.com/img/4x4.jpg' mode='aspectFill' class='goods-list-img'></image> -->
+        <view class='goods-list-text'>
+          <view class='goods-list-top'>
+            <view class='text-lg text-truncate' style="width:600rpx">{{item.activityname}} </view>
+            <view class='gray-text'>签到信息：
+              <block wx-if="{{dateUtil.queryIsShow(item.activityconfiguration,1)}}">姓名 {{item.name == null ? '' : ':' + item.name + '; '}}</block>
+              <block wx-if="{{dateUtil.queryIsShow(item.activityconfiguration,2)}}">学号 {{item.stunum == null ? '' : ':' + item.stunum  + '; '}}</block>
+              <block wx-if="{{dateUtil.queryIsShow(item.activityconfiguration,3)}}">班级 {{item.classname == null ? '' : ':' + item.classname  + '; '}}</block>
+              <block wx-if="{{dateUtil.queryIsShow(item.activityconfiguration,4)}}">手机 {{item.phone == null ? '' : ':' + item.phone  + '; '}}</block>
+              <block wx-if="{{dateUtil.queryIsShow(item.activityconfiguration,5)}}">定位信息 {{item.signaddress == null ? '' : ':' + item.signaddress  + '; '}}</block>
+              <block wx-if="{{item.keep1 !== null}}">{{item.keep1}} {{item.signupkeep1 == null ? '' : ':' + item.signupkeep1  + '; '}}</block>
+              <block wx-if="{{item.keep2 !== null}}">{{item.keep2}} {{item.signupkeep2 == null ? '' : ':' + item.signupkeep2  + '; '}}</block>
             </view>
-            <view class="article-list-tag">
-              <view class='badge primary round'># {{item.activityLabel}} #</view>
-              <view class='badge success round'>{{item.count}}人次</view>
-            </view>
-            <view class='goods-list-foot marginTop'>
-              <text class="iconfont icon-timefill"> {{item.activityDate}} </text>
-              <button class='danger btn sm round'> 修改内容
-                <text class='iconfont icon-edit'></text>
-              </button>  
-            </view>
-            <view class='goods-list-foot marginTop'>
-              <text class="iconfont icon-group_fill"> {{item.activityOrganizingPeople}}</text>
-              <button class='warning btn sm round' data-id='{{item.id}}' disabled='{{item.activityStatus == 5 ? true : false}}' bindtap='onClick2'> 设置状态
-                <text class='iconfont icon-writefill'></text>
-              </button>  
-            </view>
-            <view class='goods-list-foot marginTop'>
-              <text class="iconfont icon-locationfill"> {{item.activityPlace}} </text>
-              <navigator url='detail?id="{{item.id}}"'>
-                <button class='success btn sm round'> 签到详情
-                  <text class='iconfont icon-right'></text>
-                </button>  
-              </navigator>
-            </view>
+          </view>
+          <view class="article-list-tag">
+            <view class='badge primary round'># {{item.activitylabel}} #</view>
+            <view class='badge success round'>{{item.count}}人次</view>
+          </view>
+          <view class='goods-list-foot marginTop'>
+            <text class="iconfont icon-timefill"> {{item.activitydate}} </text>
+            <!-- <button class='danger btn sm round'> 修改内容
+              <text class='iconfont icon-edit'></text>
+            </button> -->
+          </view>
+          <view class='goods-list-foot marginTop'>
+            <text class="iconfont icon-group_fill"> {{item.activityorganizingpeople}}</text>
+            <!-- <button class='warning btn sm round' data-id='{{item.id}}' disabled='{{item.activityStatus == 5 ? true : false}}' bindtap='onClick2'> 设置状态
+              <text class='iconfont icon-writefill'></text>
+            </button> -->
+          </view>
+          <view class='goods-list-foot marginTop'>
+            <text class="iconfont icon-locationfill"> {{item.activityplace}} </text>
+            <!-- <navigator url='detail?id="{{item.id}}"'>
+              <button class='success btn sm round'> 签到详情
+                <text class='iconfont icon-right'></text>
+              </button>
+            </navigator> -->
+          </view>
+          <view class='goods-list-foot marginTop'>
+            <text class="iconfont icon-timefill primary-text"> {{item.signDate == null ? '签到时间：无': '签到时间：' + item.signDate}} </text>
+            <text class="iconfont icon-timefill primary-text"> {{item.leaveDate == null ? '签退时间：无': '签退时间：' + item.leaveDate}} </text>
           </view>
         </view>
       </view>
- 
+    </view>
+
     <wux-divider show-text="{{ false }}" />
   </block>
 </view>

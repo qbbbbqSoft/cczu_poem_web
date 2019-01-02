@@ -1,67 +1,92 @@
+<wxs module="dateUtil" src="../../utils/timeUtil.wxs"></wxs>
 <view class="goods-list-li">
   <view class='goods-list-main'>
-  <view style='display:flex;flex-direction:column;'>
-    <view style='display:flex'><image src='https://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/1544170663617.png' mode='aspectFill' class='goods-list-img'></image></view>
-    <view style='display:flex'><image src='http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_poem/1541603359426.jpg' mode='aspectFill' class='goods-list-img'></image></view>
-    <view style='display:flex'> <navigator url='../downfile/index'> <button class='success btn sm round'>生成宣传海报<text class='iconfont icon-link'></text></button></navigator></view>
-    
-  </view>
-    
+    <view style='display:flex;flex-direction:column;'>
+      <view style='display:flex'>
+        <image src='{{act.activityQrCodeUrl}}' mode='aspectFill' class='goods-list-img'></image>
+      </view>
+      <view style='display:flex'>
+        <image src='{{act.activityBackgroundPic}}' mode='aspectFill' class='goods-list-img'></image>
+      </view>
+      <view style='display:flex'>
+        <navigator url='../downfile/index'>
+          <button class='success btn sm round'>生成宣传海报
+            <text class='iconfont icon-link'></text>
+          </button>
+        </navigator>
+      </view>
+
+    </view>
+
     <view class='goods-list-text'>
       <view class='goods-list-top'>
-        <view class='text-lg'>【新品首发】微信小程序前端定制化服务 </view>
-        <view class='gray-text'>ColorUi规范 精简 高效</view>
+        <view class='text-lg'>{{act.activityName}} </view>
+        <view class='gray-text'>签到信息：
+          <block wx-if="{{dateUtil.queryIsShow(act.activityConfiguration,1)}}">姓名 </block>
+          <block wx-if="{{dateUtil.queryIsShow(act.activityConfiguration,2)}}">学号 </block>
+          <block wx-if="{{dateUtil.queryIsShow(act.activityConfiguration,3)}}">班级 </block>
+          <block wx-if="{{dateUtil.queryIsShow(act.activityConfiguration,4)}}">手机 </block>
+          <block wx-if="{{dateUtil.queryIsShow(act.activityConfiguration,5)}}">定位信息 </block>
+          <block wx-if="{{act.keep1 !== null}}">{{act.keep1}} </block>
+          <block wx-if="{{act.keep2 !== null}}">{{act.keep2}} </block>
+        </view>
       </view>
       <view class="article-list-tag">
-        <view class='badge primary round'># 严肃脸严肃脸 #</view>
-        <view class='badge success round'># 严肃脸严肃脸 #</view>
+        <view class='badge primary round'># {{act.activityLabel}} #</view>
+        <view class='badge success round'># {{act.count}} #</view>
       </view>
       <view class='goods-list-foot'>
-       <text class="iconfont icon-timefill"> 2018-12-10 00:00:00 </text>
+        <text class="iconfont icon-timefill"> {{act.activityDate}} </text>
       </view>
       <view class='goods-list-foot'>
-       <text class="iconfont icon-group_fill"> 常州大学数理学院教务处</text>
+        <text class="iconfont icon-group_fill"> {{act.activityOrganizingPeople}}</text>
       </view>
       <view class='goods-list-foot'>
-        <text class="iconfont icon-locationfill"> 若愚湖畔若愚湖畔若愚湖畔 </text>
+        <text class="iconfont icon-locationfill"> {{act.activityPlace}} </text>
       </view>
     </view>
   </view>
 </view>
 
 <view class='page' style='margin-bottom:100rpx;'>
-<!-- <wux-notice-bar wux-class="notice-bar" icon="http://pbqg2m54r.bkt.clouddn.com/logo.png" content="微信小程序自定义组件 https://github.com/wux-weapp/wux-weapp" /> -->
-<wux-divider>
-  <view class="loadmore">
-      <text class="text">签到详情(500人已经签到)</text>
-  </view>
-</wux-divider>
-<block wx:for="{{200}}">
-  <view class='list-box'>
-    <view class="list-li">
-      <view class='list-tx'>
-        <view class='list-tx-img'>
-          <image src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIBsGc8oiajg9clvjbBd4HPaHK5PIRmVsyON43fkRuJJkzMvqnAzkXAciaibcUeuW5JqjtMIk4dHWmXw/132"></image>
-        </view>
-        <view style='display:flex;flex-direction:column'>
-          <view class='text-truncate info-font' style="width:350rpx"> 范启斌</view>
-          <view class='text-truncate info-font' style="width:350rpx"> 1595173132</view>
-          <view class='text-truncate info-font' style="width:350rpx"> 安徽省霍邱县长集镇钱店村</view>
-          <view class='text-truncate info-font' style="width:350rpx"> 安徽省霍邱县长集镇钱店村</view>
-        </view>
-        
-      </view>
-      <text class='date-font'> 2018-12-10 00:00:00 </text>
+  <!-- <wux-notice-bar wux-class="notice-bar" icon="http://pbqg2m54r.bkt.clouddn.com/logo.png" content="微信小程序自定义组件 https://github.com/wux-weapp/wux-weapp" /> -->
+  <wux-divider>
+    <view class="loadmore" style='margin-bottom:30rpx;'>
+      <text class="text">签到详情({{count}}人已经签到)</text>
     </view>
-  </view>
-  <wux-divider show-text="{{ false }}" />
-</block>
+  </wux-divider>
+  <block wx:for="{{signUps}}" wx:key="{{item.id}}">
+    <view class='list-box'>
+      <view class="list-li">
+        <view class='list-tx'>
+          <view class='list-tx-img'>
+            <image src="{{item.wxheadimageurl}}"></image>
+          </view>
+          <view style='display:flex;flex-direction:column' class='max-height'>
+            <view class='text-truncate info-font' style="width:350rpx" wx:if="{{dateUtil.queryIsShow(act.activityConfiguration,1)}}"> {{item.name}}</view>
+            <view class='text-truncate info-font' style="width:350rpx" wx:else> {{item.wxusername}}</view>
+            <view class='text-truncate info-font' style="width:350rpx" wx-if="{{dateUtil.queryIsShow(act.activityConfiguration,2)}}"> {{item.stunum}}</view>
+            <view class='text-truncate info-font' style="width:350rpx" wx-if="{{dateUtil.queryIsShow(act.activityConfiguration,3)}}"> {{item.classname}}</view>
+            <view class='text-truncate info-font' style="width:350rpx" wx-if="{{dateUtil.queryIsShow(act.activityConfiguration,4)}}"> {{item.phone}}</view>
+            <view class='text-truncate info-font' style="width:350rpx" wx-if="{{dateUtil.queryIsShow(act.activityConfiguration,5)}}"> {{item.signaddress}}</view>
+            <view class='text-truncate info-font' style="width:350rpx" wx-if="{{act.keep1 !== ''}}"> {{act.keep1}}: {{item.keep1}}</view>
+            <view class='text-truncate info-font' style="width:350rpx" wx-if="{{act.keep2 !== ''}}"> {{act.keep2}}: {{item.keep2}}</view>
+          </view>
+
+        </view>
+        <text class='date-font primary-text'>签到时间： {{item.signdate}} </text>
+        <text class='date-font'>签退时间： {{item.leavedate == null ? '无' : item.leavedate}} </text>
+      </view>
+    </view>
+    <wux-divider show-text="{{ false }}" />
+    <view class='s-margin'></view>
+  </block>
 </view>
 <view class="bar bottomfix shadow bar-textarea">
   <input focus='{{focusFlag}}' class='flex-sub solid-bottom ml-sm' placeholder='输入邮箱发送活动详情或签到详情到指定邮箱' maxlength="300" cursor-spacing="10" bindinput='eMailInput'></input>
- 
+
   <button class='success btn mh-sm round' bindtap="onClick3">发送</button>
-   <!-- <wux-cell title="爱好" extra="{{ title3 }}" bind:click="onClick3"></wux-cell> -->
+  <!-- <wux-cell title="爱好" extra="{{ title3 }}" bind:click="onClick3"></wux-cell> -->
 </view>
 <wux-select id="wux-select3" />
 <wux-dialog id="wux-dialog" />

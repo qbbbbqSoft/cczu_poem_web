@@ -13,7 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let activityID = options.scene
+    let activityID = '1546419017403'
     let _this = this;
     _this.setData({
       activityID
@@ -179,7 +179,7 @@ Page({
         keep1: e.detail.value.keep1,
         keep2: e.detail.value.keep2
       }
-      api.appPost("http://localhost:9900/cczu/signUp", data).then((res) => {
+      api.appPost("https://www.bbqbb.top/cczu/signUp", data).then((res) => {
         console.log(res)
         wx.redirectTo({
           url: '/pages/result/success?info=' + res,
