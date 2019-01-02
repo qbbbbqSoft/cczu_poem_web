@@ -9,7 +9,7 @@
         <image src='{{act.activityBackgroundPic}}' mode='aspectFill' class='goods-list-img'></image>
       </view>
       <view style='display:flex'>
-        <navigator url='../downfile/index'>
+        <navigator url='../downfile/index?activityID={{act.activityID}}'>
           <button class='success btn sm round'>生成宣传海报
             <text class='iconfont icon-link'></text>
           </button>
@@ -33,7 +33,7 @@
       </view>
       <view class="article-list-tag">
         <view class='badge primary round'># {{act.activityLabel}} #</view>
-        <view class='badge success round'># {{act.count}} #</view>
+        <view class='badge success round'>{{act.count}}人次</view>
       </view>
       <view class='goods-list-foot'>
         <text class="iconfont icon-timefill"> {{act.activityDate}} </text>

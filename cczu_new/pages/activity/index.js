@@ -2,7 +2,7 @@ import { $wuxSelect } from '../../utils/wuxui/dist/index';
 var api = require('../../utils/api.js')
 Page({
   data: {
-    title: ["扫码签到","我发起的签到","我参与的签到"],
+    title: ["扫码签到", "我发起的签到", "我参与的签到"],
     act: 0,
     title2: '',
     value2: '',
@@ -27,19 +27,19 @@ Page({
       modalName: null
     })
   },
-  scanQrCode: function() {
+  scanQrCode: function () {
     wx.scanCode({
       onlyFromCamera: true,
       success(res) {
         console.log(res)
-        let path = res.path.replace('login','signup').replace('pages','/pages');
+        let path = res.path.replace('login', 'signup').replace('pages', '/pages');
         wx.navigateTo({
           url: path
         })
       }
     })
   },
-  onLoad: function(query) {
+  onLoad: function (query) {
     // var scene = decodeURIComponent('sdasd')
     // console.log(scene)
     let titleTop = this.data.title[this.data.act];
@@ -47,7 +47,7 @@ Page({
       titleTop
     })
   },
-  clickTab: function(e ){
+  clickTab: function (e) {
     console.log(e.currentTarget.dataset.type)
     let act = e.currentTarget.dataset.type;
     let titleTop = this.data.title[act];
@@ -69,7 +69,7 @@ Page({
         console.log(errMsg); //错误提示信息
       });
     } else if (act == 2) {
-      api.appGet("/admin/poem/api//queryTakePartInActivityByOpenid",data).then((res) => {
+      api.appGet("/admin/poem/api//queryTakePartInActivityByOpenid", data).then((res) => {
         console.log(res)
         this.setData({
           myTakePartInAct: res
@@ -110,6 +110,28 @@ Page({
           this.setData({
             value2: value,
             title2: options[index].title,
+          })
+          let data = {
+            ID: e.target.dataset.id,
+            status: value
+          }
+          api.appGet('/cczu/setActivityStatusByID', data).then((res) => {
+            wx.showToast({
+              title: '设置成功！',
+            })
+            let data = {
+              openid: wx.getStorageSync('openid'),
+            };
+            api.appGet("/cczu/getSysActivityListByOpenid", data).then((res) => {
+              console.log(res)
+              this.setData({
+                myAct: res
+              })
+            })
+          }).catch((errMsg) => {
+            wx.showToast({
+              title: '设置失败',
+            })
           })
         }
       },

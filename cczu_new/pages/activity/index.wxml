@@ -54,9 +54,15 @@
           </view>
           <view class='goods-list-foot marginTop'>
             <text class="iconfont icon-timefill"> {{item.activityDate}} </text>
-            <button class='danger btn sm round'> 修改内容
-              <text class='iconfont icon-edit'></text>
-            </button>
+            <text class='primary-text'> 
+            <block wx:if="{{item.activityStatus == 0}}">创建成功</block>
+            <block wx:if="{{item.activityStatus == 1}}">开始签到</block>
+            <block wx:if="{{item.activityStatus == 2}}">活动进行中</block>
+            <block wx:if="{{item.activityStatus == 3}}">开始签退</block>
+            <block wx:if="{{item.activityStatus == 4}}">签退结束</block>
+            <block wx:if="{{item.activityStatus == 5}}">活动结束</block>
+              <!-- <text class='iconfont icon-edit'></text> -->
+            </text>
           </view>
           <view class='goods-list-foot marginTop'>
             <text class="iconfont icon-group_fill"> {{item.activityOrganizingPeople}}</text>

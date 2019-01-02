@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+var api = require('../../utils/api.js')
 Page({
   data: {
     cardInfo: {
@@ -15,8 +15,31 @@ Page({
     }
   },
 
-  onLoad: function() {
-    this.getAvaterInfo();
+  onLoad: function(options) {
+    let activityID = options.activityID;
+    console.log(activityID)
+    if (activityID) {
+      api.appGet("/cczu/getOneSysActivityByActivityID?activityID=" + activityID).then((res) => {
+        console.log(res)
+        let tmp = {
+          avater: res.activityBackgroundPic,
+          qrCode: res.activityQrCodeUrl,
+          TagText: '#' + res.activityLabel + '..#',
+          Name: res.activityName,
+          Position: res.activityPlace,
+          Mobile: res.activityDate,
+          Company: res.activityOrganizingPeople
+        }
+        this.setData({
+          cardInfo: tmp
+        })
+      }).then(() =>{
+        this.getAvaterInfo();
+      }).catch((errMsg) => {
+        console.log(errMsg); //错误提示信息
+      });
+    }
+    // this.getAvaterInfo();
   },
 
   /**

@@ -78,7 +78,7 @@
   <!--第一部分  -->
   <navigator url='/pages/kf/index?code=0&type=public'>
   <view class='project'>
-      <image class='headimage' src='http://img.zcool.cn/community/01ca005b02587ba801218cf4fe698a.gif'></image>
+      <image class='headimage' src='https://bbqbb.oss-cn-beijing.aliyuncs.com/root/1.gif'></image>
       <view class='projecttext'>
         <text class='biaoti'>OW_public</text>
         <text class='jianjie'>一句话，一张图的魅力，就在于你倾注了多少感情。</text>
@@ -93,7 +93,7 @@
 <navigator url='/pages/privatestart/index'>
   <view class='project'>
     
-    <image class='headimage' src='http://img.zcool.cn/community/0130175b0259daa801209a85281b8a.gif'></image>
+    <image class='headimage' src='https://bbqbb.oss-cn-beijing.aliyuncs.com/root/2.gif'></image>
     <view class='projecttext'>
       <text class='biaoti'>OW_private</text>
       <text class='jianjie'>写在这里的，是不希望你看见的，也是希望你看见的。</text>
@@ -108,7 +108,7 @@
   <navigator url='/pages/suggestion/index'>
   <view class='project'>
   
-    <image class='headimage' src='http://img.zcool.cn/community/0110005b025a18a801218cf420ede5.gif'></image>
+    <image class='headimage' src='https://bbqbb.oss-cn-beijing.aliyuncs.com/root/3.gif'></image>
     <view class='projecttext'>
       <text class='biaoti'>优化建议</text>
       <text class='jianjie'>要学蜜蜂采百花，问遍百家成行家。</text>
@@ -120,8 +120,23 @@
   </view></navigator>
 
   <!--第四部分  -->
-
+<navigator url='/pages/appreciate/index'>
   <view class='project'>
+  
+    <image class='headimage' src='https://bbqbb.oss-cn-beijing.aliyuncs.com/root/4.gif'></image>
+    <view class='projecttext'>
+      <text class='biaoti'>赞赏作者</text>
+      <text class='jianjie'>没有热忱，世间便无进步。</text>
+      <text class='field'>直道相思了无益，未妨惆怅是清狂</text>
+    </view>
+
+    <view class='openpush'></view>
+    
+  </view></navigator>
+
+
+  <!--旧第四部分  -->
+  <!-- <view class='project'>
   
     <image class='headimage' src='http://img.zcool.cn/community/0108625b025a04a801218cf4270881.gif'></image>
     <view class='projecttext'>
@@ -136,7 +151,7 @@
         </button>
         <view class='openpush'>
     </view>
-  </view>
+  </view> -->
 
 
 

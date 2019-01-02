@@ -36,7 +36,7 @@ Page({
   //跳转详情页
   gotoDetail: function() {
     wx.navigateTo({
-      url: '/pages/pageopen/pageopen',
+      url: '/pages/kf/index?code=0&type=public',
     })
   }
 })

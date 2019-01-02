@@ -13,7 +13,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let activityID = '1546419017403'
+    // let activityID = options.scene
+    let activityID = '1546419017403';
     let _this = this;
     _this.setData({
       activityID
@@ -23,16 +24,34 @@ Page({
     };
     api.appGet("/cczu/getOneSysActivityByActivityID", data).then((res) => {
       console.log(res)
-      _this.setData({
-        keep1: res.keep1,
-        keep2: res.keep2,
-        name: res.activityConfiguration.indexOf(1) !== -1,
-        stuNum: res.activityConfiguration.indexOf(2) !== -1,
-        classNum: res.activityConfiguration.indexOf(3) !== -1,
-        phone: res.activityConfiguration.indexOf(4) !== -1,
-        locationInfo: res.activityConfiguration.indexOf(5) !== -1,
-        entity: res
-      })
+      if (res.activityStatus == 1) {
+        _this.setData({
+          keep1: res.keep1,
+          keep2: res.keep2,
+          name: res.activityConfiguration.indexOf(1) !== -1,
+          stuNum: res.activityConfiguration.indexOf(2) !== -1,
+          classNum: res.activityConfiguration.indexOf(3) !== -1,
+          phone: res.activityConfiguration.indexOf(4) !== -1,
+          locationInfo: res.activityConfiguration.indexOf(5) !== -1,
+          entity: res
+        })
+      } else {
+        let data = {
+          openid: wx.getStorageSync('openid'),
+          activityID: this.data.activityID
+        }
+        api.appPost("https://www.bbqbb.top/cczu/signUp", data).then((res) => {
+          console.log(res)
+          wx.redirectTo({
+            url: '/pages/result/success?info=' + res,
+          })
+        }).catch((errMsg) => {
+          console.log(errMsg); //错误提示信息
+          wx.navigateTo({
+            url: '/pages/result/fail?info=' + errMsg,
+          })
+        });
+      }
     }).catch((errMsg) => {
       console.log(errMsg); //错误提示信息
     });

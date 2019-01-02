@@ -1,0 +1,12 @@
+<view class="page__hd">
+  <image class="weui-media-box__thumb" src="/images/core/appreciate_fill_light.png" />
+  <view class="page__title">赞赏作者</view>
+  <view class="page__desc">点击图片，长按识别，赞赏作者。感谢你的慷慨，我会把软件做的更好！</view>
+</view>
+<view class="page__bd">
+  <image style="width:100%" mode="widthFix" src="https://bbqbb.oss-cn-beijing.aliyuncs.com/root/appreciate.png"
+  bindtap='biggerImg' data-url="https://bbqbb.oss-cn-beijing.aliyuncs.com/root/appreciate.png"></image>
+</view>
+<view class="button-sp-area">
+  <button open-type="share" class="weui-btn" type="primary" plain="true">分享赞赏码</button>
+</view>
