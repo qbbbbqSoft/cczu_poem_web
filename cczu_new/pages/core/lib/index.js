@@ -168,8 +168,8 @@ Page({
    */
   onShareAppMessage: function() {
     return {
-      title: '图书馆藏',
-      desc: '「文经课表」提供烟台大学文经学院在校生班级与教师课表和空闲教室、图书馆藏及考试安排等查询服务。',
+      title: '期末查询',
+      desc: '「常大课表+」期末一站式查询服务。',
       path: '/pages/core/lib/index'
     }
   },

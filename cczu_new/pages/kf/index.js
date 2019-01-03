@@ -364,7 +364,7 @@ Page({
           })
           wx.setStorageSync('zanTitle', cookie_mid);
           wx.showToast({
-            title: "取消怜惜!",
+            title: "取消赞!",
             icon: 'none'
           })
           //console.log("前端取消点赞"+isshow)
@@ -379,7 +379,7 @@ Page({
           cookie_mid.unshift(item_id);//新增赞的mid
           wx.setStorageSync('zanTitle', cookie_mid);
           wx.showToast({
-            title: "怜惜成功!",
+            title: "点赞成功!",
             icon: 'none'
           })
           //console.log("前端点赞成功" + isshow)
@@ -427,7 +427,7 @@ Page({
           })
           wx.setStorageSync('caiTitle', cookie_mid);
           wx.showToast({
-            title: "取消哈哈攻击!",
+            title: "取消闪电!",
             icon: 'none'
           })
           //console.log("前端取消点赞"+isshow)
@@ -442,7 +442,7 @@ Page({
           cookie_mid.unshift(item_id);//新增赞的mid
           wx.setStorageSync('caiTitle', cookie_mid);
           wx.showToast({
-            title: "哈哈攻击成功!",
+            title: "闪电攻击成功!",
             icon: 'none'
           })
           //console.log("前端点赞成功" + isshow)

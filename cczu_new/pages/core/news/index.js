@@ -29,7 +29,7 @@ Page({
         let newsData = res.data
         if (newsData.status == '1') {
           wx.showModal({
-            content: '获取文经新闻失败',
+            content: '获取新闻失败',
             showCancel: false,
             complete: function () {
               wx.navigateBack({
