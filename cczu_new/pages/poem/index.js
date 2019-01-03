@@ -6,11 +6,7 @@ Page({
   data: {
     userInfo: wx.getStorageSync(app.globalData.userInfoKey),
     hasUserInfo: app.globalData.hasUserInfo,
-    imgUrls: [
-      'http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/fm1.jpg',
-      'http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/fm2.jpg',
-      'http://bbqbb.oss-cn-beijing.aliyuncs.com/cczu_file/fm3.jpg'
-    ],
+    imgUrls: [],
     indicatorDots: false,
     autoplay: true,
     interval: 5000,
@@ -18,6 +14,17 @@ Page({
     isShowUserPannel:false, //是否显示个人中心面板
   },
   onLoad: function () {
+    let _this = this;
+    wx.request({
+      url: 'https://www.bbqbb.top/cczu/poemIndex',
+      success: function(res) {
+        console.log(res)
+        _this.setData({
+          imgUrls: res.data.imgUrls,
+          word: res.data.word
+        })
+      }
+    })
     this.setData({
       userInfo: app.getUserinfo()
     })

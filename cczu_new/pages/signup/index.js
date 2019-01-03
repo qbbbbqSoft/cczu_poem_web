@@ -13,8 +13,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // let activityID = options.scene
-    let activityID = '1546419017403';
+    let activityID = options.scene
+    // let activityID = '1545874989282';
     let _this = this;
     _this.setData({
       activityID

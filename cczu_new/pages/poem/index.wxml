@@ -4,8 +4,8 @@
 </view>
 <!--特别推荐轮播图  -->
 <view class='body'>
-  <!-- <text class='title0'>特别推荐</text> -->
-  <!-- <text class='title2'>打不过我吧，哈哈哈哈哈哈</text> -->
+  <!-- <text class='title0'>特别推荐</text>
+  <text class='title2'>打不过我吧，哈哈哈哈哈哈</text> -->
   <swiper class='imgsilder' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" indicator-active-color="#FFD92E" indicator-color="#E8F0F1" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}" wx:key="index">
       <swiper-item>
@@ -74,7 +74,7 @@
 <!-- <view class='add_symbol' bindtap='showUserPannel'></view> -->
 
 <view class='projectbox'>
-  <text class='headingtext'>段位和你，我都想上。</text>
+  <text class='headingtext'>{{word}}</text>
   <!--第一部分  -->
   <navigator url='/pages/kf/index?code=0&type=public'>
   <view class='project'>

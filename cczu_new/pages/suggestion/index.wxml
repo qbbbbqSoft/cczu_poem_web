@@ -12,7 +12,7 @@
 					<view class="input-item">
 						<text class="input-item-label">eMail</text>
 						<view class="input-item-content">
-							<input placeholder="请输入您的eMail" maxlength="11" bindinput="inputEMail"></input>
+							<input placeholder="请输入您的eMail" maxlength="30" bindinput="inputEMail"></input>
 						</view>
 					</view>
 				</view>

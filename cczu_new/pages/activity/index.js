@@ -1,9 +1,11 @@
 import { $wuxSelect } from '../../utils/wuxui/dist/index';
 var api = require('../../utils/api.js')
+const app = getApp()
 Page({
   data: {
     title: ["扫码签到", "我发起的签到", "我参与的签到"],
     act: 0,
+    userinfo: app.globalData.userInfo,
     title2: '',
     value2: '',
     myAct: [],
@@ -32,7 +34,7 @@ Page({
       onlyFromCamera: true,
       success(res) {
         console.log(res)
-        let path = res.path.replace('login', 'signup').replace('pages', '/pages');
+        let path = res.path.replace('pages', '/pages');
         wx.navigateTo({
           url: path
         })
@@ -41,7 +43,7 @@ Page({
   },
   onLoad: function (query) {
     // var scene = decodeURIComponent('sdasd')
-    // console.log(scene)
+    console.log(this.data.userinfo)
     let titleTop = this.data.title[this.data.act];
     this.setData({
       titleTop

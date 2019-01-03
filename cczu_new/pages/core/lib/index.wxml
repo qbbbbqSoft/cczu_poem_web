@@ -1,6 +1,6 @@
 <view class="page__hd">
   <image class="weui-media-box__thumb" src="/images/core/lib.png" />
-  <view class="page__title">刷卡查询</view>
+  <view class="page__title">期末查询</view>
   <view class="page__desc">查询本学期的有效刷卡次数</view>
    <view class="weui-panel border-shadow">
     <view class="weui-panel__bd">
@@ -52,6 +52,41 @@
                 <wux-card title="{{item.stuName}}" extra="学号：{{item.stuNum}}">
                     <view slot="body">讲座题目：{{item.lectureName}}</view>
                     <view slot="footer">学期：{{item.term}}</view>
+                </wux-card>
+              </wux-wing-blank>
+            </block>
+        </view>
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+        <view class="weui-cells">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">学号</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="例如：18000000"  bindinput="scoreStuNumInput" />
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">密码</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" password='{{true}}' placeholder="例如：111111"  bindinput="scorePasswordInput" />
+              </view>
+            </view>
+          <view class="button-sp-area">
+            <button bindtap="getScore" class="weui-btn" type="primary" plain="true">查询</button>
+          </view>
+          <block wx:for="{{scoreList}}" wx:key="*this">
+            <!-- <view class="sub-title">学期：{{item.term}}</view> -->
+              <wux-wing-blank size="default">
+                <wux-card title="{{item.courseName}}" extra="成绩：{{item.grade}}">
+                    <view slot="body">学期：{{item.term}}</view>
+                    <view slot="body">考试性质：{{item.examType}}</view>
+                    <view slot="body">学分：{{item.credit}}</view>
+                    <view slot="body">绩点：{{item.aPoint}}</view>
+                    <view slot="footer">类别：{{item.type}}</view>
                 </wux-card>
               </wux-wing-blank>
             </block>

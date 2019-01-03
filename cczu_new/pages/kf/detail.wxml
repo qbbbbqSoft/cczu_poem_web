@@ -15,7 +15,7 @@
       <view style="height:12rpx;background-color:#eaeaea"></view>
     </scroll-view>
 <!-- <button type='primary'>我也说一句</button> -->
-<button style='width:98%;margin:10rpx;' class='round bg-blue shadow' bindtap=''>生成图片并分享</button>
+<button style='width:98%;margin:10rpx;' class='round bg-blue shadow' bindtap=''>生成图片并分享(开发中)</button>
 <button style='width:98%;margin:10rpx;' class='round bg-blue shadow' bindtap='commit'>我也说一句</button>
    <scroll-view class="scrollview" scroll-y="true">
     <!-- <view class="containt hotcomment" hidden="{{hotcomemnt_hidden}}">

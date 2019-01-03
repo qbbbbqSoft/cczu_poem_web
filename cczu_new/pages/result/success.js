@@ -27,11 +27,11 @@ Page({
     console.log(e)
     const { index } = e.detail
 
-    index === 0 && wx.redirectTo({
+    index === 0 && wx.switchTab({
       url: '/pages/index/index',
     })
 
-    index === 1 && wx.redirectTo({
+    index === 1 && wx.switchTab({
       url: '/pages/poem/index',
     })
   },

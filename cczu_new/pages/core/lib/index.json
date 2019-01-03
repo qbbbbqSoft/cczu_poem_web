@@ -1,6 +1,6 @@
 {
   "navigationBarBackgroundColor": "#43b0d1",
-  "navigationBarTitleText": "刷卡查询",
+  "navigationBarTitleText": "期末查询",
   "usingComponents": {
     "wux-notice-bar": "../../../utils/wuxui/dist/notice-bar/index",
     "wux-card": "../../../utils/wuxui/dist/card/index",

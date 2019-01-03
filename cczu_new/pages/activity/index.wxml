@@ -31,6 +31,11 @@
 </view>
 
 <view class="doc-main" style='margin-top:90rpx' wx:if="{{act == 1}}">
+  <view class="weui-tab__panel" wx:if="{{myAct.length != 0 ? false : true}}" >
+    <view class="weui-tab__content">
+      <wux-prompt visible="{{myAct.length != 0 ? false : true}}" title="{{ msg1.title }}" text="{{ msg1.text }}" />
+    </view>
+  </view>
   <block wx:for="{{myAct}}" wx:key="{{item.id}}">
     <view class="goods-list-li">
       <view class='goods-list-main'>
@@ -87,9 +92,9 @@
 </view>
 
 <view class="doc-main" style='margin-top:90rpx' wx:if="{{act == 2}}">
-  <view class="weui-tab__panel" wx:if="{{myTakePartInAct.length != 0? false:true}}">
+  <view class="weui-tab__panel" wx:if="{{myTakePartInAct.length != 0 ? false : true}}" >
     <view class="weui-tab__content">
-      <wux-prompt title="{{ msg1.title }}" text="{{ msg1.text }}" />
+      <wux-prompt visible="{{myTakePartInAct.length != 0 ? false : true}}" title="{{ msg1.title }}" text="{{ msg1.text }}" />
     </view>
   </view>
   <block wx:for="{{myTakePartInAct}}" wx:key="{{item.id}}">
@@ -149,15 +154,15 @@
   <view class="user">
     <view class="user-top">
       <view class="user-img">
-        <image src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIBsGc8oiajg9clvjbBd4HPaHK5PIRmVsyON43fkRuJJkzMvqnAzkXAciaibcUeuW5JqjtMIk4dHWmXw/132" class='radius'></image>
+        <image src="{{userinfo.avatarUrl}}" class='radius'></image>
       </view>
       <view class="user-text">
         <view class="user-name">
-          范启斌
+          {{userinfo.nickName}}
         </view>
       </view>
     </view>
-    <view class='user-bg' style='background-image:url(https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIBsGc8oiajg9clvjbBd4HPaHK5PIRmVsyON43fkRuJJkzMvqnAzkXAciaibcUeuW5JqjtMIk4dHWmXw/132)'>
+    <view class='user-bg' style='background-image:url({{userinfo.avatarUrl}})'>
     </view>
   </view>
   <view class="list-box">

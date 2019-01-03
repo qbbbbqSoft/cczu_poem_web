@@ -31,6 +31,9 @@ const appPost = (url, data) => {
   return promise;
 }
 const appGet = (path, data) => {
+  wx.showLoading({
+    title: '加载中',
+  })
   var promise = new Promise((resolve, reject) => {
     //init
     var that = this;
@@ -49,11 +52,15 @@ const appGet = (path, data) => {
         if (res.data.code == 0) {//res.data 为 后台返回数据，格式为{"data":{...}, "info":"成功", "status":1}, 后台规定：如果status为1,既是正确结果。可以根据自己业务逻辑来设定判断条件
           resolve(res.data.data);
         } else {//返回错误提示信息
+        console.log(res)
           reject(res.data.msg);
         }
       },
       error: function (e) {
         reject('网络出错');
+      },
+      complete: function() {
+        wx.hideLoading()
       }
     })
   });

@@ -91,7 +91,8 @@ Page({
     })
   },
   onClick3() {
-    if (this.data.eMail) {
+    let _this = this;
+    if (_this.data.eMail) {
       $wuxSelect('#wux-select3').open({
         // value: this.data.value3,
         multiple: true,
@@ -122,6 +123,21 @@ Page({
           //   value3: value,
           //   title3: index.map((n) => options[n].title),
           // })
+          let data = {
+            ID: _this.data.act.id,
+            types: index,
+            receiveEmail: _this.data.eMail
+          }
+          api.appGet("/cczu/sendMail",data).then((res) => {
+            console.log(res)
+            // this.setData({
+            //   act: res.act,
+            //   count: res.count,
+            //   signUps: res.signUp
+            // })
+          }).catch((errMsg) => {
+            console.log(errMsg); //错误提示信息
+          });
         },
       })
     } else {

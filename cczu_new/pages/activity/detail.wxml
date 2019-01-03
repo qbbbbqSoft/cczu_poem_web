@@ -75,7 +75,7 @@
 
         </view>
         <text class='date-font primary-text'>签到时间： {{item.signdate}} </text>
-        <text class='date-font'>签退时间： {{item.leavedate == null ? '无' : item.leavedate}} </text>
+        <text class='date-font'>签退时间： {{item.leavedate == null ? '暂无' : item.leavedate}} </text>
       </view>
     </view>
     <wux-divider show-text="{{ false }}" />

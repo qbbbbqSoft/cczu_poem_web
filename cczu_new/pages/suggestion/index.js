@@ -165,7 +165,7 @@ Page({
         console.log(res.tempFilePaths)
         var tempFilePaths = res.tempFilePaths
         wx.uploadFile({
-          url: 'http://localhost:9900/cczu/headImgUpload', //仅为示例，非真实的接口地址
+          url: 'https://www.bbqbb.top/cczu/headImgUpload', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'file',
          
@@ -230,7 +230,7 @@ Page({
         title: '提交中',
       })
       wx.request({
-        url: "http://localhost:9900" + '/sys/writesuggestion',
+        url: url_mystation + '/sys/writesuggestion',
         method: "POST",
         data: {
           email: _this.data.eMail,

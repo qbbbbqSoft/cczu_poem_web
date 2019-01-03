@@ -1,6 +1,9 @@
 const app = getApp()
 import api from '../../../utils/util.js'
-import { $wuxNotification } from '../../../utils/wuxui/dist/index'
+import api_N from '../../../utils/api.js'
+import {
+  $wuxNotification
+} from '../../../utils/wuxui/dist/index'
 
 Page({
 
@@ -9,23 +12,33 @@ Page({
    */
   data: {
     info: '',
-    tabs: ["体育刷卡", "讲座刷卡"],
+    tabs: ["体育刷卡", "讲座刷卡", "期末成绩"],
     activeIndex: 0,
     JZlist: [],
   },
-  tabClick: function (e) {
+  tabClick: function(e) {
     this.setData({
       activeIndex: e.currentTarget.id
     })
   },
-  stuNumInput: function (e) {
+  stuNumInput: function(e) {
     this.setData({
       stuNum: e.detail.value
     })
   },
-  stuNameInput: function (e) {
+  stuNameInput: function(e) {
     this.setData({
       stuName: e.detail.value
+    })
+  },
+  scoreStuNumInput: function(e) {
+    this.setData({
+      scoreStuNum: e.detail.value
+    })
+  },
+  scorePasswordInput: function(e) {
+    this.setData({
+      scorePassword: e.detail.value
     })
   },
   // getLibList: function () {
@@ -64,11 +77,38 @@ Page({
           console.log(res)
           let JZlist = res.data.data
           if (JZlist.length > 0) {
-            this.setData({ JZlist })
+            this.setData({
+              JZlist
+            })
           } else {
             this.showNotification()
-          } 
+          }
         }
+      })
+    }
+  },
+  getScore: function() {
+    if (!this.data.scoreStuNum || !this.data.scorePassword) {
+      wx.showModal({
+        content: '请补全内容',
+        showCancel: false
+      })
+    } else {
+      let data = {
+        username: this.data.scoreStuNum,
+        password: this.data.scorePassword
+      }
+      api_N.appGet('/cczu/getScore', data).then((res) => {
+        console.log(res)
+        this.setData({
+          scoreList: res
+        })
+      }).catch((errMsg) => {
+        console.log("errMsg" +errMsg)
+        wx.showModal({
+          title: '提示',
+          content: errMsg,
+        })
       })
     }
   },
@@ -76,7 +116,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     // this.getLibList()
     // this.showNotification()
   },
@@ -84,49 +124,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
     return {
       title: '图书馆藏',
       desc: '「文经课表」提供烟台大学文经学院在校生班级与教师课表和空闲教室、图书馆藏及考试安排等查询服务。',
