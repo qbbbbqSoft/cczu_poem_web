@@ -87,7 +87,7 @@ Page({
             wxotheruserinfo: e.detail.rawData
           }
         }
-        api.appPost('https://www.bbqbb.top/admin/poem/api/wxLogin', postData).then((res) => {
+        api.appPost('http://localhost:8080/admin/poem/api/wxLogin', postData).then((res) => {
           console.log(res)
           app.setUserinfo(e, res.openid)
         }).catch((errMsg) => {
