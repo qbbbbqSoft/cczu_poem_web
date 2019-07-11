@@ -1,5 +1,5 @@
 const url_dev = "http://localhost:9900";
-const url_f = "https://www.bbqbb.top";
+const url_f = "https://xuncha.bbqbb.top";
 const url_g = "https://www.chenyaoyao.club";
 const appPost = (url, data) => {
   var promise = new Promise((resolve, reject) => {

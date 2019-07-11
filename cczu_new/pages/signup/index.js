@@ -40,7 +40,7 @@ Page({
           openid: wx.getStorageSync('openid'),
           activityID: this.data.activityID
         }
-        api.appPost("https://www.bbqbb.top/cczu/signUp", data).then((res) => {
+        api.appPost("https://xuncha.bbqbb.top/cczu/signUp", data).then((res) => {
           console.log(res)
           wx.redirectTo({
             url: '/pages/result/success?info=' + res,
@@ -198,7 +198,7 @@ Page({
         keep1: e.detail.value.keep1,
         keep2: e.detail.value.keep2
       }
-      api.appPost("https://www.bbqbb.top/cczu/signUp", data).then((res) => {
+      api.appPost("https://xuncha.bbqbb.top/cczu/signUp", data).then((res) => {
         console.log(res)
         wx.redirectTo({
           url: '/pages/result/success?info=' + res,

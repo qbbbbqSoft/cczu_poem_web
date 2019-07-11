@@ -4,16 +4,17 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.3",
 	"appid": "wxcb506c516f5ee36d",
-	"projectname": "cczu_second",
+	"projectname": "%E6%96%B0%E7%89%88%E6%9C%AC%E5%B8%B8%E5%B7%9E%E5%A4%A7%E5%AD%A6%E7%94%9F%E8%AF%BE%E8%A1%A8",
 	"condition": {
 		"search": {
 			"current": -1,

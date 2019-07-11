@@ -16,7 +16,7 @@ Page({
   onLoad: function () {
     let _this = this;
     wx.request({
-      url: 'https://www.bbqbb.top/cczu/poemIndex',
+      url: 'https://xuncha.bbqbb.top/cczu/poemIndex',
       success: function(res) {
         console.log(res)
         _this.setData({

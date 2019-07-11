@@ -12,7 +12,7 @@ let app = {
     userInfo: wx.getStorageSync(USERINFOKEY), //用户信息
     openid: wx.getStorageSync(OPENIDKEY),
     url: "https://www.chenyaoyao.club/",
-    url_mystation: "https://www.bbqbb.top"
+    url_mystation: "https://xuncha.bbqbb.top"
   },
   onLaunch: function () {
     // 展示本地存储能力

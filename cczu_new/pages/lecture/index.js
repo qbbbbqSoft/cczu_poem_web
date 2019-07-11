@@ -31,7 +31,7 @@ Page({
   onLoad: function (options) { // options 为 board页传来的参数
     const _this = this;
     // 拼接请求url
-    const url = 'https://www.chenyaoyao.club/' + '/cczu/getLectureInfo';
+    const url = 'https://xuncha.bbqbb.top/' + '/cczu/getLectureInfo';
 
     wx.showLoading({
       title: '正在下载数据',

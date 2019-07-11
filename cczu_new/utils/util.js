@@ -1,6 +1,6 @@
 const host = 'https://wechat.sangsir.com/timetable/api.php?action='
 const url_dev = 'http://localhost:9900/cczu'
-const url = 'https://www.bbqbb.top/cczu'
+const url = 'https://xuncha.bbqbb.top/cczu'
 const todayInfo = (start) => {
   var weekLen = 7, // 一周7天为常量
     weekInfo = { "week": null, "day": null }, // 初始化返回信息，默认第null周，星期null

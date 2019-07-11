@@ -99,14 +99,14 @@ Page({
     this.setData({ className, deptIndex, teacherName })
     var that = this;
     wx.request({
-      url: 'https://www.bbqbb.top/cczu/getInfoAboutSchool/1',
+      url: 'https://xuncha.bbqbb.top/cczu/getInfoAboutSchool/1',
       success: function (res) {
         let tmp = JSON.parse(res.data.data)
         WxParse.wxParse('c2Content', 'html', tmp.data.content, that, 5);
       }
     })
     wx.request({
-      url: 'https://www.bbqbb.top/cczu/getInfoAboutSchool/2',
+      url: 'https://xuncha.bbqbb.top/cczu/getInfoAboutSchool/2',
       success: function(res) {
         let tmp = JSON.parse(res.data.data)
         let yuans = tmp.data.departsList;
@@ -114,7 +114,7 @@ Page({
       }
     })
     wx.request({
-      url: 'https://www.bbqbb.top/cczu/getInfoAboutSchool/3',
+      url: 'https://xuncha.bbqbb.top/cczu/getInfoAboutSchool/3',
       success: function (res) {
         let tmp = JSON.parse(res.data.data)
         let times = tmp.data

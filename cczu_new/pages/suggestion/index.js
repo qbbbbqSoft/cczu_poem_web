@@ -165,7 +165,7 @@ Page({
         console.log(res.tempFilePaths)
         var tempFilePaths = res.tempFilePaths
         wx.uploadFile({
-          url: 'https://www.bbqbb.top/cczu/headImgUpload', //仅为示例，非真实的接口地址
+          url: 'https://xuncha.bbqbb.top/cczu/headImgUpload', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'file',
          

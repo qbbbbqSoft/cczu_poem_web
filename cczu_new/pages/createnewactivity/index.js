@@ -173,7 +173,7 @@ Page({
         console.log(res.tempFilePaths)
         var tempFilePaths = res.tempFilePaths
         wx.uploadFile({
-          url: "https://www.bbqbb.top" + '/cczu/headImgUpload', //仅为示例，非真实的接口地址
+          url: "https://xuncha.bbqbb.top" + '/cczu/headImgUpload', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'file',
           header: {
@@ -194,7 +194,7 @@ Page({
             if (res.data.code == 0) {
               let src = res.data.data;
               _this.setData({
-                src: src.replace('bbqbb.oss-cn-beijing.aliyuncs.com', 'www.bbqbb.top').replace('cczu_poem','file'),
+                src: src.replace('cczu_poem','file'),
                 activityBackgroundPic: src
               })
               wx.showToast({
@@ -275,7 +275,7 @@ Page({
         organizingPeopleOpenID: wx.getStorageSync('openid')
       }
       console.log(postData)
-      api.appPost('https://www.bbqbb.top/cczu/createWXQrCode', postData).then((res) => {
+      api.appPost('https://xuncha.bbqbb.top/cczu/createWXQrCode', postData).then((res) => {
         wx.showToast({
           title: '创建成功',
         })

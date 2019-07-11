@@ -29,7 +29,7 @@ Page({
   onLoad: function () {
    
     wx.connectSocket({
-      url: 'wss://www.bbqbb.top/wss/websocket/22',
+      url: 'wss://xuncha.bbqbb.top/wss/websocket/22',
       
     })
     wx.onSocketOpen(function (res) {

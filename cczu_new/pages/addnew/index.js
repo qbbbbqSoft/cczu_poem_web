@@ -107,7 +107,7 @@ Page({
         console.log(res.tempFilePaths)
         var tempFilePaths = res.tempFilePaths
         wx.uploadFile({
-          url: "https://www.bbqbb.top" + '/cczu/headImgUpload', //仅为示例，非真实的接口地址
+          url: "https://xuncha.bbqbb.top" + '/cczu/headImgUpload', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'file',
           header: {
@@ -166,7 +166,7 @@ Page({
         privatestatus: this.data.privatestatus,
         imageurl: this.data.src
       }
-      api.appPost('https://www.bbqbb.top/admin/poem/api/postsmt', postData).then((res) => {
+      api.appPost('https://xuncha.bbqbb.top/admin/poem/api/postsmt', postData).then((res) => {
         wx.showToast({
           title: '发表成功',
         })

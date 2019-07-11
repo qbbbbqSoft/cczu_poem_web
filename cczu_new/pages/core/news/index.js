@@ -63,7 +63,7 @@ Page({
     var that = this;
     // this.getNewsList(this.data)
     wx.request({
-      url: 'https://www.bbqbb.top/cczu/getInfoAboutSchool/6',
+      url: 'https://xuncha.bbqbb.top/cczu/getInfoAboutSchool/6',
       success: function (res) {
         let tmp = JSON.parse(res.data.data)
         // WxParse.wxParse('c2Content', 'html', tmp.data.content, that, 5);
@@ -72,7 +72,7 @@ Page({
       }
     })
     wx.request({
-      url: 'https://www.bbqbb.top/cczu/getInfoAboutSchool/7',
+      url: 'https://xuncha.bbqbb.top/cczu/getInfoAboutSchool/7',
       success: function (res) {
         let tmp = JSON.parse(res.data.data)
         let tab2 = tmp.jsonp.data
@@ -80,7 +80,7 @@ Page({
       }
     })
     wx.request({
-      url: 'https://www.bbqbb.top/cczu/getInfoAboutSchool/8',
+      url: 'https://xuncha.bbqbb.top/cczu/getInfoAboutSchool/8',
       success: function (res) {
         let tmp = JSON.parse(res.data.data)
         let tab3 = tmp.jsonp.data
