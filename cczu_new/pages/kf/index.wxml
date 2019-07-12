@@ -31,11 +31,11 @@
 </view>
 <view class="add-wrap" hover-class="plus-hover" bindtap='toAdd'>
   <!-- <image src="../../img/new.png"></image> -->
-  <image class='buttom' src='../../img/new.png' style="background:url('../../img/new.png') no-repeat center top;background-size:80rpx 80rpx;">
+  <!-- <image class='buttom' src='../../img/new.png' style="background:url('../../img/new.png') no-repeat center top;background-size:80rpx 80rpx;">
 <button class='buttom' open-type="getUserInfo"  bindgetuserinfo='getUserInfo'
 style='background: salmon;opacity: 0;'
  plain>
-</button></image>
+</button></image> -->
 </view>
 <modal hidden="{{hiddenmodalput}}" title="你是第一个进入该Zone的人，拥有命名权" confirm-text="确认创建" cancel-text="返回" bindcancel="cancel" bindconfirm="confirm">
     <input type='text' placeholder="请输入该Zone的名称"  bindinput='setZoneName'/>
