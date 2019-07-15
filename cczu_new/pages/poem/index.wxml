@@ -76,7 +76,7 @@
 <view class='projectbox'>
   <text class='headingtext'>{{word}}</text>
   <!--第一部分  -->
-  <navigator url='/pages/kf/index?code=0&type=public'>
+  <!-- <navigator url='/pages/kf/index?code=0&type=public'>
   <view class='project'>
       <image class='headimage' src='https://bbqbb.oss-cn-beijing.aliyuncs.com/root/1.gif'></image>
       <view class='projecttext'>
@@ -87,10 +87,10 @@
 
       <view class='openpush'></view>
     
-  </view></navigator>
+  </view></navigator> -->
 
   <!--第二部分  -->
-<navigator url='/pages/privatestart/index'>
+<!-- <navigator url='/pages/privatestart/index'>
   <view class='project'>
     
     <image class='headimage' src='https://bbqbb.oss-cn-beijing.aliyuncs.com/root/2.gif'></image>
@@ -102,7 +102,7 @@
 
     <view class='openpush'></view>
      
-  </view></navigator>
+  </view></navigator> -->
 
   <!--第三部分  -->
   <navigator url='/pages/suggestion/index'>
